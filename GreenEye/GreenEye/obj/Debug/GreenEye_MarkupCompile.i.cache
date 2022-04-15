@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\App.xaml
-1219584333
+4474377383
 
-6-793535042
-13-38814620
-MainWindow.xaml;
+14-354779162
+15-1984597558
+MainWindow.xaml;View\BaseView.xaml;View\DashboardView.xaml;View\LoginView.xaml;
 
 True
 

@@ -1,0 +1,10 @@
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\ClassLibrary\bin\Debug\ClassLibrary.dll.config
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\ClassLibrary\bin\Debug\ClassLibrary.dll
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\ClassLibrary\bin\Debug\ClassLibrary.pdb
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\ClassLibrary\bin\Debug\EntityFramework.dll
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\ClassLibrary\bin\Debug\EntityFramework.xml
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\ClassLibrary\obj\Debug\ClassLibrary.csproj.AssemblyReference.cache
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\ClassLibrary\obj\Debug\ClassLibrary.csproj.CopyComplete
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\ClassLibrary\obj\Debug\ClassLibrary.dll
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\ClassLibrary\obj\Debug\ClassLibrary.pdb

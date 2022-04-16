@@ -1,0 +1,13 @@
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\DataAccessLibrary\bin\Debug\netcoreapp3.1\DataAccessLibrary.deps.json
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\DataAccessLibrary\bin\Debug\netcoreapp3.1\DataAccessLibrary.runtimeconfig.json
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\DataAccessLibrary\bin\Debug\netcoreapp3.1\DataAccessLibrary.runtimeconfig.dev.json
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\DataAccessLibrary\bin\Debug\netcoreapp3.1\DataAccessLibrary.dll
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\DataAccessLibrary\bin\Debug\netcoreapp3.1\DataAccessLibrary.pdb
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\DataAccessLibrary\obj\Debug\netcoreapp3.1\DataAccessLibrary.csproj.AssemblyReference.cache
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\DataAccessLibrary\obj\Debug\netcoreapp3.1\DataAccessLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\DataAccessLibrary\obj\Debug\netcoreapp3.1\DataAccessLibrary.AssemblyInfoInputs.cache
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\DataAccessLibrary\obj\Debug\netcoreapp3.1\DataAccessLibrary.AssemblyInfo.cs
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\DataAccessLibrary\obj\Debug\netcoreapp3.1\DataAccessLibrary.csproj.CoreCompileInputs.cache
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\DataAccessLibrary\obj\Debug\netcoreapp3.1\DataAccessLibrary.dll
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\DataAccessLibrary\obj\Debug\netcoreapp3.1\DataAccessLibrary.pdb
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\DataAccessLibrary\obj\Debug\netcoreapp3.1\DataAccessLibrary.genruntimeconfig.cache

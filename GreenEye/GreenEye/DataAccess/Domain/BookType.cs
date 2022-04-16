@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GreenEye.DataAccess.Domain
+{
+    public class BookType
+    {
+        public int BookTypeId { get; set; }
+        public string Name { get; set; }
+
+        //Navigation
+
+        //Foreign Key
+        public virtual List<Book> Books { get; set; }
+    }
+}

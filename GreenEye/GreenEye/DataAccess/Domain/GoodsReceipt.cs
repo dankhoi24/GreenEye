@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GreenEye.DataAccess.Domain
+{
+    public class GoodsReceipt
+    {
+        public int GoodsReceiptId{get;set;}
+        public DateTime Date { get; set; }
+
+
+        //Navigattion
+
+        //Foreign Key
+        public virtual List<GoodsReceipt_Book> GoodsReceipt_Books { get; set; }
+    }
+}

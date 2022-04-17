@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "SGK",
+    "Stroke": 1000,
+    "Publisher": "HN",
+    "ImportPrice": 10000,
+    "ExportPrice": 20000,
+    "Sales": 100,
+    "BookTypeId": 1,
+  },
+
+  {
+    "Name": "SGK1",
+    "Stroke": 2000,
+    "Publisher": "HCM",
+    "ImportPrice": 10000,
+    "ExportPrice": 20000,
+    "Sales": 100,
+    "BookTypeId": 2,
+  }
+
+
+]

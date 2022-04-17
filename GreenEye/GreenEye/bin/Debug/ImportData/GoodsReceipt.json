@@ -1,0 +1,32 @@
+[
+
+  {
+    "Date": "04/19/2022",
+    "GoodsReceipt_Books": [
+      {
+        "Number": 1000,
+        "BookId": 1,
+      },
+
+      {
+        "Number": 2000,
+        "BookId": 2,
+      }
+    ]
+  },
+   {
+    "Date": "02/19/2022",
+    "GoodsReceipt_Books": [
+      {
+        "Number": 2000,
+        "BookId": 1,
+      },
+
+      {
+        "Number": 4000,
+        "BookId": 2,
+      }
+    ]
+  }
+
+]

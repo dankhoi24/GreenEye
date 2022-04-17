@@ -1,0 +1,31 @@
+[
+
+  {
+        "Name":"Nguyen Dang Khoi",
+        "Phone": "0123456789",
+        "Email": "Khoi@gmail.con",
+        "Address":"1 Nguyen Van A, Phuong 1, Quan 1, HCM",
+        "Coin": 100,
+    "DebitBook": {
+      "BeginDebit": 1000,
+      "CurrentDebit": 0,
+      "Date": "01/01/2022",
+      "CustomerId": 1
+    }
+  },
+
+  {
+        "Name":"Vo Dinh Phuc",
+        "Phone": "0123456789",
+        "Email": "Phuc@gmail.con",
+        "Address":"2 Nguyen Van B, Phuong 2, Quan 2, HCM",
+        "Coin":200,
+
+    "DebitBook": {
+      "BeginDebit": 2000,
+      "CurrentDebit": 0,
+      "Date": "02/02/2022",
+      "CustomerId": 2
+    }
+  }
+]

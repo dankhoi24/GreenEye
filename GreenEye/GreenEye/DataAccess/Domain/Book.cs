@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GreenEye.DataAccess.Domain
 {
     public class Book
     {
+
+        [Key]
         public int BookId { get; set; }
+        [StringLength(100)]
         public string Name { get; set; }
+        [StringLength(200)]
         public string Publisher { get; set; }
         public decimal ImportPrice { get; set; }
         public decimal ExportPrice { get; set; }

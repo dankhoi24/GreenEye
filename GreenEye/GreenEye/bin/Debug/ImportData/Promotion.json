@@ -1,0 +1,21 @@
+[
+
+  {
+    "Name": "Hello",
+    "MinPrice": 100000,
+    "PercentDiscount": 10,
+    "MaxDiscount": 20,
+    "StartDate": "01/01/2022",
+    "EndDate": "01/02/2022"
+  },
+
+  {
+    "Name": "World",
+    "MinPrice": 200000,
+    "PercentDiscount": 20,
+    "MaxDiscount": 40,
+    "StartDate": "02/01/2022",
+    "EndDate": "02/02/2022"
+  },
+
+]

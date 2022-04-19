@@ -18,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net.Http;
 using System.Data.Entity;
+using System.Diagnostics;
 
 namespace GreenEye
 {
@@ -98,13 +99,17 @@ namespace GreenEye
                 DatabaseContext.SaveChanges();
             }
 
-            var debit = new DebitBook() { DebitBookId = 4 };
-            DatabaseContext.Entry(debit).State = EntityState.Deleted;
-            DatabaseContext.SaveChanges();
+            var x = DatabaseContext.Books.AsEnumerable().Select(
+                (sth) =>
+                {
+                    return sth.Name;
+                }
+                );
 
-
-
-
+            foreach(var y in x)
+            {
+                Debug.WriteLine(y);
+            }
 
 
 

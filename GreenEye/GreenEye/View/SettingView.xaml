@@ -1,0 +1,236 @@
+﻿<UserControl x:Class="GreenEye.View.SettingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GreenEye.View"
+             mc:Ignorable="d" 
+               
+              d:DesignHeight="768" d:DesignWidth="1366"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="13"
+            TextOptions.TextFormattingMode="Ideal"
+            TextOptions.TextRenderingMode="Auto"
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}"
+>
+    <Grid
+        Margin="84 20"
+        >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="260"/>
+            <RowDefinition Height="260"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border
+               CornerRadius="5"
+                 Height="240"
+                BorderBrush="#00B3AC"
+                BorderThickness="2"
+
+            >
+            <StackPanel
+                
+                >
+                <Border
+                BorderBrush="#00B3AC"
+                BorderThickness="0 0 0 1"
+
+                    
+                    >
+
+                    <StackPanel 
+                    Margin="20 0"
+                    Height="120"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                        <TextBlock
+                        Width="800"
+                        VerticalAlignment="Center"
+                        FontSize="22"
+                        FontWeight="Medium"
+                        >Minimum amount of products in a good receipt:</TextBlock>
+                        <ComboBox
+                        VerticalContentAlignment="Center"
+                        Height="50"
+                        Width="220"
+                         materialDesign:HintAssist.Hint="OS">
+                            <ComboBoxItem
+                            Content="Android" />
+                            <ComboBoxItem
+                            Content="iOS" />
+                            <ComboBoxItem
+                            Content="Linux" />
+                            <ComboBoxItem
+                            Content="Windows" />
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+                
+                
+                 <StackPanel 
+                    Margin="20 0"
+                    Height="120"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                        <TextBlock
+                        Width="800"
+                        VerticalAlignment="Center"
+                        FontSize="22"
+                        FontWeight="Medium"
+                        >Minimun amount of products in storage before import:</TextBlock>
+                        <ComboBox
+                        VerticalContentAlignment="Center"
+                        Height="50"
+                        Width="220"
+                         materialDesign:HintAssist.Hint="OS">
+                            <ComboBoxItem
+                            Content="Android" />
+                            <ComboBoxItem
+                            Content="iOS" />
+                            <ComboBoxItem
+                            Content="Linux" />
+                            <ComboBoxItem
+                            Content="Windows" />
+                        </ComboBox>
+                    </StackPanel>
+
+
+            </StackPanel>
+            
+        </Border>
+        
+        
+        
+        
+        
+        
+        
+        
+         <Border
+         Grid.Row="1"
+               CornerRadius="5"
+                 Height="240"
+                BorderBrush="#00B3AC"
+                BorderThickness="2"
+
+            >
+            <StackPanel
+                
+                >
+                <Border
+                BorderBrush="#00B3AC"
+                BorderThickness="0 0 0 1"
+
+                    
+                    >
+
+                    <StackPanel 
+                    Margin="20 0"
+                    Height="120"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                        <TextBlock
+                        Width="800"
+                        VerticalAlignment="Center"
+                        FontSize="22"
+                        FontWeight="Medium"
+                        >Maximun debt:</TextBlock>
+                        <ComboBox
+                        VerticalContentAlignment="Center"
+                        Height="50"
+                        Width="220"
+                         materialDesign:HintAssist.Hint="OS">
+                            <ComboBoxItem
+                            Content="Android" />
+                            <ComboBoxItem
+                            Content="iOS" />
+                            <ComboBoxItem
+                            Content="Linux" />
+                            <ComboBoxItem
+                            Content="Windows" />
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+                
+                
+                 <StackPanel 
+                    Margin="20 0"
+                    Height="120"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                        <TextBlock
+                        Width="800"
+                        VerticalAlignment="Center"
+                        FontSize="22"
+                        FontWeight="Medium"
+                        >Minimun amount of product in storage:</TextBlock>
+                        <ComboBox
+                        VerticalContentAlignment="Center"
+                        Height="50"
+                        Width="220"
+                         materialDesign:HintAssist.Hint="OS">
+                            <ComboBoxItem
+                            Content="Android" />
+                            <ComboBoxItem
+                            Content="iOS" />
+                            <ComboBoxItem
+                            Content="Linux" />
+                            <ComboBoxItem
+                            Content="Windows" />
+                        </ComboBox>
+                    </StackPanel>
+
+
+            </StackPanel>
+            
+        </Border>
+        
+        
+        <Border
+         Grid.Row="2"
+               CornerRadius="5"
+                 Height="120"
+                BorderBrush="#00B3AC"
+                BorderThickness="2"
+
+            >
+            <StackPanel
+                
+                >
+              
+                    <StackPanel 
+                    Margin="20 0"
+                    Height="120"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                        <TextBlock
+                        Width="800"
+                        VerticalAlignment="Center"
+                        FontSize="22"
+                        FontWeight="Medium"
+                        >Maximun debt:</TextBlock>
+                        
+                        <ToggleButton
+                        Background="#00B3AC"
+                        Style="{StaticResource MaterialDesignSwitchToggleButton}"
+                        ToolTip="MaterialDesignSwitchToggleButton"
+                         IsChecked="True" />
+                                            </StackPanel>
+                
+                
+                
+            </StackPanel>
+            
+        </Border>
+        
+
+        
+
+
+
+     </Grid>
+</UserControl>

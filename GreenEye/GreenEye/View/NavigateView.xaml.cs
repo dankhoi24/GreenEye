@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace GreenEye.View
 {
     /// <summary>
-    /// Interaction logic for BaseView.xaml
+    /// Interaction logic for NavigateView.xaml
     /// </summary>
-    public partial class BaseView : UserControl
+    public partial class NavigateView : UserControl
     {
-        public BaseView()
+        public NavigateView()
         {
             InitializeComponent();
         }

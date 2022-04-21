@@ -1,7 +1,15 @@
 ﻿
 FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\App.xaml;;
 FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\MainWindow.xaml;;
-FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\View\BaseView.xaml;;
 FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\View\DashboardView.xaml;;
+FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\View\FormSetView\FormBillView.xaml;;
+FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\View\FormSetView\FormInputBookView.xaml;;
+FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\View\FormSetView\FormOptionView.xaml;;
 FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\View\LoginView.xaml;;
+FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\View\ProductSetView\ProductAddView.xaml;;
+FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\View\ProductSetView\ProductListView.xaml;;
+FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\View\ReportSetView\ReportInventoryView.xaml;;
+FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\View\ReportSetView\ReportOptionView.xaml;;
+FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\View\SettingView.xaml;;
+FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\View\NavigateView.xaml;;
 

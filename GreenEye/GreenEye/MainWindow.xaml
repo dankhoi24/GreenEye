@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         
         xmlns:views="clr-namespace:GreenEye.View"
+        xmlns:viewsReport="clr-namespace:GreenEye.View.ReportSetView"
+        xmlns:viewsProduct="clr-namespace:GreenEye.View.ProductSetView"
         xmlns:viewmodels="clr-namespace:GreenEye.ViewModel"
         
         
@@ -27,6 +29,25 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:DashboardViewModel}">
             <views:DashboardView/>
+        </DataTemplate>
+            
+
+        <DataTemplate DataType="{x:Type viewmodels:ProductListViewModel}">
+            <viewsProduct:ProductListView/>
+        </DataTemplate>
+        
+        
+        <DataTemplate DataType="{x:Type viewmodels:ProductAddViewModel}">
+            <viewsProduct:ProductAddView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:ReportInventoryViewModel}">
+            <viewsReport:ReportInventoryView/>
+        </DataTemplate>
+
+
+        <DataTemplate DataType="{x:Type viewmodels:SettingViewModel}">
+            <views:SettingView/>
         </DataTemplate>
     </Window.Resources>
     

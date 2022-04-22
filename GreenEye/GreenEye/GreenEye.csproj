@@ -253,7 +253,6 @@
     <Compile Include="ViewModel\DashboardViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-<<<<<<< HEAD
     <Compile Include="ViewModel\NavigateViewModel.cs" />
     <Compile Include="ViewModel\PasswordHelper.cs" />
     <Compile Include="ViewModel\ProductAddViewModel.cs" />
@@ -271,36 +270,10 @@
     </Compile>
     <Compile Include="View\FormSetView\FormOptionView.xaml.cs">
       <DependentUpon>FormOptionView.xaml</DependentUpon>
-=======
-    <Compile Include="View\BaseView.xaml.cs">
-      <DependentUpon>BaseView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Customer\CustomerManagementView.xaml.cs">
-      <DependentUpon>CustomerManagementView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Customer\AddCustomerView.xaml.cs">
-      <DependentUpon>AddCustomerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\DashboardView.xaml.cs">
-      <DependentUpon>DashboardView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\DiscountSetViews\AddDiscountView.xaml.cs">
-      <DependentUpon>AddDiscountView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\DiscountSetViews\DiscountManagementView.xaml.cs">
-      <DependentUpon>DiscountManagementView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Employee\AddEmployeeView.xaml.cs">
-      <DependentUpon>AddEmployeeView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Employee\EmployeeManagementView.xaml.cs">
-      <DependentUpon>EmployeeManagementView.xaml</DependentUpon>
->>>>>>> VDPhuc
     </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="View\NavigateView.xaml.cs">
       <DependentUpon>NavigateView.xaml</DependentUpon>
     </Compile>
@@ -318,13 +291,6 @@
     </Compile>
     <Compile Include="View\SettingView.xaml.cs">
       <DependentUpon>SettingView.xaml</DependentUpon>
-=======
-    <Compile Include="View\OrderSetViews\AddNewOrderView.xaml.cs">
-      <DependentUpon>AddNewOrderView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\OrderSetViews\OrderManagement.xaml.cs">
-      <DependentUpon>OrderManagement.xaml</DependentUpon>
->>>>>>> VDPhuc
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -342,7 +308,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-<<<<<<< HEAD
     <Page Include="View\FormSetView\FormBillView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -352,33 +317,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FormSetView\FormOptionView.xaml">
-=======
-    <Page Include="View\Customer\CustomerManagementView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Customer\AddCustomerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\DashboardView.xaml">
->>>>>>> VDPhuc
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\DiscountSetViews\AddDiscountView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\DiscountSetViews\DiscountManagementView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Employee\AddEmployeeView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Employee\EmployeeManagementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -386,7 +324,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-<<<<<<< HEAD
     <Page Include="View\NavigateView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -408,13 +345,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SettingView.xaml">
-=======
-    <Page Include="View\OrderSetViews\AddNewOrderView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\OrderSetViews\OrderManagement.xaml">
->>>>>>> VDPhuc
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -18,7 +18,6 @@
             FontFamily="{DynamicResource MaterialDesignFont}"
 >
 
-<<<<<<< HEAD
     <Grid
         Background="#EBEEF5"
         >
@@ -404,9 +403,4 @@
     </Grid>    
 
 
-=======
-    <Grid>
-        
-    </Grid>
->>>>>>> VDPhuc
 </UserControl>

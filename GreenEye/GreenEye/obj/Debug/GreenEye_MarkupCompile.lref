@@ -1,7 +1,15 @@
 ﻿
-FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\App.xaml;;
-FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\MainWindow.xaml;;
-FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\View\BaseView.xaml;;
-FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\View\DashboardView.xaml;;
-FD:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\View\LoginView.xaml;;
+FD:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\App.xaml;;
+FD:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\MainWindow.xaml;;
+FD:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\View\BaseView.xaml;;
+FD:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\View\Customer\CustomerManagementView.xaml;;
+FD:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\View\Customer\AddCustomerView.xaml;;
+FD:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\View\DashboardView.xaml;;
+FD:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\View\DiscountSetViews\AddDiscountView.xaml;;
+FD:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\View\DiscountSetViews\DiscountManagementView.xaml;;
+FD:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\View\Employee\AddEmployeeView.xaml;;
+FD:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\View\Employee\EmployeeManagementView.xaml;;
+FD:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\View\LoginView.xaml;;
+FD:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\View\OrderSetViews\AddNewOrderView.xaml;;
+FD:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\View\OrderSetViews\OrderManagement.xaml;;
 

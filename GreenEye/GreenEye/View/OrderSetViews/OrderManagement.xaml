@@ -1,0 +1,202 @@
+﻿<UserControl x:Class="GreenEye.View.OrderManagement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GreenEye.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="693" d:DesignWidth="1366"
+
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="13"
+            TextOptions.TextFormattingMode="Ideal"
+            TextOptions.TextRenderingMode="Auto"
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}"
+             >
+    <Grid Background="#EBEEF5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="5 0 0 0" HorizontalAlignment="Center">
+            <TextBlock Margin="5 15 10 0 " FontSize="16" FontWeight="Bold">Filter:</TextBlock>
+            <DatePicker
+                        SelectedDate="{Binding StartDate}"
+              Width="100"
+              materialDesign:HintAssist.Hint="Start Date"
+              materialDesign:TextFieldAssist.HasClearButton="True"
+              Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+              VerticalAlignment="Top"/>
+            <TextBlock Margin="5 18 5 0 " FontWeight="Bold">---</TextBlock>
+            <DatePicker
+                         SelectedDate="{Binding EndDate}"
+              Width="100"
+              materialDesign:HintAssist.Hint="End Date"
+              materialDesign:TextFieldAssist.HasClearButton="True"
+              Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+              VerticalAlignment="Top"/>
+            <Button Margin="15 5 5 13" Command="{Binding SearchRegardingDateCommand}" Background="#00B3AC">
+                Search
+            </Button>
+
+            <Button Margin="30 5 5 13" Command="{Binding RefreshCommand}"  Background="#00B3AC">
+                Refresh
+            </Button>
+        </StackPanel>
+
+        <Button Grid.Column="1" Content="Add Order" Width="150"  Background="#00B3AC"></Button>
+
+        <Border Grid.Row="1" Background="White" Margin="0 20 20 0" CornerRadius="0 10 0 0" BorderBrush="Snow">
+            <WrapPanel>
+
+                <Border BorderThickness="1" BorderBrush="#00B3AC" CornerRadius="2" Margin="5" Width="500"  >
+                    <Grid>
+                        <Grid.InputBindings>
+                            <MouseBinding Gesture="LeftDoubleClick"  Command="{Binding NavigateEditNewOrderCommand}"/>
+                        </Grid.InputBindings>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock FontStyle="Italic" FontSize="10" Grid.Row="0" Grid.Column="3" Padding="8 1 1 0" Text="21/4/2021" HorizontalAlignment="Right">
+
+                        </TextBlock>
+
+                        <TextBlock FontWeight="Bold" Grid.Row="1" Padding="8">Order ID:</TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="2" Padding="8">Customer:</TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="3" Padding="8">Total:</TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="4" Padding="8">Debt:</TextBlock>
+
+                        <TextBlock FontWeight="Bold" Grid.Row="1" Grid.Column="1" Padding="8" Text="0001"></TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="2" Grid.Column="1" Padding="8" Text="Nguyễn Đăng Khôi"></TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="3" Grid.Column="1" Padding="8" Text="50000000 đ"></TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="4" Grid.Column="1" Padding="8" Text="300000 đ"></TextBlock>
+
+                        <TextBlock HorizontalAlignment="Right" FontStyle="Italic" FontSize="10" Grid.Row="5" Grid.Column="3" Padding="8 2 2 2">
+                                        Đã thanh toán
+                        </TextBlock>
+                    </Grid>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="#00B3AC" CornerRadius="2" Margin="5" Width="500">
+                    <Grid>
+                        <Grid.InputBindings>
+                            <MouseBinding Gesture="LeftDoubleClick"  Command="{Binding NavigateEditNewOrderCommand}"/>
+                        </Grid.InputBindings>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock FontStyle="Italic" FontSize="10" Grid.Row="0" Grid.Column="3" Padding="8 1 1 0" Text="21/4/2021" HorizontalAlignment="Right">
+
+                        </TextBlock>
+
+                        <TextBlock FontWeight="Bold" Grid.Row="1" Padding="8">Order ID:</TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="2" Padding="8">Customer:</TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="3" Padding="8">Total:</TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="4" Padding="8">Debt:</TextBlock>
+
+                        <TextBlock FontWeight="Bold" Grid.Row="1" Grid.Column="1" Padding="8" Text="0001"></TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="2" Grid.Column="1" Padding="8" Text="Nguyễn Đăng Khôi"></TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="3" Grid.Column="1" Padding="8" Text="50000000 đ"></TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="4" Grid.Column="1" Padding="8" Text="300000 đ"></TextBlock>
+
+                        <TextBlock HorizontalAlignment="Right" FontStyle="Italic" FontSize="10" Grid.Row="5" Grid.Column="3" Padding="8 2 2 2">
+                                        Đã thanh toán
+                        </TextBlock>
+                    </Grid>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="#00B3AC" CornerRadius="2" Margin="5" Width="500">
+                    <Grid>
+                        <Grid.InputBindings>
+                            <MouseBinding Gesture="LeftDoubleClick"  Command="{Binding NavigateEditNewOrderCommand}"/>
+                        </Grid.InputBindings>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock FontStyle="Italic" FontSize="10" Grid.Row="0" Grid.Column="3" Padding="8 1 1 0" Text="21/4/2021" HorizontalAlignment="Right">
+
+                        </TextBlock>
+
+                        <TextBlock FontWeight="Bold" Grid.Row="1" Padding="8">Order ID:</TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="2" Padding="8">Customer:</TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="3" Padding="8">Total:</TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="4" Padding="8">Debt:</TextBlock>
+
+                        <TextBlock FontWeight="Bold" Grid.Row="1" Grid.Column="1" Padding="8" Text="0001"></TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="2" Grid.Column="1" Padding="8" Text="Nguyễn Đăng Khôi"></TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="3" Grid.Column="1" Padding="8" Text="50000000 đ"></TextBlock>
+                        <TextBlock FontWeight="Bold" Grid.Row="4" Grid.Column="1" Padding="8" Text="300000 đ"></TextBlock>
+
+                        <TextBlock HorizontalAlignment="Right" FontStyle="Italic" FontSize="10" Grid.Row="5" Grid.Column="3" Padding="8 2 2 2">
+                                        Đã thanh toán
+                        </TextBlock>
+                    </Grid>
+                </Border>
+
+            </WrapPanel>
+           
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1" Background="White" Margin="20 20 0 0" BorderThickness="1" CornerRadius="10 0 0 0" BorderBrush="#00B3AC">
+            <StackPanel Orientation="Vertical" Margin="10 10">
+                <Label FontSize="20" FontWeight="Bold">
+                    Search Order
+                </Label>
+
+                <Border BorderThickness="1" BorderBrush="#00B3AC" CornerRadius="10" Margin="0 20 50 100">
+                    <StackPanel >
+                        <TextBox
+                        Style="{StaticResource MaterialDesignFilledTextBox}"
+                        VerticalAlignment="Top"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        MaxWidth="400"
+                        materialDesign:HintAssist.Hint="Search"
+                        IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}" />
+                    </StackPanel>
+                </Border>
+               
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

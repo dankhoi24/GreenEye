@@ -4,12 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GreenEye.View"
+             xmlns:viewmodels="clr-namespace:GreenEye.ViewModel"
              mc:Ignorable="d" 
              
              
               d:DesignHeight="768" d:DesignWidth="1366"
-            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
             TextElement.FontWeight="Regular"
             TextElement.FontSize="13"
             TextOptions.TextFormattingMode="Ideal"
@@ -17,6 +18,14 @@
             Background="{DynamicResource MaterialDesignPaper}"
             FontFamily="{DynamicResource MaterialDesignFont}"
 >
+    
+    
+     <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseDown">
+            <i:InvokeCommandAction Command="{Binding MouseDownCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
     <Grid >
         <Grid.Background>
             <ImageBrush ImageSource="../img/src/login.png"/>
@@ -50,7 +59,15 @@
                     FontWeight="Bold"
                     Foreground="#006860">Login</TextBlock>
 
+                 <TextBlock
+                    FontSize="18"
+                    Foreground="red"
+                    Visibility="{Binding VisibilityWarining}"
+                    >Username or Password invalid</TextBlock>
+
+
                 <TextBox
+                Text="{Binding Username,UpdateSourceTrigger=PropertyChanged}"
 
                 Margin="0 0 0 25"
                 FontSize="16"
@@ -61,31 +78,61 @@
                 materialDesign:HintAssist.Hint="Username"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Center" />
+                <Canvas
+                    Panel.ZIndex="1000"
+                    Visibility="{Binding VisibilitySuggest}"
+                    >
+                    <ListView
+                        ItemsSource="{Binding  SuggestUsername}"
+                        SelectedItem="{Binding ItemSelected, Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}"
+                        >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border
+                                    BorderBrush="#006860"
+                                    BorderThickness="0 0 0 1"
+                                    >
+                                    <TextBlock 
+                                    Background="White"
+                                    FontSize="20"
+                                    Width="200"
+                                    Text="{Binding}"/>
+                                    </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    
+                    
+                </Canvas>
 
                 <PasswordBox
-
+                
+                viewmodels:PasswordHelper.Attach="True"
+                viewmodels:PasswordHelper.Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                 Margin="0 0 0 25"
                 Foreground="#006860"
                 materialDesign:ColorZoneAssist.Background=" #006860"
 
                   FontSize="16"
                   Width="350"
-                  x:Name="FloatingPasswordBox"
                   materialDesign:HintAssist.Hint="Password"
                   materialDesign:HintAssist.Foreground="Green"
                   materialDesign:TextFieldAssist.UnderlineBrush="Green"
-                  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                   />
 
                 
                 <CheckBox
+                IsChecked="{Binding IsRemember}"
                 x:Name="DisplaySelectedItemCheckBox"
                 Background="#006860"
                 IsThreeState="False"
-                Margin="0 8 0 0"
+                Margin="0 2 0 0"
                 Content="Remember me" />
             </StackPanel>
 
             <Button
+                
+            Command="{Binding LoginCommand}"
 
             Grid.Row="2"
             Margin="0 25 0 0"

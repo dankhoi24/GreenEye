@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace GreenEye.ViewModel
 {
-    public class MainViewModel: BaseViewModel
+    public class NavigateViewModel: BaseViewModel
     {
         public BaseViewModel CurrentViewModel { get; set; }
 
-        public MainViewModel()
+        public NavigateViewModel()
         {
-            CurrentViewModel = new NavigateViewModel();
+            CurrentViewModel = new DashboardViewModel();
         }
     }
 }

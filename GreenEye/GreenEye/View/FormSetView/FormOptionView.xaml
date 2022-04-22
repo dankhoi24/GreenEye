@@ -1,0 +1,107 @@
+﻿<UserControl x:Class="GreenEye.View.FormSetView.FormOptionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GreenEye.View.FormSetView"
+             mc:Ignorable="d" 
+            d:DesignHeight="693" d:DesignWidth="1366"
+             
+             
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="13"
+            TextOptions.TextFormattingMode="Ideal"
+            TextOptions.TextRenderingMode="Auto"
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}"
+
+             
+             >
+    <Grid Background="#EBEEF5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="125"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock 
+            Margin="84 0 0 0"
+            VerticalAlignment="Center"
+            FontSize="30" FontWeight="Bold">FORM</TextBlock>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <Border
+                Height="247"
+                Width="400"
+                CornerRadius="20"
+                Background="#b8eae8"
+
+                >
+
+                <StackPanel HorizontalAlignment="Center" 
+
+
+                            VerticalAlignment="Center">
+
+                    <materialDesign:PackIcon 
+                        Width="100"
+                        Height="100"
+                        HorizontalAlignment="Center"
+                        Kind="HomeCircleOutline" />
+
+                    <Button
+                    FontSize="25"
+                    FontWeight="Medium"
+                      Style="{StaticResource MaterialDesignOutlinedDarkButton}"
+                      ToolTip="MaterialDesignOutlinedButton"
+                      Content="INPUT BOOK FORM"/>
+                </StackPanel>
+            </Border>
+
+            
+            <Border
+
+                Grid.Column="1"
+                Height="247"
+                Width="400"
+                CornerRadius="20"
+                Background="#b8eae8"
+
+                >
+
+                <StackPanel HorizontalAlignment="Center" 
+
+
+                            VerticalAlignment="Center">
+
+                    <materialDesign:PackIcon 
+                        Width="100"
+                        Height="100"
+                        HorizontalAlignment="Center"
+                        Kind="CurrencyUsd" />
+
+                    <Button
+                    FontSize="25"
+                    FontWeight="Medium"
+                      Style="{StaticResource MaterialDesignOutlinedDarkButton}"
+                      ToolTip="MaterialDesignOutlinedButton"
+                      Content="BILL"/>
+                </StackPanel>
+            </Border>
+
+
+        </Grid>
+
+
+
+        
+            
+    </Grid>
+</UserControl>

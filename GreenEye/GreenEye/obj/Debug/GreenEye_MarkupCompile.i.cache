@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\
+D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\obj\Debug\
 GreenEye
 none
 false
 DEBUG;TRACE
-D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\App.xaml
-1224645617
-31656777778
-80-580762752
-501708163963
-MainWindow.xaml;View\DashboardView.xaml;View\FormSetView\FormBillView.xaml;View\FormSetView\FormInputBookView.xaml;View\FormSetView\FormOptionView.xaml;View\LoginView.xaml;View\NavigateView.xaml;View\ProductSetView\ProductAddView.xaml;View\ProductSetView\ProductListView.xaml;View\ReportSetView\ReportInventoryView.xaml;View\ReportSetView\ReportOptionView.xaml;View\SettingView.xaml;
+D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\App.xaml
+20-551158002
+347714472
+88436877034
+50569422120
+MainWindow.xaml;View\DashboardView.xaml;View\Customer\CustomerManagementView.xaml;View\Customer\AddCustomerView.xaml;View\DiscountSetViews\AddDiscountView.xaml;View\DiscountSetViews\DiscountManagementView.xaml;View\Employee\AddEmployeeView.xaml;View\Employee\EmployeeManagementView.xaml;View\FormSetView\FormBillView.xaml;View\FormSetView\FormInputBookView.xaml;View\FormSetView\FormOptionView.xaml;View\OrderSetViews\AddNewOrderView.xaml;View\OrderSetViews\OrderManagement.xaml;View\LoginView.xaml;View\NavigateView.xaml;View\ProductSetView\ProductAddView.xaml;View\ProductSetView\ProductListView.xaml;View\ReportSetView\ReportInventoryView.xaml;View\ReportSetView\ReportOptionView.xaml;View\SettingView.xaml;
 
 True
 

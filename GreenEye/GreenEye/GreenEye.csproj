@@ -262,6 +262,30 @@
     <Compile Include="View\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
+     <Compile Include="View\Customer\CustomerManagementView.xaml.cs">
+      <DependentUpon>CustomerManagementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\AddCustomerView.xaml.cs">
+      <DependentUpon>AddCustomerView.xaml</DependentUpon>
+    </Compile>
+     <Compile Include="View\DiscountSetViews\AddDiscountView.xaml.cs">
+      <DependentUpon>AddDiscountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DiscountSetViews\DiscountManagementView.xaml.cs">
+      <DependentUpon>DiscountManagementView.xaml</DependentUpon>
+    </Compile>
+     <Compile Include="View\Employee\AddEmployeeView.xaml.cs">
+      <DependentUpon>AddEmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Employee\EmployeeManagementView.xaml.cs">
+      <DependentUpon>EmployeeManagementView.xaml</DependentUpon>
+    </Compile>
+     <Compile Include="View\OrderSetViews\AddNewOrderView.xaml.cs">
+      <DependentUpon>AddNewOrderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OrderSetViews\OrderManagement.xaml.cs">
+      <DependentUpon>OrderManagement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\FormSetView\FormBillView.xaml.cs">
       <DependentUpon>FormBillView.xaml</DependentUpon>
     </Compile>
@@ -308,6 +332,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+     <Page Include="View\Customer\CustomerManagementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\AddCustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+     <Page Include="View\DiscountSetViews\AddDiscountView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DiscountSetViews\DiscountManagementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+     <Page Include="View\Employee\AddEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Employee\EmployeeManagementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\FormSetView\FormBillView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -317,6 +365,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FormSetView\FormOptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+     <Page Include="View\OrderSetViews\AddNewOrderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OrderSetViews\OrderManagement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

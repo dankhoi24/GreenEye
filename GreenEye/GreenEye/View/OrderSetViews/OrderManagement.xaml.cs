@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GreenEye.View
+namespace GreenEye.View.OrderSetViews
 {
     /// <summary>
     /// Interaction logic for OrderManagement.xaml

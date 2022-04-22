@@ -9,10 +9,17 @@
         xmlns:views="clr-namespace:GreenEye.View"
         xmlns:viewsReport="clr-namespace:GreenEye.View.ReportSetView"
         xmlns:viewsProduct="clr-namespace:GreenEye.View.ProductSetView"
+        xmlns:viewsOrder="clr-namespace:GreenEye.View.OrderSetViews"
+        xmlns:viewsCustomer="clr-namespace:GreenEye.View.Customer"
+        xmlns:viewsEmployee="clr-namespace:GreenEye.View.Employee"
+        xmlns:viewsDiscount="clr-namespace:GreenEye.View.DiscountSetViews"
+        
         xmlns:viewmodels="clr-namespace:GreenEye.ViewModel"
-        
-        
-
+        xmlns:viewmodelsOrder="clr-namespace:GreenEye.ViewModel.Order"
+        xmlns:viewmodelsCustomer="clr-namespace:GreenEye.ViewModel.CustomerViewModel"
+        xmlns:viewmodelsEmployee="clr-namespace:GreenEye.ViewModel.Employee"
+        xmlns:viewmodelsDiscount="clr-namespace:GreenEye.ViewModel.Discount"
+       
         Title="MainWindow" Height="768" Width="1366"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -24,9 +31,45 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         >
     <Window.Resources>
+
+        <DataTemplate DataType="{x:Type viewmodelsOrder:AddNewOrderViewModel}">
+            <viewsOrder:AddNewOrderView/>
+        </DataTemplate>
+
+
+        <DataTemplate DataType="{x:Type viewmodelsOrder:OredrManagementViewModel}">
+            <viewsOrder:OrderManagement/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type viewmodelsCustomer:AddNewCustomerViewModel}">
+            <viewsCustomer:AddCustomerView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodelsCustomer:CustomerMangagementViewModel}">
+            <viewsCustomer:CustomerManagementView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodelsEmployee:AddNewEmployeeViewModel}">
+            <viewsEmployee:AddEmployeeView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodelsEmployee:EmployeeManagementViewModel}">
+            <viewsEmployee:EmployeeManagementView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodelsDiscount:AddNewDiscountViewModel}">
+            <viewsDiscount:AddDiscountView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodelsDiscount:DiscountManagementViewModel}">
+            <viewsDiscount:DiscountManagementView/>
+        </DataTemplate>
+
+
         <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
             <views:LoginView/>
         </DataTemplate>
+
         <DataTemplate DataType="{x:Type viewmodels:DashboardViewModel}">
             <views:DashboardView/>
         </DataTemplate>

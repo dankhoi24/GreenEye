@@ -32,11 +32,19 @@
             VerticalAlignment="Center"
             FontSize="30" FontWeight="Bold">PRODUCT/ADDING</TextBlock>
 
-        <Grid Grid.Row="1">
+
+        <Border
+        Grid.Row="1"
+                BorderBrush="#00B3AC"
+                BorderThickness="2"
+                >
+
+        <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="750"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+                            
             <StackPanel>
 
                 <StackPanel 
@@ -205,7 +213,10 @@
                 </StackPanel>
 
             </StackPanel>
+
             <Border
+            Visibility="{Binding BeforeImport}"
+                Margin="0 0 20 0"
                 Height="450"
                 BorderThickness="2"
                 Grid.Column="1">
@@ -214,7 +225,7 @@
                     <DrawingBrush Viewport="0,0,8,8" ViewportUnits="Absolute" TileMode="Tile">
                         <DrawingBrush.Drawing>
                             <DrawingGroup>
-                                <GeometryDrawing Brush="#B667F1">
+                                <GeometryDrawing Brush="#00b3ac">
                                     <GeometryDrawing.Geometry>
                                         <GeometryGroup>
                                             <RectangleGeometry Rect="0,0,150,150" />
@@ -250,7 +261,14 @@
                 </Button>
             </Border>
 
-        </Grid>
+                <Image
+
+            Visibility="{Binding AfterImport}"
+                    Margin=" 0 0 20 0"
+                    Grid.Column="1" Source="../../img/src/login.png"/>
+
+            </Grid>
+            </Border>
         
         
          <StackPanel 
@@ -263,7 +281,7 @@
                 
                 Height="50"
                 Width="200"
-                Background="#00B3AC"
+                Background="#00b3ac"
                 FontSize="30"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Content="Submit"

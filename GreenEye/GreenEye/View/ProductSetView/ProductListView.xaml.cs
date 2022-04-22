@@ -24,5 +24,10 @@ namespace GreenEye.View.ProductSetView
         {
             InitializeComponent();
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

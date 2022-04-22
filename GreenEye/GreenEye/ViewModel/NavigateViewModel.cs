@@ -12,7 +12,7 @@ namespace GreenEye.ViewModel
 
         public NavigateViewModel()
         {
-            CurrentViewModel = new DashboardViewModel();
+            CurrentViewModel = new ProductAddViewModel();
         }
     }
 }

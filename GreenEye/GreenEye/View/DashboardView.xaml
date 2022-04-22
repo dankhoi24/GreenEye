@@ -57,6 +57,7 @@
                     Orientation="Horizontal"
                 >
                 <materialDesign:PackIcon 
+                    Margin="10 0"
                     Foreground="#00B3AC"
                     Height="50"
                     Width="50"
@@ -69,7 +70,7 @@
                     <TextBlock 
                         FontSize="12"
                         FontWeight="Light"
-                        Text="10000"/>
+                        Text="{Binding TotalProduct}"/>
                 </StackPanel>
             </StackPanel>
 
@@ -95,15 +96,16 @@
                     Orientation="Horizontal"
                 >
                 <materialDesign:PackIcon 
+                    Margin="10 0"
                     Foreground="#00B3AC"
                     Height="50"
                     Width="50"
-                    Kind="Store" />
+                    Kind="CartOutline" />
                 <StackPanel >
                     <TextBlock
                         FontSize="22"
                         FontWeight="Bold"
-                        >Total Product</TextBlock>
+                        >Total Order</TextBlock>
                     <TextBlock 
                         FontSize="12"
                         FontWeight="Light"
@@ -133,15 +135,16 @@
                     Orientation="Horizontal"
                 >
                 <materialDesign:PackIcon 
+                    Margin="10 0"
                     Foreground="#00B3AC"
                     Height="50"
                     Width="50"
-                    Kind="Store" />
+                    Kind="Account" />
                 <StackPanel >
                     <TextBlock
                         FontSize="22"
                         FontWeight="Bold"
-                        >Total Product</TextBlock>
+                        >Total Customer</TextBlock>
                     <TextBlock 
                         FontSize="12"
                         FontWeight="Light"
@@ -199,6 +202,7 @@
                                 Orientation="Horizontal">
                                     <TextBlock FontSize="22" Text="100"/>
                                     <materialDesign:PackIcon 
+                                    Margin="10 0"
                                     Width="30"
                                     Height="30"
                                     Kind="CartOutline" />
@@ -232,7 +236,7 @@
                             BorderBrush="#00B3AC"
                             Height="50"
                             Foreground="#00B3AC"
-                            Kind="Account" />
+                            Kind="BadgeAccount" />
                             <StackPanel>
                                 <TextBlock 
                                 FontSize="22"

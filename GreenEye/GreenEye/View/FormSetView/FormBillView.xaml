@@ -289,7 +289,9 @@
                 Background="#00B3AC"
                 FontSize="24"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                Content="Submit"
+                Content="Edit"
+                
+
                 />
 
                         </StackPanel>

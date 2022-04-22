@@ -21,6 +21,12 @@ namespace GreenEye.DataAccess.Domain
         public string Role { get; set; }
         public decimal Salary { get; set; }
 
+        // Login
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Entropy { get; set; }
+        public bool Remember { get; set; }
+
         //Navigation
 
         //Foreign key

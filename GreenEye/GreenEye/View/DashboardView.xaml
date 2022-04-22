@@ -18,226 +18,389 @@
             FontFamily="{DynamicResource MaterialDesignFont}"
 >
 
-    <StackPanel>
+    <Grid
+        Background="#EBEEF5"
+        >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
 
-      
-        
-
-
-
-        <materialDesign:DrawerHost
-            
-          x:Name="DrawerHost"
-          Height="768"
-          Width="1366"
-          HorizontalAlignment="Center"
-          VerticalAlignment="Center"
-          BorderThickness="2"
-          BorderBrush="{DynamicResource MaterialDesignDivider}"
-          BottomDrawerCornerRadius="20 20 0 0"
-          BottomDrawerBackground="{DynamicResource SecondaryHueLightBrush}">
-            <materialDesign:DrawerHost.Style>
-                <Style
-      TargetType="materialDesign:DrawerHost"
-      BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}">
-                    <Style.Triggers>
-                        <DataTrigger
-          Binding="{Binding IsChecked, ElementName=BackgroundToggle}"
-          Value="True">
-                            <Setter
-            Property="OverlayBackground"
-            Value="{DynamicResource PrimaryHueMidBrush}" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </materialDesign:DrawerHost.Style>
-            <materialDesign:DrawerHost.LeftDrawerContent>
-                <StackPanel
-                Margin="20 0"
-      >
-                                       <Button
-        Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-        CommandParameter="{x:Static Dock.Left}"
-        Margin="4"
-        HorizontalAlignment="Center"
-        Style="{StaticResource MaterialDesignFlatButton}"
-         >
-                        <materialDesign:PackIcon
-                            Foreground="#00B3AC"
-                            Kind="ArrowRight" />
-                        
-                    </Button>
-                    
-                    <Button
-                        Margin="0 5"
-                        FontSize="26"
-                        Style="{StaticResource MaterialDesignPaperLightButton}"
-                        Background="White"
-                        BorderThickness="0"
-                        Foreground="#00B3AC"
-                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                        >
-                        DashBoard
-                    </Button>
-                    <Button
-                      
-                        Margin="0 5"
-                        FontSize="26"
-                        Style="{StaticResource MaterialDesignPaperLightButton}"
-                        Background="White"
-                        BorderThickness="0"
-                        Foreground="#00B3AC"
-                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                        >
-                        Report
-                    </Button>
-                    <Button
-
-                        Margin="0 5"
-                        FontSize="26"
-                      Style="{StaticResource MaterialDesignPaperLightButton}"
-                        Background="White"
-                        BorderThickness="0"
-                        Foreground="#00B3AC"
-                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                        >
-                        Setting
-                    </Button>
-                    <Button
-
-                        Margin="0 5"
-                        FontSize="26"
-                        Style="{StaticResource MaterialDesignPaperLightButton}"
-                        Background="White"
-                        BorderThickness="0"
-                        Foreground="#00B3AC"
-                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                        >
-                        Product
-                    </Button>
-                    <Button
-
-                        Margin="0 5"
-                        FontSize="26"
-                        Style="{StaticResource MaterialDesignPaperLightButton}"
-                        Background="White"
-                        BorderThickness="0"
-                        Foreground="#00B3AC"
-                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                        >
-                        Order
-                    </Button>
-                    <Button
-                      Style="{StaticResource MaterialDesignPaperLightButton}"
-
-                        Margin="0 5"
-                        FontSize="26"
-                        Background="White"
-                        BorderThickness="0"
-                        Foreground="#00B3AC"
-                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                        >
-                        Form
-                    </Button>
-                                    </StackPanel>
-            </materialDesign:DrawerHost.LeftDrawerContent>
-
-
-                           
-                
-            <Grid
-            Width="1366"
-             Height="768"
-    VerticalAlignment="Center"
-    HorizontalAlignment="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Height="110">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
                 
                 
-                
-                
-                
-                
-                
-                
-        
-        <materialDesign:ColorZone
-            Background="#00B3AC"
-  Mode="PrimaryMid"
-  Padding="16">
-                    <DockPanel LastChildFill="False">
-                            
-                          
-                            
-                           
-                                <Button
-                                
-                   x:Name="SidebarButton"
-                  Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
-                  CommandParameter="{x:Static Dock.Left}"
-                  Grid.Row="1"
-                  Width="100"
-                  Background="Transparent"
-                  BorderThickness="0"
+                <Border
+                    Height="100"
+                    Width="260"
+                    CornerRadius="10"
+                    BorderBrush="#00B3AC"
+                    BorderThickness="1"
+                    Background="White"
                     >
-                                    <materialDesign:PackIcon
-                                        Width="30"
-                                        Height="30"
-                                        Kind="Menu" />
+                    
+                 <StackPanel
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                     Width="260"
+                     Background="White"
+                    Orientation="Horizontal"
+                >
+                <materialDesign:PackIcon 
+                    Margin="10 0"
+                    Foreground="#00B3AC"
+                    Height="50"
+                    Width="50"
+                    Kind="Store" />
+                <StackPanel >
+                    <TextBlock
+                        FontSize="22"
+                        FontWeight="Bold"
+                        >Total Product</TextBlock>
+                    <TextBlock 
+                        FontSize="12"
+                        FontWeight="Light"
+                        Text="{Binding TotalProduct}"/>
+                </StackPanel>
+            </StackPanel>
 
-                                </Button>
-
-                        <StackPanel
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal"
-                            DockPanel.Dock="Right"
-                            >
-                             <TextBlock 
-                             VerticalAlignment="Bottom"
-                            FontSize="22"
-                            Text="Hello Word"/>
-                            <materialDesign:PackIcon
-                                Width="30"
-                                Height="30"
-                                
-                             Margin="10 0 30 0"
-
-                                Kind="AccountCircleOutline" />
-
-                            <materialDesign:PackIcon
-                                 Width="30"
-                                Height="30"
-
-                                Kind="Logout" />
-                        </StackPanel>
-                                           </DockPanel>
-        </materialDesign:ColorZone>
+                </Border>
 
                 
-                                
                 
+                 <Border
+                 Grid.Column="1"
+                    Height="100"
+                    Width="260"
+                    CornerRadius="10"
+                    BorderBrush="#00B3AC"
+                    BorderThickness="1"
+                    Background="White"
+                    >
+                    
+                 <StackPanel
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                     Width="260"
+                     Background="White"
+                    Orientation="Horizontal"
+                >
+                <materialDesign:PackIcon 
+                    Margin="10 0"
+                    Foreground="#00B3AC"
+                    Height="50"
+                    Width="50"
+                    Kind="CartOutline" />
+                <StackPanel >
+                    <TextBlock
+                        FontSize="22"
+                        FontWeight="Bold"
+                        >Total Order</TextBlock>
+                    <TextBlock 
+                        FontSize="12"
+                        FontWeight="Light"
+                        Text="10000"/>
+                </StackPanel>
+            </StackPanel>
+
+                </Border>
+
+                
+                
+                <Border
+                 Grid.Column="2"
+                    Height="100"
+                    Width="260"
+                    CornerRadius="10"
+                    BorderBrush="#00B3AC"
+                    BorderThickness="1"
+                    Background="White"
+                    >
+                    
+                 <StackPanel
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                     Width="260"
+                     Background="White"
+                    Orientation="Horizontal"
+                >
+                <materialDesign:PackIcon 
+                    Margin="10 0"
+                    Foreground="#00B3AC"
+                    Height="50"
+                    Width="50"
+                    Kind="Account" />
+                <StackPanel >
+                    <TextBlock
+                        FontSize="22"
+                        FontWeight="Bold"
+                        >Total Customer</TextBlock>
+                    <TextBlock 
+                        FontSize="12"
+                        FontWeight="Light"
+                        Text="10000"/>
+                </StackPanel>
+            </StackPanel>
+
+                </Border>
+
+
                 
             </Grid>
-        </materialDesign:DrawerHost>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+               
+
+                    <StackPanel>
+                        <TextBlock
+                        FontSize="28"
+                        FontWeight="Medium"
+                        >TOP 3 CUSTOMER</TextBlock>
+
+                    <Border
+                    BorderBrush="#00B3AC"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    >
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <TextBlock
+                            Width="50"
+                            FontSize="30"
+                            VerticalAlignment="Center"
+                            >1</TextBlock>
+
+                            <materialDesign:PackIcon 
+                            Width="50"
+                            BorderThickness="1 0 0 0"
+                            BorderBrush="#00B3AC"
+                            Height="50"
+                            Foreground="#00B3AC"
+                            Kind="Account" />
+                            <StackPanel>
+                                <TextBlock 
+                                FontSize="22"
+                                TextWrapping="Wrap"
+                                Text="No one know that thing"/>
+                                <StackPanel 
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                    <TextBlock FontSize="22" Text="100"/>
+                                    <materialDesign:PackIcon 
+                                    Margin="10 0"
+                                    Width="30"
+                                    Height="30"
+                                    Kind="CartOutline" />
+                                </StackPanel>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+            </Grid>
+            <StackPanel Grid.Row="2">
+                <TextBlock
+                        FontSize="28"
+                        FontWeight="Medium"
+                        >EMPLOYEE</TextBlock>
+
+                <WrapPanel>
+                     <Border
+                    BorderBrush="#00B3AC"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    >
+
+                        <StackPanel Orientation="Horizontal">
+
+
+                            <materialDesign:PackIcon 
+                            Width="50"
+                            BorderThickness="1 0 0 0"
+                            BorderBrush="#00B3AC"
+                            Height="50"
+                            Foreground="#00B3AC"
+                            Kind="BadgeAccount" />
+                            <StackPanel>
+                                <TextBlock 
+                                FontSize="22"
+                                TextWrapping="Wrap"
+                                Text="No one know that thing"/>
+                                <StackPanel 
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                    <TextBlock FontSize="22" Text="100"/>
+                                    <materialDesign:PackIcon 
+                                    Width="30"
+                                    Height="30"
+                                    Kind="CartOutline" />
+                                </StackPanel>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+
+        <Border
+            Grid.Column="1"
+            Height="700"
+            CornerRadius="10"
+            Background="White"
+            >
+            <Grid 
+            Width="420"
+              Background="White"
+              >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="125"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+                 <TextBlock
+                 VerticalAlignment="Center"
+                        FontSize="28"
+                        FontWeight="Medium"
+                        >TOP 10 PRODUCT</TextBlock>
+                
+                
+                
+                
+                 <Border
+                     Grid.Row="1"
+            Margin="0 20"
+              HorizontalAlignment="Center"
+              Background="White"
+              BorderThickness="1"
+              BorderBrush="#00B3AC"
+              CornerRadius="5"
+              Width="400"
+              Height="30"
+              >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button
+                        Command="{Binding DayCommand}"
+                    Style="{StaticResource MaterialDesignPaperLightButton}"
+                    ToolTip="Resource name: MaterialDesignPaperLightButton"
+                    
+                Background="Transparent"
+                BorderThickness="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="#00B3AC"
+                FontSize="20"
+                Content="Day" />
+
+                  
+                    <Button Grid.Column="1"
+
+                        Command="{Binding MonthCommand}"
+                    Style="{StaticResource MaterialDesignPaperLightButton}"
+                    ToolTip="Resource name: MaterialDesignPaperLightButton"
+                    
+                Background="Transparent"
+                BorderThickness="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="#00B3AC"
+                FontSize="20"
+                Content="Month" />
+
+
+                    <Button
+                    Grid.Column="2"
+
+                        Command="{Binding YearCommand}"
+                    Style="{StaticResource MaterialDesignPaperLightButton}"
+                    ToolTip="Resource name: MaterialDesignPaperLightButton"
+                    
+                Background="Transparent"
+                BorderThickness="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="#00B3AC"
+                FontSize="20"
+                Content="Year" />
+
+                </Grid>
+            </Border>
+                <StackPanel Grid.Row="2">
+                 <Border
+                    BorderBrush="#00B3AC"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    >
+
+                         <StackPanel
+                        
+                        Orientation="Horizontal">
+                             
+                              <TextBlock
+                            Width="30"
+                            FontSize="30"
+                            VerticalAlignment="Center"
+                            >1</TextBlock>
+
+                             
+                             
+                        <Image 
+                            Margin="10 0 10 0"
+                            Height="68"
+                            Source="../img/src/login.png"/>
+                            <StackPanel>
+                                <TextBlock
+
+                                    FontSize="22"
+                                    FontWeight="Medium"
+                                    Text="No one know that thing"
+                                    />
+                                <TextBlock
+                                    FontSize="22"
+                                    Foreground="#F24A72"
+                                    Text="12.000 vnd"
+                                    />
+                            </StackPanel>
+                    </StackPanel>
+                    </Border>
+
+                    
+                    
+                </StackPanel>
+            
+
+                
+                
 
 
 
+        </Grid>
+        </Border>
+    </Grid>    
 
 
-
-
-
-
-
-
-       
-       
-
-        
-          
-
-    </StackPanel>
 </UserControl>

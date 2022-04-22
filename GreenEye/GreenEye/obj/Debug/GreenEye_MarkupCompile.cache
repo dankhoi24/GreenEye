@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\App.xaml
-41155679514
+1224645617
 31656777778
-61-1517717438
-451904215416
-MainWindow.xaml;View\BaseView.xaml;View\DashboardView.xaml;View\LoginView.xaml;
+79173807032
+501708163963
+MainWindow.xaml;View\DashboardView.xaml;View\FormSetView\FormBillView.xaml;View\FormSetView\FormInputBookView.xaml;View\FormSetView\FormOptionView.xaml;View\LoginView.xaml;View\NavigateView.xaml;View\ProductSetView\ProductAddView.xaml;View\ProductSetView\ProductListView.xaml;View\ReportSetView\ReportInventoryView.xaml;View\ReportSetView\ReportOptionView.xaml;View\SettingView.xaml;
 
 False
 

@@ -44,6 +44,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=2.0.5.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.2.0.5\lib\net452\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -161,7 +167,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataAccess\BookStoreContext.cs" />
+    <Compile Include="DataAccess\DAO\CustomerDAO.cs" />
     <Compile Include="DataAccess\DAO\EmployeeDAO.cs" />
+    <Compile Include="DataAccess\DAO\OrderDAO.cs" />
     <Compile Include="DataAccess\DAO\ProductDAO.cs" />
     <Compile Include="DataAccess\Domain\Bill.cs" />
     <Compile Include="DataAccess\Domain\Book.cs" />
@@ -262,25 +270,25 @@
     <Compile Include="View\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
-     <Compile Include="View\Customer\CustomerManagementView.xaml.cs">
+    <Compile Include="View\Customer\CustomerManagementView.xaml.cs">
       <DependentUpon>CustomerManagementView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Customer\AddCustomerView.xaml.cs">
       <DependentUpon>AddCustomerView.xaml</DependentUpon>
     </Compile>
-     <Compile Include="View\DiscountSetViews\AddDiscountView.xaml.cs">
+    <Compile Include="View\DiscountSetViews\AddDiscountView.xaml.cs">
       <DependentUpon>AddDiscountView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DiscountSetViews\DiscountManagementView.xaml.cs">
       <DependentUpon>DiscountManagementView.xaml</DependentUpon>
     </Compile>
-     <Compile Include="View\Employee\AddEmployeeView.xaml.cs">
+    <Compile Include="View\Employee\AddEmployeeView.xaml.cs">
       <DependentUpon>AddEmployeeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Employee\EmployeeManagementView.xaml.cs">
       <DependentUpon>EmployeeManagementView.xaml</DependentUpon>
     </Compile>
-     <Compile Include="View\OrderSetViews\AddNewOrderView.xaml.cs">
+    <Compile Include="View\OrderSetViews\AddNewOrderView.xaml.cs">
       <DependentUpon>AddNewOrderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\OrderSetViews\OrderManagement.xaml.cs">
@@ -332,7 +340,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-     <Page Include="View\Customer\CustomerManagementView.xaml">
+    <Page Include="View\Customer\CustomerManagementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -340,7 +348,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-     <Page Include="View\DiscountSetViews\AddDiscountView.xaml">
+    <Page Include="View\DiscountSetViews\AddDiscountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -348,7 +356,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-     <Page Include="View\Employee\AddEmployeeView.xaml">
+    <Page Include="View\Employee\AddEmployeeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -368,7 +376,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-     <Page Include="View\OrderSetViews\AddNewOrderView.xaml">
+    <Page Include="View\OrderSetViews\AddNewOrderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

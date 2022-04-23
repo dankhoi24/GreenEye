@@ -55,11 +55,11 @@
             </Button>
         </StackPanel>
 
-        <Button Grid.Column="1" Content="Add Order" Width="150"  Background="#00B3AC" Command="{Binding NavigateAddOrderCommand}"></Button>
+        <Button Grid.Column="1" Content="Add Order" Width="150"  Background="#00B3AC" Command="{Binding AddOrderNavigateCommand}"></Button>
 
         <Border Grid.Row="1" Background="White" Margin="0 20 20 0" CornerRadius="0 10 0 0" BorderBrush="Snow">
 
-            <ListView SelectedItem="{Binding SelectedOrder}" ItemsSource="{Binding OrderPageList}" Height="400" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False">
+            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectedItem="{Binding SelectedOrder}" ItemsSource="{Binding OrderPageList}" Height="400" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False">
 
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -116,7 +116,7 @@
                                 <TextBlock FontWeight="Bold" Grid.Row="4" Padding="8">Debt:</TextBlock>
 
                                 <TextBlock FontWeight="Bold" Grid.Row="1" Grid.Column="1" Padding="8" Text="{Binding OrderId}"></TextBlock>
-                                <TextBlock FontWeight="Bold" Grid.Row="2" Grid.Column="1" Padding="8" Text="{Binding CustomerName}"></TextBlock>
+                                <TextBlock FontWeight="Bold" Grid.Row="2" Grid.Column="1" Padding="8" Text="{Binding Customer.Name}"></TextBlock>
                                 <TextBlock FontWeight="Bold" Grid.Row="3" Grid.Column="1" Padding="8" Text="{Binding Total}"></TextBlock>
                                 <TextBlock FontWeight="Bold" Grid.Row="4" Grid.Column="1" Padding="8" Text="{Binding Debt}"></TextBlock>
 

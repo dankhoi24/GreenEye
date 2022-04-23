@@ -30,9 +30,5 @@ namespace GreenEye.DataAccess.Domain
         public virtual BookType BookType { get; set;}
 
         public virtual List<Order_Book> Order_Books { get; set; }
-        
-        
-        
-
     }
 }

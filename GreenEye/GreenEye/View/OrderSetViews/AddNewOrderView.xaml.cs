@@ -24,5 +24,27 @@ namespace GreenEye.View.OrderSetViews
         {
             InitializeComponent();
         }
+
+
+        private void AddCustomerLostfocus(object sender, RoutedEventArgs e)
+        {
+            SearchListCustomer.Visibility = Visibility.Hidden;
+        }
+
+        private void AddProductLostfocus(object sender, RoutedEventArgs e)
+        {
+            SearchListProduct.Visibility = Visibility.Hidden;
+        }
+
+        private void AddCustomerFocus(object sender, RoutedEventArgs e)
+        {
+            SearchListCustomer.Visibility = Visibility.Visible;
+
+        }
+
+        private void AddProductFocus(object sender, RoutedEventArgs e)
+        {
+            SearchListProduct.Visibility = Visibility.Visible;
+        }
     }
 }

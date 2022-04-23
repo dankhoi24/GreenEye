@@ -40,6 +40,11 @@ namespace GreenEye.DataAccess.DAO
             
         }
 
+        public List<Employee> getAll()
+        {
+            return Database.Employees.Select(x => x).ToList();
+        }
+
         internal ObservableCollection<Employee> getAll()
         {
             var employee = Database.Employees.ToList();

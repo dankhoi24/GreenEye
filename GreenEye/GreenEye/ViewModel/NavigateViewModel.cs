@@ -1,3 +1,5 @@
+﻿using GreenEye.ViewModel.Command;
+using System;
 ﻿using GreenEye.Store;
 using GreenEye.ViewModel.Command;
 using GreenEye.ViewModel.CustomerViewModel;
@@ -18,6 +20,11 @@ namespace GreenEye.ViewModel
         public RelayCommand CustomerNavigateCommand { get; set; }
         public RelayCommand EmployeeNavigateCommand { get; set; }
         public RelayCommand DiscountNavigateCommand { get; set; }
+
+
+        public RelayCommand DashboardCommand { get; set; }
+        public RelayCommand ProductCommand { get; set; }
+        public RelayCommand ReportCommand{ get; set; }
 
         public NavigateStore NavigateStore { get; set; }
         public BaseViewModel CurrentViewModel => NavigateStore.CurrentViewModel;

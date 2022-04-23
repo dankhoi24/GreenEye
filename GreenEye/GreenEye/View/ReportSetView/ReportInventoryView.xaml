@@ -37,13 +37,27 @@
 
 
             <Separator Opacity="0" Width="600"/>
-            
-              <Calendar 
-              Height="280"
-                Width="300"
-                Name="dteSelectedMonth" DisplayMode="Year"  SelectionMode="None" 
-          DisplayModeChanged="dteSelectedMonth_DisplayModeChanged" />
 
+             <Border
+                 
+                        CornerRadius="5"
+
+                        Height="50"
+                        BorderBrush="#00B3AC"
+                        BorderThickness="2"
+                        
+                        >
+                        <DatePicker
+                        SelectedDate="{Binding Date}"
+                        
+                        FontSize="22"
+
+                  Name="LocaleDatePicker"
+                  Width="220"
+                  Height="50"
+                  
+                  materialDesign:HintAssist.Hint="Locale Date" />
+                  </Border>
 
 
         </StackPanel>
@@ -89,7 +103,19 @@
                     Grid.Column="3">Final inventory</TextBlock>
             </Grid>
             <StackPanel >
-                <Border
+                    <ListView
+                        ItemsSource="{Binding Reports}"
+                        >
+
+                          <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                 </ListView.ItemContainerStyle>
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                  <Border
                         
                          CornerRadius="5"
 
@@ -120,7 +146,7 @@
                                 Width="300"
                                 FontSize="22"
                                 FontWeight="Medium"
-                                Text="How to win and influence prople"/>
+                                Text="{Binding Name}"/>
                         </StackPanel>
 
                         <TextBlock 
@@ -130,7 +156,7 @@
                             Grid.Column="1"
                             FontSize="22"
                             FontWeight="Medium"
-                            Text="50.000 VND"/>
+                            Text="{Binding Init}"/>
                         
                         <TextBlock 
 
@@ -139,7 +165,7 @@
                             Grid.Column="2"
                             FontSize="22"
                             FontWeight="Medium"
-                            Text="20"/>
+                            Text="{Binding Incurred}"/>
                         
                          <TextBlock 
 
@@ -148,7 +174,7 @@
                             Grid.Column="3"
                             FontSize="22"
                             FontWeight="Medium"
-                            Text="30"/>
+                            Text="{Binding Final}"/>
 
 
 
@@ -156,7 +182,12 @@
 
                     </Grid>
                 </Border>
-            </StackPanel>
+
+                                
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                          </StackPanel>
             
         </StackPanel>
 

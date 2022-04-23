@@ -44,6 +44,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=2.0.5.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.2.0.5\lib\net452\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -161,10 +167,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataAccess\BookStoreContext.cs" />
+<<<<<<< HEAD
+    <Compile Include="DataAccess\DAO\BookTypeDAO.cs" />
+    <Compile Include="DataAccess\DAO\CustomerDAO.cs" />
+    <Compile Include="DataAccess\DAO\DebitBookDAO.cs" />
+    <Compile Include="DataAccess\DAO\EmployeeDAO.cs" />
+    <Compile Include="DataAccess\DAO\InventoryDAO.cs" />
+    <Compile Include="DataAccess\DAO\OrderDAO.cs" />
+=======
     <Compile Include="DataAccess\DAO\CustomerDAO.cs" />
     <Compile Include="DataAccess\DAO\EmployeeDAO.cs" />
     <Compile Include="DataAccess\DAO\OrderDAO.cs" />
     <Compile Include="DataAccess\DAO\Order_BookDAO.cs" />
+>>>>>>> VDPhuc
     <Compile Include="DataAccess\DAO\ProductDAO.cs" />
     <Compile Include="DataAccess\DAO\PromotionDAO.cs" />
     <Compile Include="DataAccess\Domain\Bill.cs" />
@@ -175,6 +190,7 @@
     <Compile Include="DataAccess\Domain\Employee.cs" />
     <Compile Include="DataAccess\Domain\GoodsReceipt.cs" />
     <Compile Include="DataAccess\Domain\GoodsReceipt_Book.cs" />
+    <Compile Include="DataAccess\Domain\Inventory.cs" />
     <Compile Include="DataAccess\Domain\Order.cs" />
     <Compile Include="DataAccess\Domain\Order_Book.cs" />
     <Compile Include="DataAccess\Domain\Promotion.cs" />
@@ -251,7 +267,40 @@
     <Compile Include="Migrations\202204220111226_UpdateEmployeeLogin.Designer.cs">
       <DependentUpon>202204220111226_UpdateEmployeeLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204230240270_addimgBook.cs" />
+    <Compile Include="Migrations\202204230240270_addimgBook.Designer.cs">
+      <DependentUpon>202204230240270_addimgBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204230730281_authorBook.cs" />
+    <Compile Include="Migrations\202204230730281_authorBook.Designer.cs">
+      <DependentUpon>202204230730281_authorBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204230735534_dateBook.cs" />
+    <Compile Include="Migrations\202204230735534_dateBook.Designer.cs">
+      <DependentUpon>202204230735534_dateBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204231849116_inventoryTable.cs" />
+    <Compile Include="Migrations\202204231849116_inventoryTable.Designer.cs">
+      <DependentUpon>202204231849116_inventoryTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204231900517_updateinventory.cs" />
+    <Compile Include="Migrations\202204231900517_updateinventory.Designer.cs">
+      <DependentUpon>202204231900517_updateinventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204240232416_decimelChange.cs" />
+    <Compile Include="Migrations\202204240232416_decimelChange.Designer.cs">
+      <DependentUpon>202204240232416_decimelChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+<<<<<<< HEAD
+    <Compile Include="Model\ReportBill.cs" />
+    <Compile Include="Model\ReportInventory.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Command\RelayCommand.cs" />
+    <Compile Include="ViewModel\Converter\IndexConverter.cs" />
+    <Compile Include="ViewModel\DashboardViewModel.cs" />
+    <Compile Include="ViewModel\FormOptionViewModel.cs" />
+=======
     <Compile Include="Store\NavigateStore.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Command\RelayCommand.cs" />
@@ -262,6 +311,7 @@
     <Compile Include="ViewModel\Discount\DiscountManagementViewModel.cs" />
     <Compile Include="ViewModel\Employee\AddNewEmployeeViewModel.cs" />
     <Compile Include="ViewModel\Employee\EmployeeManagementViewModel.cs" />
+>>>>>>> VDPhuc
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NavigateViewModel.cs" />
@@ -270,6 +320,7 @@
     <Compile Include="ViewModel\PasswordHelper.cs" />
     <Compile Include="ViewModel\ProductAddViewModel.cs" />
     <Compile Include="ViewModel\ProductListViewModel.cs" />
+    <Compile Include="ViewModel\ReportBillVIewModel.cs" />
     <Compile Include="ViewModel\ReportInventoryViewModel.cs" />
     <Compile Include="ViewModel\SettingViewModel.cs" />
     <Compile Include="View\DashboardView.xaml.cs">
@@ -319,6 +370,9 @@
     </Compile>
     <Compile Include="View\ProductSetView\ProductListView.xaml.cs">
       <DependentUpon>ProductListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportSetView\ReportBillVIew.xaml.cs">
+      <DependentUpon>ReportBillVIew.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ReportSetView\ReportInventoryView.xaml.cs">
       <DependentUpon>ReportInventoryView.xaml</DependentUpon>
@@ -405,6 +459,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ReportSetView\ReportBillVIew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ReportSetView\ReportInventoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -486,10 +544,37 @@
     <EmbeddedResource Include="Migrations\202204220111226_UpdateEmployeeLogin.resx">
       <DependentUpon>202204220111226_UpdateEmployeeLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204230240270_addimgBook.resx">
+      <DependentUpon>202204230240270_addimgBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204230730281_authorBook.resx">
+      <DependentUpon>202204230730281_authorBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204230735534_dateBook.resx">
+      <DependentUpon>202204230735534_dateBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204231849116_inventoryTable.resx">
+      <DependentUpon>202204231849116_inventoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204231900517_updateinventory.resx">
+      <DependentUpon>202204231900517_updateinventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204240232416_decimelChange.resx">
+      <DependentUpon>202204240232416_decimelChange.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="img\store\meow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\store\aka.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\store\mask.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="ImportData\Book.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -517,9 +602,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="img\src\login.png" />
   </ItemGroup>

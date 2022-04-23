@@ -18,5 +18,18 @@ namespace GreenEye.DataAccess.Domain
 
         //Foreign Key
         public virtual List<Book> Books { get; set; }
+
+
+        public BookType(int id, string name)
+        {
+            BookTypeId = id;
+            Name = name;
+
+        }
+
+        public BookType()
+        {
+
+        }
     }
 }

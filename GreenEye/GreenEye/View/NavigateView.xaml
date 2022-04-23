@@ -50,7 +50,11 @@
         <DataTemplate DataType="{x:Type viewmodels:SettingViewModel}">
             <views:SettingView/>
         </DataTemplate>
-    </Control.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:FormOptionViewModel}">
+            <viewsReport:ReportOptionView/>
+        </DataTemplate>
+
+           </Control.Resources>
 
 
     <StackPanel>
@@ -104,6 +108,7 @@
                     </Button>
                     
                     <Button
+                        Command="{Binding DashboardCommand}"
                         Margin="0 5"
                         FontSize="26"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
@@ -139,7 +144,7 @@
                         Setting
                     </Button>
                     <Button
-
+                        Command="{Binding ProductCommand}"
                         Margin="0 5"
                         FontSize="26"
                         Style="{StaticResource MaterialDesignPaperLightButton}"

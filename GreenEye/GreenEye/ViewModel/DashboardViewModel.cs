@@ -1,4 +1,5 @@
 ﻿using GreenEye.DataAccess.DAO;
+using GreenEye.Store;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace GreenEye.ViewModel
     {
         public int TotalProduct { get; set; }
         public BaseViewModel CurrentViewModel { get; }
+        public NavigateStore NavigateStore { get; }
 
         private ProductDAO _productDAO = new ProductDAO();
         public DashboardViewModel()
@@ -21,6 +23,11 @@ namespace GreenEye.ViewModel
         public DashboardViewModel(BaseViewModel currentViewModel)
         {
             CurrentViewModel = currentViewModel;
+        }
+
+        public DashboardViewModel(NavigateStore navigateStore)
+        {
+            NavigateStore = navigateStore;
         }
     }
 }

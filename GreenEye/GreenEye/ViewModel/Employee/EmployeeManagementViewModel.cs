@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GreenEye.Store;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,10 @@ namespace GreenEye.ViewModel.Employee
         public EmployeeManagementViewModel(BaseViewModel currentViewModel)
         {
             CurrentViewModel = currentViewModel;
+        }
+
+        public EmployeeManagementViewModel(NavigateStore navigateStore)
+        {
         }
 
         public BaseViewModel CurrentViewModel { get; set; }

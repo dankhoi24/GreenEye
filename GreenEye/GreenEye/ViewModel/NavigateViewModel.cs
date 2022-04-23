@@ -1,4 +1,5 @@
-﻿using GreenEye.ViewModel.Command;
+﻿using GreenEye.Store;
+using GreenEye.ViewModel.Command;
 using GreenEye.ViewModel.CustomerViewModel;
 using GreenEye.ViewModel.Discount;
 using GreenEye.ViewModel.Employee;
@@ -17,11 +18,17 @@ namespace GreenEye.ViewModel
         public RelayCommand CustomerNavigateCommand { get; set; }
         public RelayCommand EmployeeNavigateCommand { get; set; }
         public RelayCommand DiscountNavigateCommand { get; set; }
-        public BaseViewModel CurrentViewModel { get; set; }
+
+        public NavigateStore NavigateStore { get; set; }
+        public BaseViewModel CurrentViewModel => NavigateStore.CurrentViewModel;
+        
 
         public NavigateViewModel()
         {
-            CurrentViewModel = new DashboardViewModel(CurrentViewModel);
+            NavigateStore = new NavigateStore();
+            NavigateStore.CurrentViewModel = new DashboardViewModel(NavigateStore);
+
+            NavigateStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
 
             OrderNavigateCommand = new RelayCommand(OrderNavigate, null);
             CustomerNavigateCommand = new RelayCommand(CustomerNavigate, null);
@@ -30,24 +37,29 @@ namespace GreenEye.ViewModel
 
         }
 
+        private void OnCurrentViewModelChanged()
+        {
+            onPropertyChanged(nameof(CurrentViewModel));
+        }
+
         private void DiscountNavigate(object obj)
         {
-            CurrentViewModel = new DiscountManagementViewModel(CurrentViewModel);
+            NavigateStore.CurrentViewModel = new DiscountManagementViewModel(NavigateStore);
         }
 
         private void EmployeeNavigate(object obj)
         {
-            CurrentViewModel = new EmployeeManagementViewModel(CurrentViewModel);
+            NavigateStore.CurrentViewModel = new EmployeeManagementViewModel(NavigateStore);
         }
 
         private void CustomerNavigate(object obj)
         {
-            CurrentViewModel = new CustomerMangagementViewModel(CurrentViewModel);
+            NavigateStore.CurrentViewModel = new CustomerMangagementViewModel(NavigateStore);
         }
 
         private void OrderNavigate(object obj)
         {
-            CurrentViewModel=new OredrManagementViewModel(CurrentViewModel);
+            NavigateStore.CurrentViewModel = new OredrManagementViewModel(NavigateStore);
         }
     }
 }

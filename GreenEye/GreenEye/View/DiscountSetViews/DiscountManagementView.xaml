@@ -49,6 +49,7 @@
 
                 <Border BorderBrush="Gray" BorderThickness="0.5"></Border>
 
+                
                 <StackPanel>
                     <!-- List view here -->
 

@@ -17,5 +17,10 @@ namespace GreenEye.DataAccess.DAO
            List<Order_Book> obs = Database.Order_Books.Where(x => x.OrderId == orderId).ToList();
             return new ObservableCollection<Order_Book>(obs);
         }
+
+        internal int getAmountBookFromOrder(int bookId, int orderId)
+        {
+            return Database.Order_Books.SingleOrDefault(x => x.OrderId == orderId && x.BookId == bookId).Amount;
+        }
     }
 }

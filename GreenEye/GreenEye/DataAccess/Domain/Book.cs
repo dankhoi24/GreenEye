@@ -21,7 +21,9 @@ namespace GreenEye.DataAccess.Domain
         public decimal ExportPrice { get; set; }
         public int Stroke { get; set; }
         public int Sales { get; set; }
-
+       
+        // Binding amount in order att
+        public int AmountInOrder { get; set; }
         //Navigate
         public int BookTypeId { get; set; }
         

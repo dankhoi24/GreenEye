@@ -59,15 +59,31 @@ namespace GreenEye.ViewModel.CustomerViewModel
         public NavigateStore NavigateStore { get; set; }
        public RelayCommand NavigateSubmitCommand { get; set; }
        public RelayCommand NavigateCancelCommand { get; set; }
-
+       
         public AddNewCustomerViewModel(NavigateStore navigateStore)
         {
             customer = new Customer();
             NavigateStore = navigateStore;
-            NavigateSubmitCommand = new RelayCommand(NavigateSubmit, null);
+            NavigateSubmitCommand = new RelayCommand(NavigateSubmitAdd, null);
             NavigateCancelCommand = new RelayCommand(NavigateCacel, null);
         }
-        private void NavigateSubmit(object obj)
+
+        public AddNewCustomerViewModel(NavigateStore navigateStore, Customer sendedCustomer) : this(navigateStore)
+        {
+            customer = sendedCustomer;
+            NavigateStore = navigateStore;
+            NavigateSubmitCommand = new RelayCommand(NavigateSubmitEdit, null);
+            NavigateCancelCommand = new RelayCommand(NavigateCacel, null);
+        }
+
+        private void NavigateSubmitEdit(object obj)
+        {
+            CustomerDAO customerDAO = new CustomerDAO();
+            customerDAO.updateOne(customer);
+            NavigateStore.CurrentViewModel = new CustomerMangagementViewModel(NavigateStore);
+        }
+
+        private void NavigateSubmitAdd(object obj)
         {
            CustomerDAO customerDAO = new CustomerDAO();
            customerDAO.insertOne(customer);

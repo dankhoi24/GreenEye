@@ -163,7 +163,9 @@
     <Compile Include="DataAccess\BookStoreContext.cs" />
     <Compile Include="DataAccess\DAO\CustomerDAO.cs" />
     <Compile Include="DataAccess\DAO\EmployeeDAO.cs" />
+    <Compile Include="DataAccess\DAO\OrderDAO.cs" />
     <Compile Include="DataAccess\DAO\ProductDAO.cs" />
+    <Compile Include="DataAccess\DAO\PromotionDAO.cs" />
     <Compile Include="DataAccess\Domain\Bill.cs" />
     <Compile Include="DataAccess\Domain\Book.cs" />
     <Compile Include="DataAccess\Domain\BookType.cs" />

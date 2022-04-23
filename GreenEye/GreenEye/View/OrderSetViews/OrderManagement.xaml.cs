@@ -25,6 +25,9 @@ namespace GreenEye.View.OrderSetViews
             InitializeComponent();
         }
 
-   
+        private void openContexMenu(object sender, RoutedEventArgs e)
+        {
+            ((ContextMenu)sender).DataContext = OrderMangementWindow.DataContext;
+        }
     }
 }

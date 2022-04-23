@@ -24,5 +24,10 @@ namespace GreenEye.View.Employee
         {
             InitializeComponent();
         }
+
+        private void openContexMenu(object sender, RoutedEventArgs e)
+        {
+            ((ContextMenu)sender).DataContext = EmployeeMangementWindow.DataContext;
+        }
     }
 }

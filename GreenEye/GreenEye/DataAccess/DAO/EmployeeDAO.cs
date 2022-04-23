@@ -39,5 +39,49 @@ namespace GreenEye.DataAccess.DAO
             }
             
         }
+
+        internal ObservableCollection<Employee> getAll()
+        {
+            var employee = Database.Employees.ToList();
+
+            return new ObservableCollection<Employee>(employee);
+        }
+
+        internal void deleteOne(Employee employee)
+        {
+            employee = Database.Employees.Find(employee.EmployeeId);
+
+
+            var orders = Database.Orders.Where(x => x.EmployeeId == employee.EmployeeId).ToList();
+
+            foreach (Order order in orders)
+            {
+                var refunds = Database.Refunds.Where(x => x.OrderId == order.OrderId).ToList();
+                Database.Refunds.RemoveRange(refunds);
+            }
+
+            Database.Orders.RemoveRange(orders);
+
+            Database.Employees.Remove(employee);
+            Database.SaveChanges();
+        }
+
+        internal void insertOne(Employee employee)
+        {
+            Database.Employees.Add(employee);
+            Database.SaveChanges();
+        }
+
+        internal void updateOne(Employee employee)
+        {
+            var entity = Database.Employees.Find(employee.EmployeeId);
+            if (entity == null)
+            {
+                return;
+            }
+
+            Database.Entry(entity).CurrentValues.SetValues(employee);
+            Database.SaveChanges();
+        }
     }
 }

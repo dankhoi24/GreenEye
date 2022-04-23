@@ -104,6 +104,7 @@
                     </Button>
                     
                     <Button
+                        Command="{Binding DashboardCommand}"
                         Margin="0 5"
                         FontSize="26"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
@@ -139,7 +140,7 @@
                         Setting
                     </Button>
                     <Button
-
+                        Command="{Binding ProductCommand}"
                         Margin="0 5"
                         FontSize="26"
                         Style="{StaticResource MaterialDesignPaperLightButton}"

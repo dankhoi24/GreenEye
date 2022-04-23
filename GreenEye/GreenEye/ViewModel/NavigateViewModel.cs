@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GreenEye.ViewModel.Command;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,33 @@ namespace GreenEye.ViewModel
     {
         public BaseViewModel CurrentViewModel { get; set; }
 
+
+        public RelayCommand DashboardCommand { get; set; }
+        public RelayCommand ProductCommand { get; set; }
+
         public NavigateViewModel()
         {
-            CurrentViewModel = new ProductAddViewModel();
+            CurrentViewModel = new DashboardViewModel();
+            DashboardCommand = new RelayCommand(goToDashBoard, null);
+            ProductCommand = new RelayCommand(goToProduct, null);
         }
+
+
+        public void goToDashBoard(object x)
+        {
+            CurrentViewModel = new DashboardViewModel();
+        }
+
+
+        public void goToProduct(object x)
+        {
+            CurrentViewModel = new ProductListViewModel(this);
+        }
+
+         public void goToAddProduct(object x)
+        {
+            CurrentViewModel = new ProductAddViewModel(this);
+        }
+
     }
 }

@@ -72,7 +72,6 @@ D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\System.Runtime.Com
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\System.Security.Cryptography.ProtectedData.xml
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\System.Windows.Interactivity.xml
-D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.csproj.AssemblyReference.cache
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\MainWindow.g.cs
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\DashboardView.g.cs
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\Customer\CustomerManagementView.g.cs
@@ -151,3 +150,7 @@ D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\LiveCharts.pdb
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\LiveCharts.xml
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\LiveCharts.Wpf.pdb
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\LiveCharts.Wpf.xml
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.Migrations.addimgBook.resources
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.csproj.AssemblyReference.cache
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.Migrations.authorBook.resources
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.Migrations.dateBook.resources

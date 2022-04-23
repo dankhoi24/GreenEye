@@ -28,7 +28,7 @@
             <RowDefinition Height="470"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-            <TextBlock 
+        <TextBlock 
             VerticalAlignment="Center"
             FontSize="30" FontWeight="Bold">PRODUCT/ADDING</TextBlock>
 
@@ -39,19 +39,22 @@
                 BorderThickness="2"
                 >
 
-        <Grid >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="750"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-                            
-            <StackPanel>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="750"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
-                <StackPanel 
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    
+                <StackPanel
+                    >
+
+                    <StackPanel 
                 Margin="0 20 0 0"
                 Height="50"
                 Orientation="Horizontal">
-                    <TextBlock
+                        <TextBlock
                     FontSize="22"
                     Width="230"
                     HorizontalAlignment="Center"
@@ -59,27 +62,28 @@
                     FontWeight="Medium"
                     >Name</TextBlock>
 
-                    <Border
+                        <Border
                       CornerRadius="5"
                         BorderBrush="#00B3AC"
                         BorderThickness="2"
 
 
                     >
-                        <TextBox
+                            <TextBox
+                            Text="{Binding BookName}"
                             FontSize="22"
                             VerticalAlignment="Center"
                             Width="340"/>
-                    </Border>
-                </StackPanel>
-                
-            <Separator Opacity="0" Height="20"/>
-                
-                
-                <StackPanel 
+                        </Border>
+                    </StackPanel>
+
+                    <Separator Opacity="0" Height="20"/>
+
+
+                    <StackPanel 
                 Height="50"
                 Orientation="Horizontal">
-                    <TextBlock
+                        <TextBlock
                     FontSize="22"
                     Width="230"
                     HorizontalAlignment="Center"
@@ -87,27 +91,30 @@
                     FontWeight="Medium"
                     >Author</TextBlock>
 
-                    <Border
+                        <Border
                       CornerRadius="5"
                         BorderBrush="#00B3AC"
                         BorderThickness="2"
 
 
                     >
-                        <TextBox
+                            <TextBox
+
+                            Text="{Binding BookAuthor}"
+                            
                             FontSize="22"
                             VerticalAlignment="Center"
                             Width="340"/>
-                    </Border>
-                </StackPanel>
+                        </Border>
+                    </StackPanel>
 
-            <Separator Opacity="0" Height="20"/>
-                
-                
-                <StackPanel 
+                    <Separator Opacity="0" Height="20"/>
+
+
+                    <StackPanel 
                 Height="50"
                 Orientation="Horizontal">
-                    <TextBlock
+                        <TextBlock
                     FontSize="22"
                     Width="230"
                     HorizontalAlignment="Center"
@@ -115,24 +122,25 @@
                     FontWeight="Medium"
                     >Publisher</TextBlock>
 
-                    <Border
+                        <Border
                       CornerRadius="5"
                         BorderBrush="#00B3AC"
                         BorderThickness="2"
 
 
                     >
-                        <TextBox
+                            <TextBox
+                            Text="{Binding BookPublisher}"
                             FontSize="22"
                             VerticalAlignment="Center"
                             Width="340"/>
-                    </Border>
-                </StackPanel>
-            <Separator Opacity="0" Height="20"/>
-<StackPanel 
+                        </Border>
+                    </StackPanel>
+                    <Separator Opacity="0" Height="20"/>
+                    <StackPanel 
                 Height="50"
                 Orientation="Horizontal">
-                    <TextBlock
+                        <TextBlock
                     FontSize="22"
                     Width="230"
                     HorizontalAlignment="Center"
@@ -140,16 +148,16 @@
                     FontWeight="Medium"
                     >Created date</TextBlock>
 
-                    <Border
+                        <Border
                       CornerRadius="5"
                         BorderBrush="#00B3AC"
                         BorderThickness="2"
 
 
                     >
-                         <DatePicker
+                            <DatePicker
                         
-                        
+                        SelectedDate="{Binding BookDate}"
                         FontSize="22"
 
                   Name="LocaleDatePicker"
@@ -157,14 +165,14 @@
                   Height="50"
                   
                   materialDesign:HintAssist.Hint="Locale Date" />
-                    </Border>
-                </StackPanel>
-            <Separator Opacity="0" Height="20"/>
+                        </Border>
+                    </StackPanel>
+                    <Separator Opacity="0" Height="20"/>
 
-<StackPanel 
+                    <StackPanel 
                 Height="50"
                 Orientation="Horizontal">
-                    <TextBlock
+                        <TextBlock
                     FontSize="22"
                     Width="230"
                     HorizontalAlignment="Center"
@@ -172,25 +180,27 @@
                     FontWeight="Medium"
                     >Input price</TextBlock>
 
-                    <Border
+                        <Border
                       CornerRadius="5"
                         BorderBrush="#00B3AC"
                         BorderThickness="2"
 
 
                     >
-                        <TextBox
+                            <TextBox
+                            
+                            Text="{Binding BookInputPrice}"
                             FontSize="22"
                             VerticalAlignment="Center"
                             Width="340"/>
-                    </Border>
-                </StackPanel>
-            <Separator Opacity="0" Height="20"/>
+                        </Border>
+                    </StackPanel>
+                    <Separator Opacity="0" Height="20"/>
 
-<StackPanel 
+                    <StackPanel 
                 Height="50"
                 Orientation="Horizontal">
-                    <TextBlock
+                        <TextBlock
                     FontSize="22"
                     Width="230"
                     HorizontalAlignment="Center"
@@ -198,87 +208,121 @@
                     FontWeight="Medium"
                     >Output price</TextBlock>
 
-                    <Border
+                        <Border
                       CornerRadius="5"
                         BorderBrush="#00B3AC"
                         BorderThickness="2"
 
 
                     >
-                        <TextBox
+                            <TextBox
+                            Text="{Binding BookOutputPrice}"
                             FontSize="22"
-                            VerticalAlignment="Center"
-                            Width="340"/>
-                    </Border>
+                            VerticalAlignment="Bottom"
+                            Width="340" Margin="0,0,0,6"/>
+                        </Border>
+                    </StackPanel>
+                    
+                    
+                    <Separator Opacity="0" Height="20"/>
+                    
+                     <StackPanel 
+                Height="50"
+                Orientation="Horizontal">
+                        <TextBlock
+                    FontSize="22"
+                    Width="230"
+                    HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                    FontWeight="Medium"
+                    >Amount</TextBlock>
+
+                        <Border
+                      CornerRadius="5"
+                        BorderBrush="#00B3AC"
+                        BorderThickness="2"
+
+
+                    >
+                            <TextBox
+                            Text="{Binding BookAmount}"
+                            FontSize="22"
+                            VerticalAlignment="Bottom"
+                            Width="340" Margin="0,0,0,6"/>
+                        </Border>
+                    </StackPanel>
+
+
                 </StackPanel>
 
-            </StackPanel>
+                </ScrollViewer>
 
-            <Border
+                <Border
             Visibility="{Binding BeforeImport}"
                 Margin="0 0 20 0"
                 Height="450"
                 BorderThickness="2"
                 Grid.Column="1">
 
-                <Border.BorderBrush>
-                    <DrawingBrush Viewport="0,0,8,8" ViewportUnits="Absolute" TileMode="Tile">
-                        <DrawingBrush.Drawing>
-                            <DrawingGroup>
-                                <GeometryDrawing Brush="#00b3ac">
-                                    <GeometryDrawing.Geometry>
-                                        <GeometryGroup>
-                                            <RectangleGeometry Rect="0,0,150,150" />
-                                            <RectangleGeometry Rect="150,150,150,150" />
-                                        </GeometryGroup>
-                                    </GeometryDrawing.Geometry>
-                                </GeometryDrawing>
-                            </DrawingGroup>
-                        </DrawingBrush.Drawing>
-                    </DrawingBrush>
-                </Border.BorderBrush>
+                    <Border.BorderBrush>
+                        <DrawingBrush Viewport="0,0,8,8" ViewportUnits="Absolute" TileMode="Tile">
+                            <DrawingBrush.Drawing>
+                                <DrawingGroup>
+                                    <GeometryDrawing Brush="#00b3ac">
+                                        <GeometryDrawing.Geometry>
+                                            <GeometryGroup>
+                                                <RectangleGeometry Rect="0,0,150,150" />
+                                                <RectangleGeometry Rect="150,150,150,150" />
+                                            </GeometryGroup>
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                </DrawingGroup>
+                            </DrawingBrush.Drawing>
+                        </DrawingBrush>
+                    </Border.BorderBrush>
 
-                <Button
-
+                    <Button
+                    Command="{Binding ImportCommand}"
                     Background="Transparent"
                     Foreground="#bdbdbd"
                     FontSize="28"
                     BorderThickness="0"
                     Height="50"
                     >
-                    <StackPanel
+                        <StackPanel
 
                         Orientation="Horizontal">
-                        <materialDesign:PackIcon
+                            <materialDesign:PackIcon
                             Width="50"
                             Height="50"
                             Kind="Plus" />
-                        <TextBlock
+                            <TextBlock
                             VerticalAlignment="Center"
                             
                             >Import image</TextBlock>
-                    </StackPanel>
-                </Button>
-            </Border>
+                        </StackPanel>
+                    </Button>
+                </Border>
 
                 <Image
+                x:Name="importImg"
+                    Visibility="{Binding AfterImport}"
 
-            Visibility="{Binding AfterImport}"
                     Margin=" 0 0 20 0"
-                    Grid.Column="1" Source="../../img/src/login.png"/>
+                    Grid.Column="1" Source="{Binding Filename}"/>
 
             </Grid>
-            </Border>
-        
-        
-         <StackPanel 
+        </Border>
+
+
+        <StackPanel 
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Grid.Row="3"
             Orientation="Horizontal">
 
             <Button
-                
+                Command="{Binding SubmitCommand}"
                 Height="50"
                 Width="200"
                 Background="#00b3ac"
@@ -286,10 +330,12 @@
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Content="Submit"
                 />
-            
+
             <Separator Opacity="0" Width="50"/>
-                
+
             <Button
+
+                Command="{Binding CancelCommand}"
                 Height="50"
                 Width="200"
                 Background="#bdbdbd"
@@ -300,6 +346,6 @@
 
         </StackPanel>
 
-                
+
     </Grid>
 </UserControl>

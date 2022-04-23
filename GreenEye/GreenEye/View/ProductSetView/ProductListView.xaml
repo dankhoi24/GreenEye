@@ -137,6 +137,7 @@
             
             
               <Button
+                        Command="{Binding AddCommand}"
                           BorderThickness="0"
                           Height="60"
                           Margin="40 0"

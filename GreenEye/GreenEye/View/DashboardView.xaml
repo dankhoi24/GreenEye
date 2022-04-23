@@ -7,6 +7,7 @@
              mc:Ignorable="d"     
 
               xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+              xmlns:converter="clr-namespace:GreenEye.ViewModel.Converter"
 
              
               d:DesignHeight="768" d:DesignWidth="1366"
@@ -19,6 +20,11 @@
             Background="{DynamicResource MaterialDesignPaper}"
             FontFamily="{DynamicResource MaterialDesignFont}"
 >
+
+    <UserControl.Resources>
+        <converter:IndexConverter x:Key="getIndex"/>
+
+    </UserControl.Resources>
 
     <Grid
        Margin="10 0"
@@ -166,68 +172,85 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-               
 
-                    <StackPanel>
-                        <TextBlock
+                <Border
+                    Background="White"
+                    BorderThickness =" 0 0 4 0"
+                    BorderBrush="#00B3AC"
+                    CornerRadius="10"
+                    >
+
+
+                <StackPanel >
+                    <TextBlock
                         FontSize="28"
                         FontWeight="Medium"
                         >TOP 3 CUSTOMER</TextBlock>
 
+
                     <ListView
                         ItemsSource="{Binding Customers}"
                         >
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                  <Border
-                                      Width="420"
+                                <Border
+                                    
+                                    Margin="0 10"
                     BorderBrush="#00B3AC"
                     BorderThickness="1"
                     CornerRadius="5"
                     >
 
-                        <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal">
 
-                            <TextBlock
+                                        <TextBlock
+                                            Margin="10 0 0 0"
                             Width="50"
                             FontSize="30"
                             VerticalAlignment="Center"
                             >1</TextBlock>
 
-                            <materialDesign:PackIcon 
+                                        <materialDesign:PackIcon 
                             Width="50"
                             BorderThickness="1 0 0 0"
                             BorderBrush="#00B3AC"
                             Height="50"
                             Foreground="#00B3AC"
                             Kind="Account" />
-                            <StackPanel>
-                                <TextBlock 
+                                        <StackPanel>
+                                            <TextBlock 
                                 FontSize="22"
                                 TextWrapping="Wrap"
                                 Text="{Binding Name}"/>
-                                <StackPanel 
+                                            <StackPanel 
                                 VerticalAlignment="Center"
                                 Orientation="Horizontal">
-                                    <TextBlock FontSize="22" Text="{Binding Coin}"/>
-                                    <materialDesign:PackIcon 
+                                                <TextBlock FontSize="22" Text="{Binding Coin}"/>
+                                                <materialDesign:PackIcon 
                                     Margin="10 0"
                                     Width="30"
                                     Height="30"
                                     Kind="CartOutline" />
-                                </StackPanel>
+                                            </StackPanel>
 
-                            </StackPanel>
-                        </StackPanel>
-                    </Border>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
 
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
 
-                                  </StackPanel>
+                </StackPanel>
+                </Border>
 
-                     <lvc:PieChart
+                <lvc:PieChart
                                 Grid.Column="1"
                                 Name="Brand"
                               Series="{Binding ChartData}"
@@ -241,15 +264,33 @@
                     
 
             </Grid>
-            <StackPanel Grid.Row="2">
+
+            <Border
+                 Margin="0 20 22 0"
+                Grid.Row="2"
+                Background="White"
+                CornerRadius="10"
+                >
+                
+            <StackPanel 
+
+                
+               >
                 <TextBlock
                         FontSize="28"
                         FontWeight="Medium"
                         >EMPLOYEE</TextBlock>
 
                 <ListView
+                    
                     ItemsSource="{Binding Employees}"
                     >
+                    <ListView.ItemsPanel>
+    <ItemsPanelTemplate>
+        <WrapPanel Orientation="Horizontal"></WrapPanel>
+    </ItemsPanelTemplate>
+</ListView.ItemsPanel>
+                    
                     <ListView.ItemTemplate>
                         <DataTemplate>
                              <Border
@@ -292,6 +333,7 @@
                 </ListView>
                 
                            </StackPanel>
+                           </Border>
         </Grid>
 
         <Border
@@ -388,6 +430,12 @@
                         ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                         ItemsSource="{Binding Products}"
                         >
+                         <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                 </ListView.ItemContainerStyle>
+
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                   <Border
@@ -399,16 +447,19 @@
                          <StackPanel
                         
                         Orientation="Horizontal">
-                             
-                              <TextBlock
+
+                                        <TextBlock
                             Width="30"
+                                            Margin="10 0 0 0"
                             FontSize="30"
                             VerticalAlignment="Center"
-                            >1</TextBlock>
+                            Text="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                         AncestorType={x:Type ListViewItem}}, 
+                                         Converter={StaticResource getIndex}}"/>
 
-                             
-                             
-                        <Image 
+
+
+                                        <Image 
                             Margin="10 0 10 0"
                             Height="68"
                             Source="../img/src/login.png"/>
@@ -422,7 +473,7 @@
                                 <TextBlock
                                     FontSize="22"
                                     Foreground="#F24A72"
-                                    Text="{Binding Stroke}"
+                                    Text="{Binding Sales}"
                                     />
                             </StackPanel>
                     </StackPanel>

@@ -256,9 +256,22 @@
     <Compile Include="Migrations\202204220111226_UpdateEmployeeLogin.Designer.cs">
       <DependentUpon>202204220111226_UpdateEmployeeLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204230240270_addimgBook.cs" />
+    <Compile Include="Migrations\202204230240270_addimgBook.Designer.cs">
+      <DependentUpon>202204230240270_addimgBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204230730281_authorBook.cs" />
+    <Compile Include="Migrations\202204230730281_authorBook.Designer.cs">
+      <DependentUpon>202204230730281_authorBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204230735534_dateBook.cs" />
+    <Compile Include="Migrations\202204230735534_dateBook.Designer.cs">
+      <DependentUpon>202204230735534_dateBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Command\RelayCommand.cs" />
+    <Compile Include="ViewModel\Converter\IndexConverter.cs" />
     <Compile Include="ViewModel\DashboardViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -482,10 +495,28 @@
     <EmbeddedResource Include="Migrations\202204220111226_UpdateEmployeeLogin.resx">
       <DependentUpon>202204220111226_UpdateEmployeeLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204230240270_addimgBook.resx">
+      <DependentUpon>202204230240270_addimgBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204230730281_authorBook.resx">
+      <DependentUpon>202204230730281_authorBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204230735534_dateBook.resx">
+      <DependentUpon>202204230735534_dateBook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="img\store\meow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\store\aka.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\store\mask.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="ImportData\Book.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

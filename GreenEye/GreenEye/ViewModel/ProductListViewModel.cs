@@ -24,6 +24,8 @@ namespace GreenEye.ViewModel
         public ObservableCollection<string> AllName { get; set; }
 
 
+        private BaseViewModel _viewmodel { get; set; }
+
         private string _categorySelected;
 
         public string CategorySelected
@@ -92,6 +94,7 @@ namespace GreenEye.ViewModel
         public RelayCommand FirstCommand { get; set; }
         public RelayCommand LastCommand { get; set; }
         public RelayCommand SearchCommand { get; set; }
+        public RelayCommand AddCommand { get; set; }
 
          int totalItem = 0;
         int itemPerPage = 3;
@@ -104,7 +107,7 @@ namespace GreenEye.ViewModel
         // Constructor
 
 
-        public ProductListViewModel()
+        public ProductListViewModel(BaseViewModel viewModel)
         {
             Books = new ObservableCollection<Book>(_prodcutDAO.getAll());
             initPaging();
@@ -113,17 +116,26 @@ namespace GreenEye.ViewModel
             FirstCommand = new RelayCommand(firstCommand, null);
             LastCommand = new RelayCommand(lastCommand, null);
             SearchCommand = new RelayCommand(seachCommand, null);
+            AddCommand = new RelayCommand(addCommand, null);
 
             Category = new ObservableCollection<string>(_bookTypeDAO.getAll());
             AllName = new ObservableCollection<string>(_prodcutDAO.getName());
 
             SearchVisibility = "Hidden";
 
+            _viewmodel = viewModel as NavigateViewModel;
+
  
         }
 
 
         //method
+        
+     
+        private void addCommand(object x)
+        {
+            (_viewmodel as NavigateViewModel).goToAddProduct(x);
+        }
 
         private void setCategory()
         {

@@ -40,15 +40,15 @@
 
                 <Border BorderThickness="1" BorderBrush="#00B3AC" CornerRadius="5" Height="50" Grid.Column="1">
 
-                    <TextBox></TextBox>
+                    <TextBox Text="{Binding Name}"></TextBox>
 
                 </Border>
 
-                <TextBlock VerticalAlignment="Center" Grid.Column="2" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="20" Margin="10 10 0 10">Email Address:</TextBlock>
+                <TextBlock VerticalAlignment="Center" Grid.Column="2" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="20" Margin="10 10 0 10">Email:</TextBlock>
 
                 <Border BorderThickness="1"   BorderBrush="#00B3AC" CornerRadius="5" Height="50" Grid.Column="3">
 
-                    <TextBox></TextBox>
+                    <TextBox Text="{Binding Email}"></TextBox>
 
                 </Border>
 
@@ -56,7 +56,15 @@
 
                 <Border BorderThickness="1" Grid.Row="1" BorderBrush="#00B3AC" CornerRadius="5" Height="50" Grid.Column="1">
 
-                    <TextBox></TextBox>
+                    <TextBox Text="{Binding Phone}"></TextBox>
+
+                </Border>
+
+                <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="20" Margin="10 10 0 10">Address:</TextBlock>
+
+                <Border BorderThickness="1" Grid.Row="1" BorderBrush="#00B3AC" CornerRadius="5" Height="50" Grid.Column="3">
+
+                    <TextBox Text="{Binding Address}"></TextBox>
 
                 </Border>
 

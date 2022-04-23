@@ -19,5 +19,11 @@ namespace GreenEye.DataAccess.DAO
             return new ObservableCollection<Customer>(user);
            
         }
+
+        public void insertOne (Customer customer)
+        {
+            Database.Customers.Add(customer);
+            Database.SaveChanges();
+        }
     }
 }

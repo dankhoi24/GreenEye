@@ -9,15 +9,8 @@ namespace GreenEye.ViewModel.Discount
 {
     public class DiscountManagementViewModel : BaseViewModel
     {
-        public DiscountManagementViewModel(BaseViewModel currentViewModel)
-        {
-            CurrentViewModel = currentViewModel;
-        }
-
         public DiscountManagementViewModel(NavigateStore navigateStore)
         {
         }
-
-        public BaseViewModel CurrentViewModel { get; set; }
     }
 }

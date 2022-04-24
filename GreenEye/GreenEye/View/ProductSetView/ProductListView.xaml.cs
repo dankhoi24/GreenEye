@@ -24,5 +24,15 @@ namespace GreenEye.View.ProductSetView
         {
             InitializeComponent();
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void openContexMenu(object sender, RoutedEventArgs e)
+        {
+            (sender as ContextMenu).DataContext = ProductWindow.DataContext;
+        }
     }
 }

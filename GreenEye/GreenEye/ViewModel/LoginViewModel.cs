@@ -15,6 +15,9 @@ namespace GreenEye.ViewModel
     public class LoginViewModel : BaseViewModel
     {
 
+
+        private BaseViewModel _viewModel { get; set; }
+
         private string _username;
         public string Username
         {
@@ -75,13 +78,15 @@ namespace GreenEye.ViewModel
         public RelayCommand LoginCommand { get; set; }
         public RelayCommand MouseDownCommand { get; set; }
 
-        public LoginViewModel()
+        public LoginViewModel(BaseViewModel viewmodel)
         {
             LoginCommand = new RelayCommand(loginCommand,null);
             MouseDownCommand = new RelayCommand(mouseDownCommand, null);
             VisibilityWarining = "Hidden";
             VisibilitySuggest = "Hidden";
             AllUserName  = employeeDAO.getSuggestUsername();
+
+            _viewModel = viewmodel as MainViewModel;
                 
         
         }
@@ -135,6 +140,8 @@ namespace GreenEye.ViewModel
                     {
                         employeeDAO.updateUserRemember(Username);
                     }
+
+                    (_viewModel as MainViewModel).goToNavigate();
 
 
                     return;

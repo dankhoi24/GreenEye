@@ -17,6 +17,15 @@ namespace GreenEye.DataAccess.Domain
         public string Name { get; set; }
         [StringLength(200)]
         public string Publisher { get; set; }
+
+        [StringLength(200)]
+        public string Author { get; set; }
+
+        public DateTime Date { get; set; }
+
+
+        [StringLength(200)]
+        public string Img { get; set; }
         public decimal ImportPrice { get; set; }
         public decimal ExportPrice { get; set; }
         public int Stroke { get; set; }
@@ -30,6 +39,7 @@ namespace GreenEye.DataAccess.Domain
         public virtual BookType BookType { get; set;}
 
         public virtual List<Order_Book> Order_Books { get; set; }
+        public virtual List<Inventory> Inventories { get; set; }
         
         
         

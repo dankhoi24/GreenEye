@@ -57,6 +57,7 @@
                         Kind="HomeCircleOutline" />
 
                     <Button
+                    Command="{Binding InventoryCommand}"
                     FontSize="25"
                     FontWeight="Medium"
                       Style="{StaticResource MaterialDesignOutlinedDarkButton}"

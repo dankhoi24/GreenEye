@@ -25,6 +25,7 @@ namespace GreenEye.DataAccess
         public DbSet<Bill> Bills { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
 
 
         public BookStoreContext(): base("name = ConnectionString")

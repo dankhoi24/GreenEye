@@ -39,5 +39,10 @@ namespace GreenEye.DataAccess.DAO
             }
             
         }
+
+        public List<Employee> getAll()
+        {
+            return Database.Employees.Select(x => x).ToList();
+        }
     }
 }

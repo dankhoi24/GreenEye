@@ -15,7 +15,7 @@
             TextOptions.TextRenderingMode="Auto"
             Background="{DynamicResource MaterialDesignPaper}"
             FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid Background="#EBEEF5">
+    <Grid Background="#EBEEF5" Margin="10 0 10 0">
         <Grid.RowDefinitions>
             <RowDefinition Height="150"></RowDefinition>
             <RowDefinition  Height="150"></RowDefinition>
@@ -26,7 +26,7 @@
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Border Margin="0 20 20 20" Background="White" BorderThickness="2" BorderBrush="Snow" CornerRadius="0 10 10 0">
+        <Border Panel.ZIndex="2" Margin="0 20 20 20" Background="White" BorderThickness="2" BorderBrush="Snow" CornerRadius="0 10 10 0">
             <StackPanel Margin="5 5 5 5">
                 <Label FontSize="14"
                        FontWeight="Bold">
@@ -36,17 +36,64 @@
                 <DockPanel LastChildFill="True" Margin="0 20 0 0">
                     <Button DockPanel.Dock="Right" Margin="50 0 0 0" Background="#00B3AC" Content="ADD NEW CUSTOMER"></Button>
 
+                    <Canvas x:Name="SearchListCustomer"  Grid.Row="4"  Margin="2 2 2 2" Background="Black" Panel.ZIndex="2" Visibility="Hidden">
+                        <ScrollViewer Background="LightGray">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="3">
+                                <ListView  Background="Black"
+                          Width="800"
+                          Height="200"
+      
+                SelectedItem="{Binding SelectSearchProduct,Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                
+                ItemsSource="{Binding ProductSearchList}"
+                >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border BorderThickness="1" BorderBrush="Violet" Margin="0 0 0 3" CornerRadius="3">
+                                                <Grid Margin="5 5 5 5" Width="700">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="1*"></RowDefinition>
+                                                        <RowDefinition Height="5*"></RowDefinition>
+                                                        <RowDefinition Height="5*"></RowDefinition>
+                                                    </Grid.RowDefinitions>
+
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="6*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Image Grid.Row="1" Grid.RowSpan="2" Source="{Binding ImageURL}" Height="60"></Image>
+                                                    <TextBlock  Grid.Row="1" FontWeight="Bold" Grid.Column="1" Text="{Binding ProductName}"></TextBlock>
+                                                    <TextBlock Foreground="red" Grid.Column="1" Grid.Row="2" Text="{Binding CostPrice}"></TextBlock>
+                                                </Grid>
+                                            </Border>
+
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Border>
+
+                        </ScrollViewer>
+                    </Canvas>
+
+
+
                     <Border BorderThickness="1" BorderBrush="#00B3AC" CornerRadius="5">
                      
-                    <TextBox DockPanel.Dock="Left"></TextBox>
+                    <TextBox DockPanel.Dock="Left" LostFocus="AddCustomerLostfocus" GotFocus="AddCustomerFocus"></TextBox>
+                       
                     </Border>
 
+                   
                 </DockPanel>
 
             </StackPanel>
-        </Border>   
+        </Border>
 
-        <Border Margin="0 20 20 20" Background="White" Grid.Row="1" BorderThickness="2" BorderBrush="Snow" CornerRadius="0 10 10 0">
+        <Border Panel.ZIndex="1" Margin="0 20 20 20" Background="White" Grid.Row="1" BorderThickness="2" BorderBrush="Snow" CornerRadius="0 10 10 0">
             <StackPanel Margin="5 5 5 5">
                 <Label FontSize="14"
                        FontWeight="Bold">
@@ -56,17 +103,64 @@
                 <DockPanel LastChildFill="True" Margin="0 20 0 0">
                     <Button DockPanel.Dock="Right" Margin="50 0 0 0" Background="#00B3AC" Content="ADD NEW PRODUCT"></Button>
 
+                    <Canvas x:Name="SearchListProduct"  Grid.Row="4"  Margin="2 2 2 2" Background="Black" Panel.ZIndex="2" Visibility="Hidden">
+                        <ScrollViewer Background="LightGray">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="3">
+                                <ListView  Background="Black"
+                          Width="800"
+                          Height="200"
+      
+                SelectedItem="{Binding SelectSearchProduct,Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                
+                ItemsSource="{Binding ProductSearchList}"
+                >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border BorderThickness="1" BorderBrush="Violet" Margin="0 0 0 3" CornerRadius="3">
+                                                <Grid Margin="5 5 5 5" Width="700">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="1*"></RowDefinition>
+                                                        <RowDefinition Height="5*"></RowDefinition>
+                                                        <RowDefinition Height="5*"></RowDefinition>
+                                                    </Grid.RowDefinitions>
+
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="6*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Image Grid.Row="1" Grid.RowSpan="2" Source="{Binding ImageURL}" Height="60"></Image>
+                                                    <TextBlock  Grid.Row="1" FontWeight="Bold" Grid.Column="1" Text="{Binding ProductName}"></TextBlock>
+                                                    <TextBlock Foreground="red" Grid.Column="1" Grid.Row="2" Text="{Binding ExportPrice}"></TextBlock>
+                                                </Grid>
+                                            </Border>
+
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Border>
+
+                        </ScrollViewer>
+                    </Canvas>
+
+
+
                     <Border BorderThickness="1" BorderBrush="#00B3AC" CornerRadius="5">
 
-                        <TextBox DockPanel.Dock="Left"></TextBox>
+                        <TextBox DockPanel.Dock="Left" LostFocus="AddProductLostfocus" GotFocus="AddProductFocus"></TextBox>
                     </Border>
+
+                    
 
                 </DockPanel>
 
             </StackPanel>
         </Border>
 
-        <Border Margin="0 20 20 0" Background="White" Grid.Row="2" BorderThickness="2" BorderBrush="Snow" CornerRadius="0 10 10 0">
+        <Border  Margin="0 20 20 0" Background="White" Grid.Row="2" BorderThickness="2" BorderBrush="Snow" CornerRadius="0 10 10 0">
 
             <StackPanel Orientation="Vertical" Margin="50 50 50 0">
                 <Border BorderThickness="1" BorderBrush="#00B3AC" CornerRadius="10">

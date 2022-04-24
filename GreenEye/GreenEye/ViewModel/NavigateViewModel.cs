@@ -1,5 +1,12 @@
 ﻿using GreenEye.ViewModel.Command;
 using System;
+﻿using GreenEye.Store;
+using GreenEye.ViewModel.Command;
+using GreenEye.ViewModel.CustomerViewModel;
+using GreenEye.ViewModel.Discount;
+using GreenEye.ViewModel.Employee;
+using GreenEye.ViewModel.Order;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,46 +16,57 @@ namespace GreenEye.ViewModel
 {
     public class NavigateViewModel: BaseViewModel
     {
-        public BaseViewModel CurrentViewModel { get; set; }
+        public RelayCommand OrderNavigateCommand { get; set; }
+        public RelayCommand CustomerNavigateCommand { get; set; }
+        public RelayCommand EmployeeNavigateCommand { get; set; }
+        public RelayCommand DiscountNavigateCommand { get; set; }
 
 
         public RelayCommand DashboardCommand { get; set; }
         public RelayCommand ProductCommand { get; set; }
         public RelayCommand ReportCommand{ get; set; }
 
+        public NavigateStore NavigateStore { get; set; }
+        public BaseViewModel CurrentViewModel => NavigateStore.CurrentViewModel;
+        
+
         public NavigateViewModel()
         {
-            CurrentViewModel = new DashboardViewModel();
-            DashboardCommand = new RelayCommand(goToDashBoard, null);
-            ProductCommand = new RelayCommand(goToProduct, null);
-            ReportCommand = new RelayCommand(goToReport, null);
+            NavigateStore = new NavigateStore();
+            NavigateStore.CurrentViewModel = new DashboardViewModel(NavigateStore);
+
+            NavigateStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+
+            OrderNavigateCommand = new RelayCommand(OrderNavigate, null);
+            CustomerNavigateCommand = new RelayCommand(CustomerNavigate, null);
+            EmployeeNavigateCommand = new RelayCommand(EmployeeNavigate, null);
+            DiscountNavigateCommand = new RelayCommand(DiscountNavigate, null);
+
         }
 
-
-        public void goToDashBoard(object x)
+        private void OnCurrentViewModelChanged()
         {
-            CurrentViewModel = new DashboardViewModel();
+            onPropertyChanged(nameof(CurrentViewModel));
         }
 
-
-        public void goToProduct(object x)
+        private void DiscountNavigate(object obj)
         {
-            CurrentViewModel = new ProductListViewModel(this);
+            NavigateStore.CurrentViewModel = new DiscountManagementViewModel(NavigateStore);
         }
 
-         public void goToAddProduct(object x)
+        private void EmployeeNavigate(object obj)
         {
-            CurrentViewModel = new ProductAddViewModel(this);
+            NavigateStore.CurrentViewModel = new EmployeeManagementViewModel(NavigateStore);
         }
 
-        public void goToReport(object x)
+        private void CustomerNavigate(object obj)
         {
-            CurrentViewModel = new FormOptionViewModel(this);
-        }
-        public void goToInventoryReport(object x)
-        {
-            CurrentViewModel = new ReportInventoryViewModel();
+            NavigateStore.CurrentViewModel = new CustomerMangagementViewModel(NavigateStore);
         }
 
+        private void OrderNavigate(object obj)
+        {
+            NavigateStore.CurrentViewModel = new OredrManagementViewModel(NavigateStore);
+        }
     }
 }

@@ -18,9 +18,9 @@ namespace GreenEye.View.Customer
     /// <summary>
     /// Interaction logic for CustomerManagementView.xaml
     /// </summary>
-    public partial class CustomerManagementView : UserControl
+    public partial class AddCustomerView : UserControl
     {
-        public CustomerManagementView()
+        public AddCustomerView()
         {
             InitializeComponent();
         }

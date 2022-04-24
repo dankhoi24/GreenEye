@@ -167,13 +167,21 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataAccess\BookStoreContext.cs" />
+<<<<<<< HEAD
     <Compile Include="DataAccess\DAO\BookTypeDAO.cs" />
     <Compile Include="DataAccess\DAO\CustomerDAO.cs" />
     <Compile Include="DataAccess\DAO\DebitBookDAO.cs" />
     <Compile Include="DataAccess\DAO\EmployeeDAO.cs" />
     <Compile Include="DataAccess\DAO\InventoryDAO.cs" />
     <Compile Include="DataAccess\DAO\OrderDAO.cs" />
+=======
+    <Compile Include="DataAccess\DAO\CustomerDAO.cs" />
+    <Compile Include="DataAccess\DAO\EmployeeDAO.cs" />
+    <Compile Include="DataAccess\DAO\OrderDAO.cs" />
+    <Compile Include="DataAccess\DAO\Order_BookDAO.cs" />
+>>>>>>> VDPhuc
     <Compile Include="DataAccess\DAO\ProductDAO.cs" />
+    <Compile Include="DataAccess\DAO\PromotionDAO.cs" />
     <Compile Include="DataAccess\Domain\Bill.cs" />
     <Compile Include="DataAccess\Domain\Book.cs" />
     <Compile Include="DataAccess\Domain\BookType.cs" />
@@ -284,6 +292,7 @@
       <DependentUpon>202204240232416_decimelChange.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+<<<<<<< HEAD
     <Compile Include="Model\ReportBill.cs" />
     <Compile Include="Model\ReportInventory.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
@@ -291,9 +300,23 @@
     <Compile Include="ViewModel\Converter\IndexConverter.cs" />
     <Compile Include="ViewModel\DashboardViewModel.cs" />
     <Compile Include="ViewModel\FormOptionViewModel.cs" />
+=======
+    <Compile Include="Store\NavigateStore.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Command\RelayCommand.cs" />
+    <Compile Include="ViewModel\CustomerViewModel\AddNewCustomerViewModel.cs" />
+    <Compile Include="ViewModel\CustomerViewModel\CustomerMangagementViewModel.cs" />
+    <Compile Include="ViewModel\DashboardViewModel.cs" />
+    <Compile Include="ViewModel\Discount\AddNewDiscountViewModel.cs" />
+    <Compile Include="ViewModel\Discount\DiscountManagementViewModel.cs" />
+    <Compile Include="ViewModel\Employee\AddNewEmployeeViewModel.cs" />
+    <Compile Include="ViewModel\Employee\EmployeeManagementViewModel.cs" />
+>>>>>>> VDPhuc
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NavigateViewModel.cs" />
+    <Compile Include="ViewModel\Order\AddNewOrderViewModel.cs" />
+    <Compile Include="ViewModel\Order\OredrManagementViewModel.cs" />
     <Compile Include="ViewModel\PasswordHelper.cs" />
     <Compile Include="ViewModel\ProductAddViewModel.cs" />
     <Compile Include="ViewModel\ProductListViewModel.cs" />
@@ -592,14 +615,14 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets'))" />
     <Error Condition="!Exists('..\packages\Fody.6.5.1\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.5.1\build\Fody.targets'))" />
     <Error Condition="!Exists('..\packages\PropertyChanged.Fody.3.4.0\build\PropertyChanged.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PropertyChanged.Fody.3.4.0\build\PropertyChanged.Fody.props'))" />
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets'))" />
   </Target>
   <Import Project="..\packages\Fody.6.5.1\build\Fody.targets" Condition="Exists('..\packages\Fody.6.5.1\build\Fody.targets')" />
+  <Import Project="..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets')" />
 </Project>

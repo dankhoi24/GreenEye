@@ -164,11 +164,50 @@
                         BorderThickness="0"
                         Foreground="#00B3AC"
                         materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                        Command="{Binding OrderNavigateCommand}"
                         >
                         Order
                     </Button>
                     <Button
-                        Command="{Binding ReportCommand}"
+
+                        Margin="0 5"
+                        FontSize="26"
+                        Style="{StaticResource MaterialDesignPaperLightButton}"
+                        Background="White"
+                        BorderThickness="0"
+                        Foreground="#00B3AC"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                        Command="{Binding DiscountNavigateCommand}"
+                        >
+                        Discount
+                    </Button>
+                    <Button
+
+                        Margin="0 5"
+                        FontSize="26"
+                        Style="{StaticResource MaterialDesignPaperLightButton}"
+                        Background="White"
+                        BorderThickness="0"
+                        Foreground="#00B3AC"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                        Command="{Binding CustomerNavigateCommand}"
+                        >
+                        Customer
+                    </Button>
+                    <Button
+
+                        Margin="0 5"
+                        FontSize="26"
+                        Style="{StaticResource MaterialDesignPaperLightButton}"
+                        Background="White"
+                        BorderThickness="0"
+                        Foreground="#00B3AC"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                        Command="{Binding EmployeeNavigateCommand}"
+                        >
+                        Employee
+                    </Button>
+                    <Button
                       Style="{StaticResource MaterialDesignPaperLightButton}"
 
                         Margin="0 5"

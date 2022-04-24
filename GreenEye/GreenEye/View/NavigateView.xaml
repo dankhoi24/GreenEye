@@ -50,7 +50,11 @@
         <DataTemplate DataType="{x:Type viewmodels:SettingViewModel}">
             <views:SettingView/>
         </DataTemplate>
-    </Control.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:FormOptionViewModel}">
+            <viewsReport:ReportOptionView/>
+        </DataTemplate>
+
+           </Control.Resources>
 
 
     <StackPanel>
@@ -164,6 +168,7 @@
                         Order
                     </Button>
                     <Button
+                        Command="{Binding ReportCommand}"
                       Style="{StaticResource MaterialDesignPaperLightButton}"
 
                         Margin="0 5"

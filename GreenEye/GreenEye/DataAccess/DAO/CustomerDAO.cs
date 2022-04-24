@@ -20,6 +20,7 @@ namespace GreenEye.DataAccess.DAO
         {
             return Database.Customers.Select(x => x).OrderByDescending(t => t.Coin).Take(count).ToList();
 
+
         }
 
     }

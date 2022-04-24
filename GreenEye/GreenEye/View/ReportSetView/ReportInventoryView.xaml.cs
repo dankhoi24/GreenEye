@@ -25,10 +25,6 @@ namespace GreenEye.View.ReportSetView
             InitializeComponent();
         }
 
-       
-          private void dteSelectedMonth_DisplayModeChanged(object sender, CalendarModeChangedEventArgs e)
-    {
-        dteSelectedMonth.DisplayMode = CalendarMode.Year;
-    }
+
     }
 }

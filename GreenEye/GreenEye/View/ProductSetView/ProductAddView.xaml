@@ -76,6 +76,39 @@
                             Width="340"/>
                         </Border>
                     </StackPanel>
+                    
+                    
+                    
+                    
+                     <Separator Opacity="0" Height="20"/>
+                    
+                     <StackPanel 
+                Height="50"
+                Orientation="Horizontal">
+                        <TextBlock
+                    FontSize="22"
+                    Width="230"
+                    HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                    FontWeight="Medium"
+                    >Book Type</TextBlock>
+
+                        <Border
+                      CornerRadius="5"
+                        BorderBrush="#00B3AC"
+                        BorderThickness="2"
+
+
+                    >
+                            <ComboBox
+                            SelectedItem="{Binding ItemSelected, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                            ItemsSource="{Binding BookTypes}"
+                            FontSize="22"
+                            VerticalAlignment="Bottom"
+                            Width="340" Margin="0,0,0,6"/>
+                        </Border>
+                    </StackPanel>
+
 
                     <Separator Opacity="0" Height="20"/>
 
@@ -252,6 +285,11 @@
                         </Border>
                     </StackPanel>
 
+                    
+                    
+                   
+
+                    <Separator Opacity="0" Height="20"/>
 
                 </StackPanel>
 

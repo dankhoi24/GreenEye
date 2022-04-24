@@ -5,11 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GreenEye.View.ProductSetView"
              mc:Ignorable="d" 
+             x:Name="ProductWindow"
              d:DesignHeight="693" d:DesignWidth="1366"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+
              
-             
-                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
             TextElement.FontWeight="Regular"
             TextElement.FontSize="13"
             TextOptions.TextFormattingMode="Ideal"
@@ -235,13 +237,19 @@
             </Grid>
             <StackPanel >
                 <ListView
+                x:Name="listView1"
                     Height="340"
                     ScrollViewer.VerticalScrollBarVisibility="Hidden"
                     ItemsSource="{Binding PrepersentPage }">
+                    
+                                        
+                  
+                                    
+                    
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                    </Style>
+                        </Style>
                  </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -253,9 +261,17 @@
                         BorderBrush="#00B3AC"
                         BorderThickness="2"
 
-                        >
+                        >                                 
 
                     <Grid Height="120">
+                                    <Grid.ContextMenu>
+                                        <ContextMenu Opened="openContexMenu" >
+                                            <MenuItem Header="Edit" Command="{Binding EditCommand}">
+                                </MenuItem>
+                            </ContextMenu>
+
+                                    </Grid.ContextMenu>
+                                                      
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="1*"/>

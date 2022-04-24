@@ -14,12 +14,14 @@ namespace GreenEye.ViewModel
 
         public RelayCommand DashboardCommand { get; set; }
         public RelayCommand ProductCommand { get; set; }
+        public RelayCommand ReportCommand{ get; set; }
 
         public NavigateViewModel()
         {
             CurrentViewModel = new DashboardViewModel();
             DashboardCommand = new RelayCommand(goToDashBoard, null);
             ProductCommand = new RelayCommand(goToProduct, null);
+            ReportCommand = new RelayCommand(goToReport, null);
         }
 
 
@@ -37,6 +39,15 @@ namespace GreenEye.ViewModel
          public void goToAddProduct(object x)
         {
             CurrentViewModel = new ProductAddViewModel(this);
+        }
+
+        public void goToReport(object x)
+        {
+            CurrentViewModel = new FormOptionViewModel(this);
+        }
+        public void goToInventoryReport(object x)
+        {
+            CurrentViewModel = new ReportInventoryViewModel();
         }
 
     }

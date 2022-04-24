@@ -13,26 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GreenEye.View.ProductSetView
+namespace GreenEye.View.ReportSetView
 {
     /// <summary>
-    /// Interaction logic for ProductListView.xaml
+    /// Interaction logic for ReportBillVIew.xaml
     /// </summary>
-    public partial class ProductListView : UserControl
+    public partial class ReportBillVIew : UserControl
     {
-        public ProductListView()
+        public ReportBillVIew()
         {
             InitializeComponent();
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void openContexMenu(object sender, RoutedEventArgs e)
-        {
-            (sender as ContextMenu).DataContext = ProductWindow.DataContext;
         }
     }
 }

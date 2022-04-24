@@ -24,5 +24,10 @@ namespace GreenEye.View.DiscountSetViews
         {
             InitializeComponent();
         }
+
+        private void openContexMenu(object sender, RoutedEventArgs e)
+        {
+            ((ContextMenu)sender).DataContext = DiscountMangementWindow.DataContext;
+        }
     }
 }

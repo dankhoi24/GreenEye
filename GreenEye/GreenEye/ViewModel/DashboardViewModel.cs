@@ -1,9 +1,13 @@
 ﻿using GreenEye.DataAccess.DAO;
+<<<<<<< HEAD
 using GreenEye.DataAccess.Domain;
 using GreenEye.ViewModel.Command;
 using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
+=======
+using GreenEye.Store;
+>>>>>>> VDPhuc
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,6 +21,7 @@ namespace GreenEye.ViewModel
     public class DashboardViewModel: BaseViewModel
     {
         public int TotalProduct { get; set; }
+<<<<<<< HEAD
         public int TotalOrder { get; set; }
         public int TotalCustomer { get; set; }
 
@@ -26,6 +31,10 @@ namespace GreenEye.ViewModel
         public SeriesCollection ChartData { get; set; } = new LiveCharts.SeriesCollection();
 
 
+=======
+        public BaseViewModel CurrentViewModel { get; }
+        public NavigateStore NavigateStore { get; }
+>>>>>>> VDPhuc
 
         private ProductDAO _productDAO = new ProductDAO();
         private OrderDAO _orderDAO = new OrderDAO();
@@ -108,6 +117,16 @@ namespace GreenEye.ViewModel
 
             }
            
+        }
+
+        public DashboardViewModel(BaseViewModel currentViewModel)
+        {
+            CurrentViewModel = currentViewModel;
+        }
+
+        public DashboardViewModel(NavigateStore navigateStore)
+        {
+            NavigateStore = navigateStore;
         }
     }
 }

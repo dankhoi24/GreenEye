@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GreenEye.DataAccess.Domain;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +13,15 @@ namespace GreenEye.DataAccess.DAO
     {
         BookStoreContext Database = new BookStoreContext();
 
-        public int getCount()
+        internal void deleteOne(Order selectedOrder)
         {
-            return Database.Orders.Count();
+            throw new NotImplementedException();
+        }
+
+        public ObservableCollection<Order> getAll()
+        {
+            var orderWithCustomerAndProductAndPromotion = Database.Orders.ToList();
+            return new ObservableCollection<Order>(orderWithCustomerAndProductAndPromotion);
         }
     }
 }

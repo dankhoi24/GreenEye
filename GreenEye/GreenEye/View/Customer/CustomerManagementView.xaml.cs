@@ -18,11 +18,15 @@ namespace GreenEye.View.Customer
     /// <summary>
     /// Interaction logic for AddCustomerView.xaml
     /// </summary>
-    public partial class AddCustomerView : UserControl
+    public partial class CustomerManagementView : UserControl
     {
-        public AddCustomerView()
+        public CustomerManagementView()
         {
             InitializeComponent();
+        }
+        private void openContexMenu(object sender, RoutedEventArgs e)
+        {
+            ((ContextMenu)sender).DataContext = CustomerManagementWindow.DataContext;
         }
     }
 }

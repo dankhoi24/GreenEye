@@ -142,6 +142,7 @@
 
                         
                         <TextBox
+                            Text="{Binding Searching, UpdateSourceTrigger=PropertyChanged}"
                             Width="800"
                             FontSize="22"
                             />
@@ -185,22 +186,67 @@
 
             </StackPanel>
   </materialDesign:Card>
-        
-        
-        
+
+
+        <StackPanel
+            
+        Grid.Row="2"
+
+            
+            >
+            <Canvas Margin="100 0"
+                    
+                    Panel.ZIndex="1000"
+                    Visibility="{Binding Visibility}"
+                    >
+                <ListView
+                    ItemsSource="{Binding Suggest}"
+                    SelectedItem="{Binding SelectedSuggest}"
+                    >
+                  
+                    <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                 </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                FontSize="22"
+                                Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Canvas>
+
+            
+            
+            
+            
+            
         <materialDesign:Card
 
-                        Height="335"
-        Grid.Row="2"
-  Margin="100 0"
+                 Height="335"
+
+                     Margin="100 0"
   UniformCornerRadius="6">
+            
             <StackPanel
                 Margin="100 30"
                 >
-                
-                
-                
-                 <Border
+
+                    <ListView
+                        ItemsSource="{Binding Products}"
+                        >
+                         <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                 </ListView.ItemContainerStyle>
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                 <Border
                         
                          CornerRadius="5"
                         Height="100"
@@ -231,12 +277,12 @@
 
                                     FontSize="22"
                                     FontWeight="Medium"
-                                    Text="No one know that thing"
+                                    Text="{Binding Name}"
                                     />
                                 <TextBlock
                                     FontSize="22"
                                     Foreground="#F24A72"
-                                    Text="12.000 vnd"
+                                    Text="{Binding ExportPrice}"
                                     />
                             </StackPanel>
                     </StackPanel>
@@ -268,25 +314,30 @@
                                 
                             <StackPanel Orientation="Horizontal">
                                 
-                            <TextBox
-                                TextAlignment="Right"
-                                Text="1"
-                                FontSize="22"
+                            
+                                <ComboBox
+                                    
+                                    SelectedValue="{Binding Path =Publisher,UpdateSourceTrigger=PropertyChanged}"
+                                    SelectedValuePath="Content"
+                                     FontSize="22"
                                 Width="220"
                                 Height="30"
-
-                                />
-
-                                <ComboBox
+                                    IsEditable="True"
+                                   
+                                    Name="AmountComboBox"
                                  >
                                   <ComboBoxItem
-                                    Content="Android" />
+                                      IsSelected="True"
+                                    Content="1" />
                                   <ComboBoxItem
-                                    Content="iOS" />
+                                    Content="2" />
                                   <ComboBoxItem
-                                    Content="Linux" />
+                                    Content="4" />
                                   <ComboBoxItem
-                                    Content="Windows" />
+                                    Content="5" />
+                                     <ComboBoxItem
+                                    Content="10" />
+
                                 </ComboBox>
 
 
@@ -300,8 +351,16 @@
                 </Grid>
                      
                     </Border>
-            </StackPanel>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                
+                
+                            </StackPanel>
  </materialDesign:Card>
+
+        </StackPanel>
 
 
         <StackPanel 

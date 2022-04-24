@@ -9,6 +9,7 @@
                xmlns:views="clr-namespace:GreenEye.View"
         xmlns:viewsReport="clr-namespace:GreenEye.View.ReportSetView"
         xmlns:viewsProduct="clr-namespace:GreenEye.View.ProductSetView"
+        xmlns:viewsForm="clr-namespace:GreenEye.View.FormSetView"
         xmlns:viewmodels="clr-namespace:GreenEye.ViewModel"
 
 
@@ -45,6 +46,10 @@
         <DataTemplate DataType="{x:Type viewmodels:ReportInventoryViewModel}">
             <viewsReport:ReportInventoryView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ReportBillVIewModel}">
+            <viewsReport:ReportBillVIew/>
+        </DataTemplate>
+
 
 
         <DataTemplate DataType="{x:Type viewmodels:SettingViewModel}">
@@ -53,6 +58,16 @@
         <DataTemplate DataType="{x:Type viewmodels:FormOptionViewModel}">
             <viewsReport:ReportOptionView/>
         </DataTemplate>
+
+          <DataTemplate DataType="{x:Type viewmodels:FormViewmodel}">
+            <viewsForm:FormOptionView/>
+        </DataTemplate>
+         
+          <DataTemplate DataType="{x:Type viewmodels:FormInputBookViewModel}">
+            <viewsForm:FormInputBookView/>
+        </DataTemplate>
+
+
 
            </Control.Resources>
 
@@ -120,7 +135,7 @@
                         DashBoard
                     </Button>
                     <Button
-                      
+                      Command="{Binding ReportCommand}"
                         Margin="0 5"
                         FontSize="26"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
@@ -132,7 +147,7 @@
                         Report
                     </Button>
                     <Button
-
+                        Command="{Binding SettingCommand}"
                         Margin="0 5"
                         FontSize="26"
                       Style="{StaticResource MaterialDesignPaperLightButton}"
@@ -208,6 +223,7 @@
                         Employee
                     </Button>
                     <Button
+                        Command="{Binding FormCommand}"
                       Style="{StaticResource MaterialDesignPaperLightButton}"
 
                         Margin="0 5"

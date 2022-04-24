@@ -57,11 +57,13 @@
                         Kind="HomeCircleOutline" />
 
                     <Button
+                        Command="{Binding GoodsCommand}"
+                    
                     FontSize="25"
                     FontWeight="Medium"
                       Style="{StaticResource MaterialDesignOutlinedDarkButton}"
                       ToolTip="MaterialDesignOutlinedButton"
-                      Content="INPUT BOOK FORM"/>
+                      Content="GOODS RECEIPT"/>
                 </StackPanel>
             </Border>
 

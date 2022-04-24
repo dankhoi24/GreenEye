@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GreenEye.Model
 {
-    class ReportBill
+    public class ReportBill
     {
         public string Name { get; set; }
         public decimal Init { get; set; }

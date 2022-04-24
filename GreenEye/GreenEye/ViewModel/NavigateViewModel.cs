@@ -30,6 +30,8 @@ namespace GreenEye.ViewModel
         public RelayCommand DashboardCommand { get; set; }
         public RelayCommand ProductCommand { get; set; }
         public RelayCommand ReportCommand{ get; set; }
+        public RelayCommand FormCommand { get; set; }
+        public RelayCommand SettingCommand { get; set; }
 
         public NavigateViewModel()
         {
@@ -37,6 +39,9 @@ namespace GreenEye.ViewModel
             DashboardCommand = new RelayCommand(goToDashBoard, null);
             ProductCommand = new RelayCommand(goToProduct, null);
             ReportCommand = new RelayCommand(goToReport, null);
+
+
+            FormCommand = new RelayCommand(goToForm, null);
 
 
               NavigateStore = new NavigateStore();
@@ -48,10 +53,25 @@ namespace GreenEye.ViewModel
                 CustomerNavigateCommand = new RelayCommand(CustomerNavigate, null);
                 EmployeeNavigateCommand = new RelayCommand(EmployeeNavigate, null);
                 DiscountNavigateCommand = new RelayCommand(DiscountNavigate, null);
+            SettingCommand = new RelayCommand(settingCommand, null);
 
             }
+    
 
+        public void settingCommand(object x)
+        {
+            NavigateStore.CurrentViewModel = new SettingViewModel();
 
+        }
+            public void goToInputForm(object x)
+        {
+            NavigateStore.CurrentViewModel = new FormInputBookViewModel(this);
+        }
+            public void goToForm(object x)
+        {
+
+                NavigateStore.CurrentViewModel =  new FormViewmodel(this);
+        }
             public void goToDashBoard(object x)
             {
                 Mycurrent = new DashboardViewModel();
@@ -60,17 +80,18 @@ namespace GreenEye.ViewModel
 
             public void goToProduct(object x)
             {
-                Mycurrent = new ProductListViewModel(this);
+                 NavigateStore.CurrentViewModel = new ProductListViewModel(this);
             }
 
              public void goToAddProduct(object x)
             {
-                Mycurrent = new ProductAddViewModel(this);
+                NavigateStore.CurrentViewModel = new ProductAddViewModel(this);
             }
 
             public void goToReport(object x)
             {
-                Mycurrent = new FormOptionViewModel(this);
+                NavigateStore.CurrentViewModel =  new FormOptionViewModel(this);
+
             }
           
             
@@ -101,8 +122,13 @@ namespace GreenEye.ViewModel
             }
             public void goToInventoryReport(object x)
             {
-                Mycurrent = new ReportInventoryViewModel();
+                 NavigateStore.CurrentViewModel = new ReportInventoryViewModel();
         }
+         public void goToBillReport(object x)
+            {
+                 NavigateStore.CurrentViewModel = new ReportBillVIewModel();
+        }
+
 
     }
 }

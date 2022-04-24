@@ -292,6 +292,7 @@
     <Compile Include="ViewModel\Command\RelayCommand.cs" />
     <Compile Include="ViewModel\Converter\IndexConverter.cs" />
     <Compile Include="ViewModel\DashboardViewModel.cs" />
+    <Compile Include="ViewModel\FormInputBookViewModel.cs" />
     <Compile Include="ViewModel\FormOptionViewModel.cs" />
     <Compile Include="Store\NavigateStore.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
@@ -303,6 +304,7 @@
     <Compile Include="ViewModel\Discount\DiscountManagementViewModel.cs" />
     <Compile Include="ViewModel\Employee\AddNewEmployeeViewModel.cs" />
     <Compile Include="ViewModel\Employee\EmployeeManagementViewModel.cs" />
+    <Compile Include="ViewModel\FormViewmodel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NavigateViewModel.cs" />

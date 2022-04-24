@@ -45,7 +45,6 @@ namespace GreenEye.DataAccess.DAO
             return Database.Books.Count();
         }
 
-<<<<<<< HEAD
 
 
 
@@ -222,11 +221,9 @@ namespace GreenEye.DataAccess.DAO
             return Database.Books.Select(x => x).OrderByDescending(y => y.Sales).ToList();
         }
 
-=======
         public Book getOneByID (int Bookid)
         {
             return Database.Books.Find(Bookid);
         }
->>>>>>> VDPhuc
     }
 }

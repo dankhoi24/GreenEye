@@ -23,5 +23,9 @@ namespace GreenEye.DataAccess.DAO
             var orderWithCustomerAndProductAndPromotion = Database.Orders.ToList();
             return new ObservableCollection<Order>(orderWithCustomerAndProductAndPromotion);
         }
+        public int getCount()
+        {
+            return Database.Orders.Count();
+        }
     }
 }

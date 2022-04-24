@@ -167,19 +167,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataAccess\BookStoreContext.cs" />
-<<<<<<< HEAD
     <Compile Include="DataAccess\DAO\BookTypeDAO.cs" />
     <Compile Include="DataAccess\DAO\CustomerDAO.cs" />
     <Compile Include="DataAccess\DAO\DebitBookDAO.cs" />
     <Compile Include="DataAccess\DAO\EmployeeDAO.cs" />
     <Compile Include="DataAccess\DAO\InventoryDAO.cs" />
     <Compile Include="DataAccess\DAO\OrderDAO.cs" />
-=======
-    <Compile Include="DataAccess\DAO\CustomerDAO.cs" />
-    <Compile Include="DataAccess\DAO\EmployeeDAO.cs" />
-    <Compile Include="DataAccess\DAO\OrderDAO.cs" />
     <Compile Include="DataAccess\DAO\Order_BookDAO.cs" />
->>>>>>> VDPhuc
     <Compile Include="DataAccess\DAO\ProductDAO.cs" />
     <Compile Include="DataAccess\DAO\PromotionDAO.cs" />
     <Compile Include="DataAccess\Domain\Bill.cs" />
@@ -292,7 +286,6 @@
       <DependentUpon>202204240232416_decimelChange.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-<<<<<<< HEAD
     <Compile Include="Model\ReportBill.cs" />
     <Compile Include="Model\ReportInventory.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
@@ -300,7 +293,6 @@
     <Compile Include="ViewModel\Converter\IndexConverter.cs" />
     <Compile Include="ViewModel\DashboardViewModel.cs" />
     <Compile Include="ViewModel\FormOptionViewModel.cs" />
-=======
     <Compile Include="Store\NavigateStore.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Command\RelayCommand.cs" />
@@ -311,7 +303,6 @@
     <Compile Include="ViewModel\Discount\DiscountManagementViewModel.cs" />
     <Compile Include="ViewModel\Employee\AddNewEmployeeViewModel.cs" />
     <Compile Include="ViewModel\Employee\EmployeeManagementViewModel.cs" />
->>>>>>> VDPhuc
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NavigateViewModel.cs" />

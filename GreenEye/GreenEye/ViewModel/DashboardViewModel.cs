@@ -1,13 +1,10 @@
 ﻿using GreenEye.DataAccess.DAO;
-<<<<<<< HEAD
 using GreenEye.DataAccess.Domain;
 using GreenEye.ViewModel.Command;
 using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
-=======
 using GreenEye.Store;
->>>>>>> VDPhuc
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,23 +15,21 @@ using System.Threading.Tasks;
 
 namespace GreenEye.ViewModel
 {
+    using GreenEye.DataAccess;
     public class DashboardViewModel: BaseViewModel
     {
         public int TotalProduct { get; set; }
-<<<<<<< HEAD
         public int TotalOrder { get; set; }
         public int TotalCustomer { get; set; }
 
         public ObservableCollection<Customer> Customers { get; set; }
-        public ObservableCollection<Employee> Employees { get; set; }
+        public ObservableCollection<DataAccess.Domain.Employee> Employees { get; set; }
         public ObservableCollection<Book> Products { get; set; }
         public SeriesCollection ChartData { get; set; } = new LiveCharts.SeriesCollection();
 
 
-=======
         public BaseViewModel CurrentViewModel { get; }
         public NavigateStore NavigateStore { get; }
->>>>>>> VDPhuc
 
         private ProductDAO _productDAO = new ProductDAO();
         private OrderDAO _orderDAO = new OrderDAO();
@@ -63,7 +58,7 @@ namespace GreenEye.ViewModel
             YearCommand = new RelayCommand(yearCommand, null);
 
             Customers = new ObservableCollection<Customer>(_customerDAO.getCustomer(3));
-            Employees = new ObservableCollection<Employee>(_employeeDAO.getAll());
+            Employees = new ObservableCollection<DataAccess.Domain.Employee>(_employeeDAO.getAll());
             Products = new ObservableCollection<Book>(_productDAO.getBook(10));
 
             _productDAO.getBookDay();
@@ -127,6 +122,28 @@ namespace GreenEye.ViewModel
         public DashboardViewModel(NavigateStore navigateStore)
         {
             NavigateStore = navigateStore;
+             TotalProduct = _productDAO.getCount();
+            TotalOrder = _orderDAO.getCount();
+            TotalCustomer = _customerDAO.getCount();
+
+
+            DayCommand = new RelayCommand(dayCommand, null);
+            MonthCommand = new RelayCommand(monthCommand, null);
+            YearCommand = new RelayCommand(yearCommand, null);
+
+            Customers = new ObservableCollection<Customer>(_customerDAO.getCustomer(3));
+            Employees = new ObservableCollection<DataAccess.Domain.Employee>(_employeeDAO.getAll());
+            Products = new ObservableCollection<Book>(_productDAO.getBook(10));
+
+            _productDAO.getBookDay();
+
+
+            
+
+
+
+            initChart();
+
         }
     }
 }

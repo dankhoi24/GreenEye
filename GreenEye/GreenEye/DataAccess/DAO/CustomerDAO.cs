@@ -1,18 +1,14 @@
 ﻿using GreenEye.DataAccess.Domain;
 using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
-=======
 using System.Collections.ObjectModel;
 using System.Data.Entity;
->>>>>>> VDPhuc
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GreenEye.DataAccess.DAO
 {
-<<<<<<< HEAD
     class CustomerDAO
     {
          BookStoreContext Database = new BookStoreContext();
@@ -29,10 +25,6 @@ namespace GreenEye.DataAccess.DAO
 
         }
 
-=======
-    public class CustomerDAO
-    {
-        private BookStoreContext Database = new BookStoreContext();
 
         public ObservableCollection<Customer> getAll()
         {
@@ -83,6 +75,5 @@ namespace GreenEye.DataAccess.DAO
             Database.Customers.Remove(customer);
             Database.SaveChanges();
         }
->>>>>>> VDPhuc
     }
 }

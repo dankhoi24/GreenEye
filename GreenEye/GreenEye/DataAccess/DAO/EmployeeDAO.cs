@@ -40,12 +40,7 @@ namespace GreenEye.DataAccess.DAO
             
         }
 
-<<<<<<< HEAD
-        public List<Employee> getAll()
-        {
-            return Database.Employees.Select(x => x).ToList();
-=======
-        internal ObservableCollection<Employee> getAll()
+              internal ObservableCollection<Employee> getAll()
         {
             var employee = Database.Employees.ToList();
 
@@ -87,7 +82,6 @@ namespace GreenEye.DataAccess.DAO
 
             Database.Entry(entity).CurrentValues.SetValues(employee);
             Database.SaveChanges();
->>>>>>> VDPhuc
         }
     }
 }

@@ -169,9 +169,6 @@
                         Order
                     </Button>
                     <Button
-<<<<<<< HEAD
-                        Command="{Binding ReportCommand}"
-=======
 
                         Margin="0 5"
                         FontSize="26"
@@ -211,7 +208,6 @@
                         Employee
                     </Button>
                     <Button
->>>>>>> VDPhuc
                       Style="{StaticResource MaterialDesignPaperLightButton}"
 
                         Margin="0 5"

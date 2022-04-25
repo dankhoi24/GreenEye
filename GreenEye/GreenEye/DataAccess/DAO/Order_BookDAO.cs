@@ -22,5 +22,10 @@ namespace GreenEye.DataAccess.DAO
         {
             return Database.Order_Books.SingleOrDefault(x => x.OrderId == orderId && x.BookId == bookId).Amount;
         }
+
+        internal void insertOne(Order_Book ob)
+        {
+            Database.Order_Books.Add(ob);
+        }
     }
 }

@@ -27,5 +27,10 @@ namespace GreenEye.DataAccess.DAO
         {
             return Database.Orders.Count();
         }
+
+        internal Order insertOne(Order order)
+        {
+            return Database.Orders.Add(order);
+        }
     }
 }

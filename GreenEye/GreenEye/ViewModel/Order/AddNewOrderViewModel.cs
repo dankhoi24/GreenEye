@@ -21,6 +21,10 @@ namespace GreenEye.ViewModel.Order
 
         //-----------Command------------------
         public RelayCommand DeleteBookInOrderBookCommand { get; set; }
+        public RelayCommand CalcSubtotalCommand { get; set; }
+        public RelayCommand NavigateCancelCommand { get; set; }
+        public RelayCommand NavigateSubmitCommand { get; set; }
+
 
         //-------Customer--------------
         public Customer SelectedSearchCustomer { get; set; }
@@ -37,6 +41,27 @@ namespace GreenEye.ViewModel.Order
         }
 
         //---------------Book--------------
+        private decimal _subtotal;
+        public decimal Subtotal { get {
+                decimal ss = 0;
+                foreach (Book book in BookInOrderList)
+                {
+                    ss += book.AmountInOrder * book.ExportPrice;
+                }
+                return ss;
+            }
+            set
+            {
+                _subtotal = value;
+                onPropertyChanged(nameof(Subtotal));
+            }
+        }
+        private decimal _total;
+        public decimal Total { get { return Subtotal-Discount; } set {_total = value; onPropertyChanged(nameof(Total)); } }
+
+        private decimal _discount = 0;
+        public decimal Discount { get { return _discount; } set { _discount = value; onPropertyChanged(nameof(Discount)); } }
+
         private Book _selectedSearchBook;
         public Book SelectedSearchBook { get => _selectedSearchBook; set
             {
@@ -61,6 +86,7 @@ namespace GreenEye.ViewModel.Order
             }
 
         ProductDAO bookDAO = new ProductDAO();
+        OrderDAO orderDAO = new OrderDAO();
         CustomerDAO customerDAO = new CustomerDAO();
         Order_BookDAO order_BookDAO = new Order_BookDAO();
 
@@ -90,8 +116,16 @@ namespace GreenEye.ViewModel.Order
 
         public AddNewOrderViewModel(NavigateStore navigateStore)
         {
+
+
+
             //-------init book--------
             BookList = bookDAO.getAll();
+
+            foreach (var book in BookList)
+            {
+                book.AmountInOrder = 0;
+            }
             
             BookSearchList = new ObservableCollection<Book>();
 
@@ -111,9 +145,42 @@ namespace GreenEye.ViewModel.Order
 
             //------------init Command---------------
             DeleteBookInOrderBookCommand = new RelayCommand(deleteBookInOrderBook, null);
+            CalcSubtotalCommand = new RelayCommand(calcSubtotal, null);
+            NavigateCancelCommand = new RelayCommand(Cancel, null);
+            NavigateSubmitCommand = new RelayCommand(SubmitAdd, null);
 
 
             NavigateStore = navigateStore;
+        }
+
+        private void SubmitAdd(object obj)
+        {
+            //Order.CustomerId=SelectedSearchCustomer.CustomerId;
+            Order _order= orderDAO.insertOne(Order);
+
+            foreach (Book book in BookList)
+            {
+                bookDAO.decreaseStock(book.BookId, book.AmountInOrder);
+                Order_Book ob = new Order_Book() { OrderId= _order.OrderId, BookId= book.BookId, Amount=book.AmountInOrder };
+                order_BookDAO.insertOne(ob);
+            }
+
+            NavigateStore.CurrentViewModel = new OredrManagementViewModel(NavigateStore);
+        }
+
+        private void Cancel(object obj)
+        {
+            NavigateStore.CurrentViewModel = new OredrManagementViewModel(NavigateStore);
+        }
+
+        private void calcSubtotal(object obj)
+        {
+            decimal ss = 0;
+            foreach (Book book in BookInOrderList)
+            {
+                ss += book.AmountInOrder * book.ExportPrice;
+            }
+            Subtotal = ss;
         }
 
         private void deleteBookInOrderBook(object obj)

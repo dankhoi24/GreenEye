@@ -33,11 +33,7 @@ namespace GreenEye.DataAccess.DAO
             return Database.Books.Where(x => x.Name.Contains(text)).ToList();
         }
 
-        public List<Book> getAll()
-        {
-            return Database.Books.Select(x => x).ToList();
-        }
-
+      
         public List<string> getName()
         {
             return Database.Books.Select(x => x.Name).ToList();
@@ -94,6 +90,12 @@ namespace GreenEye.DataAccess.DAO
 
         }
 
+        internal int getStock(int bookId)
+        {
+            return Database.Books.Find(bookId).Stroke;
+        }
+
+       
         public List<Book> getBookMonth()
         {
 
@@ -218,6 +220,17 @@ namespace GreenEye.DataAccess.DAO
 
           
             return result;
+        }
+
+        internal void decreaseStock(int bookId, int amountInOrder)
+        {
+            Book initBook = Database.Books.Find(bookId);
+            Book book = Database.Books.Find(bookId);
+
+            book.Stroke = book.Stroke - amountInOrder;
+
+            Database.Entry(initBook).CurrentValues.SetValues(book);
+            Database.SaveChanges();
         }
 
         public List<Book> getBook(int count)

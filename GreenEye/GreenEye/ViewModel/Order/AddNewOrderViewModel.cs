@@ -117,7 +117,8 @@ namespace GreenEye.ViewModel.Order
         public AddNewOrderViewModel(NavigateStore navigateStore)
         {
 
-
+            //---------init order-----------
+            Order = new Order(); 
 
             //-------init book--------
             BookList = bookDAO.getAll();
@@ -155,7 +156,9 @@ namespace GreenEye.ViewModel.Order
 
         private void SubmitAdd(object obj)
         {
-            //Order.CustomerId=SelectedSearchCustomer.CustomerId;
+            Order.CustomerId=SelectedSearchCustomer.CustomerId;
+            this.Order.EmployeeId = 1;
+            this.Order.PromotionId = 1;
             Order _order= orderDAO.insertOne(Order);
 
             foreach (Book book in BookList)

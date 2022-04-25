@@ -26,6 +26,21 @@ namespace GreenEye.DataAccess.DAO
         internal void insertOne(Order_Book ob)
         {
             Database.Order_Books.Add(ob);
+            Database.SaveChanges();
+        }
+
+        internal void deleteByOrder(int orderId)
+        {
+            ProductDAO bookDAO = new ProductDAO();
+            List<Order_Book> obs = Database.Order_Books.Where(x => x.OrderId == orderId).ToList();  
+
+            foreach (Order_Book ob in obs)
+            {
+                bookDAO.increaseStock(ob.BookId, ob.Amount);
+                Database.Order_Books.Remove(ob);
+            }
+
+            Database.SaveChanges();
         }
     }
 }

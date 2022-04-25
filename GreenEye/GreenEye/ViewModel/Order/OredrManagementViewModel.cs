@@ -72,6 +72,14 @@ namespace GreenEye.ViewModel.Order
         private void deleteOrder(object obj)
         {
             OrderDAO OrderDAO = new OrderDAO();
+            Order_BookDAO order_BookDAO = new Order_BookDAO();
+            RefundDAO refundDAO = new RefundDAO();
+
+
+            order_BookDAO.deleteByOrder(SelectedOrder.OrderId);
+            refundDAO.deleteByOrder(SelectedOrder.OrderId);
+
+
             OrderDAO.deleteOne(SelectedOrder);
             OrderList.Remove(SelectedOrder);
             if (OrderPageList.Contains(SelectedOrder))

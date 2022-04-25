@@ -21,6 +21,7 @@ namespace GreenEye.DataAccess.Domain
 
         public int PromotionId { get; set; }
 
+        [NotMapped]
         public decimal Total { get
             {
                 decimal total = 0;

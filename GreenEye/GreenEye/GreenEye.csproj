@@ -177,6 +177,7 @@
     <Compile Include="DataAccess\DAO\Order_BookDAO.cs" />
     <Compile Include="DataAccess\DAO\ProductDAO.cs" />
     <Compile Include="DataAccess\DAO\PromotionDAO.cs" />
+    <Compile Include="DataAccess\DAO\RefundDAO.cs" />
     <Compile Include="DataAccess\Domain\Bill.cs" />
     <Compile Include="DataAccess\Domain\Book.cs" />
     <Compile Include="DataAccess\Domain\BookType.cs" />
@@ -293,6 +294,10 @@
     <Compile Include="Migrations\202204240232416_decimelChange.cs" />
     <Compile Include="Migrations\202204240232416_decimelChange.Designer.cs">
       <DependentUpon>202204240232416_decimelChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204251736136_delete-total-in-order.cs" />
+    <Compile Include="Migrations\202204251736136_delete-total-in-order.designer.cs">
+      <DependentUpon>202204251736136_delete-total-in-order.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ReportBill.cs" />
@@ -567,6 +572,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204240232416_decimelChange.resx">
       <DependentUpon>202204240232416_decimelChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204251736136_delete-total-in-order.resx">
+      <DependentUpon>202204251736136_delete-total-in-order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

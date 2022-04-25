@@ -322,3 +322,4 @@ D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cu�
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.pdb
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.Migrations.addSth.resources
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.Migrations.hduhudbfuhwvufhe.resources
+D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.Migrations.deletetotalinorder.resources

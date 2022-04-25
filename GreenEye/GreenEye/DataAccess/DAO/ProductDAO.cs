@@ -90,6 +90,17 @@ namespace GreenEye.DataAccess.DAO
 
         }
 
+        internal void increaseStock(int bookId, int amount)
+        {
+            Book initBook = Database.Books.Find(bookId);
+            Book book = Database.Books.Find(bookId);
+
+            book.Stroke = book.Stroke + amount;
+
+            Database.Entry(initBook).CurrentValues.SetValues(book);
+            Database.SaveChanges();
+        }
+
         internal int getStock(int bookId)
         {
             return Database.Books.Find(bookId).Stroke;

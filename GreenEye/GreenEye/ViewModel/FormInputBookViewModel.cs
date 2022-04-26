@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace GreenEye.ViewModel
 {
@@ -16,6 +17,7 @@ namespace GreenEye.ViewModel
 
         private BaseViewModel _viewmodel { get; set; }
         public ObservableCollection<Book> Suggest { get; set; }
+        public ObservableCollection<Book> AllBooks { get; set; }
         public ObservableCollection<Book> Products { get; set; }
 
         public Book _selectedSuggest;
@@ -33,7 +35,18 @@ namespace GreenEye.ViewModel
                 {
                     SelectedSuggest.Publisher = "1";
 
-                    Products.Add(SelectedSuggest);
+                    if (Products.Contains(SelectedSuggest))
+                    {
+                        
+                        MessageBox.Show("This item has been selected !!!");
+                        
+                    }
+                    else
+                    {
+
+                        Products.Add(SelectedSuggest);
+                    }
+
                 }
 
                 Visibility = "Hidden";
@@ -61,12 +74,14 @@ namespace GreenEye.ViewModel
             {
                 _searching = value;
                 onPropertyChanged(nameof(Searching));
+                getSuggest();
                 Visibility = "Visible";
 
             }
         }
 
         ProductDAO _productDAO = new ProductDAO();
+        
 
         public FormInputBookViewModel(BaseViewModel viewmodel)
         {
@@ -75,9 +90,29 @@ namespace GreenEye.ViewModel
             Visibility = "Hidden";
 
             Products = new ObservableCollection<Book>();
-                 
+            AllBooks = new ObservableCollection<Book>(_productDAO.getAll());
             
           
+        }
+
+
+        // method 
+        public void  getSuggest()
+        {
+
+             Suggest = new ObservableCollection<Book>();
+            foreach(var str in AllBooks)
+            {
+                               Debug.WriteLine("User " + AllBooks);
+                if (str.Name.ToLower().Contains(Searching.ToLower()))
+                {
+                    Suggest.Add(str);
+
+                }
+
+
+            }
+
         }
 
     }

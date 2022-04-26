@@ -290,8 +290,11 @@
     <Compile Include="Model\ReportInventory.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Command\RelayCommand.cs" />
+    <Compile Include="ViewModel\Converter\DecimalConverter.cs" />
     <Compile Include="ViewModel\Converter\IndexConverter.cs" />
     <Compile Include="ViewModel\DashboardViewModel.cs" />
+    <Compile Include="ViewModel\DatePickerCalendar.cs" />
+    <Compile Include="ViewModel\DatePickerDateFormat.cs" />
     <Compile Include="ViewModel\FormInputBookViewModel.cs" />
     <Compile Include="ViewModel\FormOptionViewModel.cs" />
     <Compile Include="Store\NavigateStore.cs" />
@@ -312,6 +315,7 @@
     <Compile Include="ViewModel\Order\OredrManagementViewModel.cs" />
     <Compile Include="ViewModel\PasswordHelper.cs" />
     <Compile Include="ViewModel\ProductAddViewModel.cs" />
+    <Compile Include="ViewModel\ProductEditViewModel.cs" />
     <Compile Include="ViewModel\ProductListViewModel.cs" />
     <Compile Include="ViewModel\ReportBillVIewModel.cs" />
     <Compile Include="ViewModel\ReportInventoryViewModel.cs" />
@@ -360,6 +364,9 @@
     </Compile>
     <Compile Include="View\ProductSetView\ProductAddView.xaml.cs">
       <DependentUpon>ProductAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProductSetView\ProductEditView.xaml.cs">
+      <DependentUpon>ProductEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProductSetView\ProductListView.xaml.cs">
       <DependentUpon>ProductListView.xaml</DependentUpon>
@@ -445,6 +452,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ProductSetView\ProductAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProductSetView\ProductEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

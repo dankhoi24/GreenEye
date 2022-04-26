@@ -36,7 +36,6 @@
             <viewsOrder:AddNewOrderView/>
         </DataTemplate>
 
-
         <DataTemplate DataType="{x:Type viewmodelsOrder:OredrManagementViewModel}">
             <viewsOrder:OrderManagement/>
         </DataTemplate>
@@ -64,7 +63,6 @@
         <DataTemplate DataType="{x:Type viewmodelsDiscount:DiscountManagementViewModel}">
             <viewsDiscount:DiscountManagementView/>
         </DataTemplate>
-
 
         <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
             <views:LoginView/>
@@ -97,9 +95,9 @@
             <views:NavigateView/>
         </DataTemplate>
     </Window.Resources>
-    
+
     <Grid>
-                <ContentControl Content="{Binding CurrentViewModel}"/>
-                    </Grid>
+        <ContentControl Content="{Binding CurrentViewModel}"/>
+    </Grid>
 </Window>
 

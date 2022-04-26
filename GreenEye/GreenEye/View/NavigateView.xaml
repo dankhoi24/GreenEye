@@ -12,9 +12,8 @@
         xmlns:viewsForm="clr-namespace:GreenEye.View.FormSetView"
         xmlns:viewmodels="clr-namespace:GreenEye.ViewModel"
 
-
              
-               d:DesignHeight="768" d:DesignWidth="1366"
+               d:DesignHeight="768" d:DesignWidth="1370"
             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" d:DataContext="{d:DesignInstance Type=viewmodels:NavigateViewModel}"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
             TextElement.FontWeight="Regular"
@@ -67,6 +66,10 @@
             <viewsForm:FormInputBookView/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewmodels:ProductEditViewModel}">
+            <viewsProduct:ProductEditView/>
+        </DataTemplate>
+
 
 
            </Control.Resources>
@@ -83,7 +86,6 @@
             
           x:Name="DrawerHost"
           Height="768"
-          Width="1366"
           HorizontalAlignment="Center"
           VerticalAlignment="Center"
           BorderThickness="2"
@@ -242,13 +244,14 @@
                            
                 
             <Grid
+                
             Width="1366"
              Height="768"
     VerticalAlignment="Center"
     HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
-                    <RowDefinition />
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
                 

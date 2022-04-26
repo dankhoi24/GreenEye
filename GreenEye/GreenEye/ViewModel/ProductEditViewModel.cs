@@ -15,69 +15,22 @@ using System.Windows;
 
 namespace GreenEye.ViewModel
 {
-    public class ProductAddViewModel:BaseViewModel
+    public class ProductEditViewModel: BaseViewModel
     {
-    
+        private BaseViewModel _viewmodel { get; set; }
+
 
         public string BeforeImport { get; set; }
         public string AfterImport { get; set; }
 
 
-        public ObservableCollection<string> BookTypes { get; set; }
-
+        //Commnad
+        public RelayCommand CloseImageCommand { get; set; }
+        public RelayCommand ImportCommand { get; set; }
         public RelayCommand SubmitCommand { get; set; }
         public RelayCommand CancelCommand { get; set; }
-        public RelayCommand ViewProductCommand { get; set; }
-        public RelayCommand CloseImageCommand { get; set; }
 
 
-
-
-
-
-        public string Filename{ get; set; }
-        private string _filename { get; set; }
-
-        private BaseViewModel _viewmodel { get; set; }
-
-        public RelayCommand ImportCommand { get; set; }
-        public string ItemSelected { get; set; }
-
-
-        private BookTypeDAO _bookTypeDAO = new BookTypeDAO();
-        //Constructor
-        public ProductAddViewModel(BaseViewModel viewModel)
-        {
-            BookDate = DateTime.Now;
-            BeforeImport = "Visible";
-            AfterImport = "Hidden";
-            SubmitCommand = new RelayCommand(submitCommand, null);
-            CancelCommand = new RelayCommand(cancelCommand, null);
-            ImportCommand = new RelayCommand(importCommand, null);
-            ViewProductCommand = new RelayCommand(viewProductCommand, null);
-            CloseImageCommand = new RelayCommand(closeImageCommand, null);
-            Filename = "../../img/store/aka.png";
-
-            _viewmodel = viewModel as NavigateViewModel;
-            BookTypes = new ObservableCollection<string>(_bookTypeDAO.getAll());
-        }
-
-        //method
-
-        private void closeImageCommand(object x)
-        {
-            BeforeImport = "Visible";
-            AfterImport = "Hidden";
-            _filename = "";
-
-        }
-
-      
-        public void viewProductCommand(object x)
-        {
-            Debug.WriteLine("VIEWWW");
-        }
-      
         public string BookName { get; set; }
         public string BookAuthor { get; set; }
         public string BookPublisher { get; set; }
@@ -85,14 +38,54 @@ namespace GreenEye.ViewModel
         public decimal BookInputPrice { get; set; }
         public decimal BookOutputPrice { get; set; }
         public int BookAmount { get; set; }
-        
 
+        public string Filename { get; set; }
+
+        public BookTypeDAO _bookTypeDAO = new BookTypeDAO();
+        public ObservableCollection<string> BookTypes { get; set; }
+        public string ItemSelected { get; set; }
+
+
+        private Book Book { get; set; }
+
+        public ProductEditViewModel(BaseViewModel viewmodel)
+        {
+
+            _viewmodel = viewmodel;
+
+            BeforeImport = "Hidden";
+            AfterImport = "Visible";
+
+            BookTypes = new ObservableCollection<string>(_bookTypeDAO.getAll());
+
+
+            CloseImageCommand = new RelayCommand(closeImageCommand, null);
+            ImportCommand = new RelayCommand(importCommand, null);
+            SubmitCommand = new RelayCommand(submitCommand, null);
+            CancelCommand = new RelayCommand(cancelCommand, null);
+
+
+
+
+            string name = (_viewmodel as ProductListViewModel).SelectedProduct.Name;
+            Debug.WriteLine("BOOK INSTANCE " + name);
+            Book = (_viewmodel as ProductListViewModel).SelectedProduct;
+            Debug.WriteLine(@"..\.." + Book.Img);
+
+            initBook();
+
+        }
+
+
+        //Method
 
         private void cancelCommand(object x)
         {
-            (_viewmodel as NavigateViewModel).goToProduct(x);
+            (_viewmodel as ProductListViewModel).goToProduct(x);
         }
-        private void submitCommand(object x)
+
+
+          private void submitCommand(object x)
         {
 
             if(string.IsNullOrEmpty(BookName) || string.IsNullOrEmpty(BookAuthor) || string.IsNullOrEmpty(BookPublisher) || string.IsNullOrEmpty(ItemSelected))
@@ -121,7 +114,7 @@ namespace GreenEye.ViewModel
                 ExportPrice = BookOutputPrice,
                 Stroke = BookAmount,
                 BookTypeId = id,
-                Img = string.IsNullOrEmpty(_filename)? @"\img\store\meow.png": @"\img\store\"+ _filename
+                Img = string.IsNullOrEmpty(Filename)? @"\img\store\meow.png":  Filename
             };
 
             BookStoreContext db = new BookStoreContext();
@@ -130,11 +123,19 @@ namespace GreenEye.ViewModel
 
             MessageBox.Show("Add new book succeeded");
 
-            (_viewmodel as NavigateViewModel).goToProduct(x);
+            if(_viewmodel == null)
+            {
+                Debug.WriteLine("NULL");
+
+            }
+            else
+            {
+                Debug.WriteLine("KOKO");
+            }
+            (_viewmodel as ProductListViewModel).goToProduct(x);
 
 
         }
-
          private void importCommand(object parameter)
         {
             OpenFileDialog openFile = new OpenFileDialog();
@@ -155,7 +156,6 @@ namespace GreenEye.ViewModel
                 Debug.WriteLine(Filename);
 
                 Filename ="../../img/store/"+ Path.GetFileName(openFile.FileName);
-                _filename =  Path.GetFileName(openFile.FileName);
 
                
             }
@@ -164,7 +164,7 @@ namespace GreenEye.ViewModel
           
         }
 
-         private void movingImg(string filename)
+          private void movingImg(string filename)
         {
                 string destinationFolder = $@"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\GreenEye\img\store";
                 string fileName = Path.GetFileName(filename);
@@ -180,7 +180,31 @@ namespace GreenEye.ViewModel
 
 
 
+         private void closeImageCommand(object x)
+        {
+            BeforeImport = "Visible";
+            AfterImport = "Hidden";
+            Filename = "";
+
+        }
+
+
+        private void initBook()
+        {
+            BookName = Book.Name;
+            BookAuthor = Book.Author;
+            BookAmount = Book.Stroke;
+            BookPublisher = Book.Publisher;
+            BookInputPrice = Book.ImportPrice;
+            BookOutputPrice = Book.ExportPrice;
+            BookDate = Book.Date;
+            Filename = @"../../"+Book.Img;
+            ItemSelected = _bookTypeDAO.getName(Book.BookTypeId);
+
+        }
+
         
-        
+
+
     }
 }

@@ -192,12 +192,20 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel>
-                                        
+                                <Border
+                                    BorderBrush="#006860"
+                                    BorderThickness="1 0 0 2"
+                                    >
+
                                     <TextBlock 
+                                    Background="White"
+                                        Width="220"
+                                        TextWrapping="Wrap"
                                         FontSize="22"
                                         Text="{Binding}"/>
+                                </Border>
 
-                                    </StackPanel>
+                            </StackPanel>
 
                                 </DataTemplate>
                             </ListView.ItemTemplate>
@@ -240,9 +248,11 @@
                 x:Name="listView1"
                     Height="340"
                     ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                    ItemsSource="{Binding PrepersentPage }">
+                    ItemsSource="{Binding PrepersentPage }"
+                    SelectedItem="{Binding SelectedProduct}"
+                    >
                     
-                                        
+
                   
                                     
                     
@@ -265,8 +275,12 @@
 
                     <Grid Height="120">
                                     <Grid.ContextMenu>
-                                        <ContextMenu Opened="openContexMenu" >
-                                            <MenuItem Header="Edit" Command="{Binding EditCommand}">
+                                        <ContextMenu 
+                                            Opened="openContexMenu" >
+                                            <MenuItem Header="Edit"
+
+                                                      CommandParameter="{Binding ElementName=listView1}"
+                                                      Command="{Binding EditCommand}">
                                 </MenuItem>
                             </ContextMenu>
 

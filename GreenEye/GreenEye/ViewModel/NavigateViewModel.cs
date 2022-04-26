@@ -57,6 +57,11 @@ namespace GreenEye.ViewModel
 
             }
     
+        public void goToEditProduct(object x)
+        {
+            NavigateStore.CurrentViewModel = new ProductEditViewModel(x as BaseViewModel);
+
+        }
 
         public void settingCommand(object x)
         {

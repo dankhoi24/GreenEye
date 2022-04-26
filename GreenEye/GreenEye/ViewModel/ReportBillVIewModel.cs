@@ -1,4 +1,6 @@
-﻿using GreenEye.DataAccess.DAO;
+﻿using GreenEye.DataAccess;
+using GreenEye.DataAccess.DAO;
+using GreenEye.DataAccess.Domain;
 using GreenEye.Model;
 using System;
 using System.Collections.Generic;
@@ -37,6 +39,13 @@ namespace GreenEye.ViewModel
 
             Date = DateTime.Now;
             Reports = new ObservableCollection<ReportBill>(_inventoryDAO.getDate(Date));
+
+            BookStoreContext db = new BookStoreContext();
+            db.DebitBooks.Add(new DebitBook() { 
+                CustomerId = 1,
+                BeginDebit = 100,
+                
+            });
         }
     }
 }

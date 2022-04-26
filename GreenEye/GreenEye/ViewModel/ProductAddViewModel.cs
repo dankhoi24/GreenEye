@@ -90,6 +90,12 @@ namespace GreenEye.ViewModel
 
         private void cancelCommand(object x)
         {
+             if((_viewmodel as NavigateViewModel).isExistFormState())
+            {
+                (_viewmodel as NavigateViewModel).goToFormProductState();
+                return;
+            }
+
             (_viewmodel as NavigateViewModel).goToProduct(x);
         }
         private void submitCommand(object x)
@@ -129,6 +135,12 @@ namespace GreenEye.ViewModel
             db.SaveChanges();
 
             MessageBox.Show("Add new book succeeded");
+
+            if((_viewmodel as NavigateViewModel).isExistFormState())
+            {
+                (_viewmodel as NavigateViewModel).goToFormProductState();
+                return;
+            }
 
             (_viewmodel as NavigateViewModel).goToProduct(x);
 

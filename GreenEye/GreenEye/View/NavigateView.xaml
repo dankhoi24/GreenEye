@@ -297,7 +297,7 @@
                              <TextBlock 
                              VerticalAlignment="Bottom"
                             FontSize="22"
-                            Text="Hello Word"/>
+                            Text="{Binding Name}"/>
                             <materialDesign:PackIcon
                                 Width="30"
                                 Height="30"

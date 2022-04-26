@@ -10,11 +10,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GreenEye.DataAccess.DAO;
 
 namespace GreenEye.ViewModel
 {
     public class NavigateViewModel: BaseViewModel
     {
+        public string Name { get; set; }
+        private int UserId { get; set; }
+        private BaseViewModel _formReceiptState { get; set; } = null;
         public RelayCommand OrderNavigateCommand { get; set; }
         public RelayCommand CustomerNavigateCommand { get; set; }
         public RelayCommand EmployeeNavigateCommand { get; set; }
@@ -33,8 +37,12 @@ namespace GreenEye.ViewModel
         public RelayCommand FormCommand { get; set; }
         public RelayCommand SettingCommand { get; set; }
 
-        public NavigateViewModel()
+        public NavigateViewModel(string username)
         {
+            EmployeeDAO employeeDAO = new EmployeeDAO();
+            Name = employeeDAO.getName(username);
+            UserId = employeeDAO.getId(username);
+
             Mycurrent = new DashboardViewModel();
             DashboardCommand = new RelayCommand(goToDashBoard, null);
             ProductCommand = new RelayCommand(goToProduct, null);
@@ -57,6 +65,24 @@ namespace GreenEye.ViewModel
 
             }
     
+
+        public void goToFormProductState()
+        {
+            (_formReceiptState as FormInputBookViewModel).initSuggest();
+            NavigateStore.CurrentViewModel = _formReceiptState as FormInputBookViewModel;
+
+        }
+
+        public void saveProductState(BaseViewModel viewmodel)
+        {
+
+            _formReceiptState = viewmodel;
+        }
+
+        public bool isExistFormState()
+        {
+            return _formReceiptState != null;
+        }
         public void goToEditProduct(object x)
         {
             NavigateStore.CurrentViewModel = new ProductEditViewModel(x as BaseViewModel);

@@ -103,25 +103,25 @@ namespace GreenEye.ViewModel
             }
 
             int id = _bookTypeDAO.getId(ItemSelected);
-           
-            Book temp = new Book()
-            {
-                Name = BookName,
-                Author = BookAuthor,
-                Publisher = BookPublisher,
-                Date = BookDate,
-                ImportPrice = BookInputPrice,
-                ExportPrice = BookOutputPrice,
-                Stroke = BookAmount,
-                BookTypeId = id,
-                Img = string.IsNullOrEmpty(Filename)? @"\img\store\meow.png":  Filename
-            };
 
             BookStoreContext db = new BookStoreContext();
-            db.Books.Add(temp);
+            var bookUpdate = db.Books.SingleOrDefault(b => b.BookId == Book.BookId);
+
+
+
+            bookUpdate.Name = BookName;
+            bookUpdate.Author = BookAuthor;
+            bookUpdate.Publisher = BookPublisher;
+            bookUpdate.Date = BookDate;
+            bookUpdate.ImportPrice = BookInputPrice;
+            bookUpdate.ExportPrice = BookOutputPrice;
+            bookUpdate.Stroke = BookAmount;
+            bookUpdate.BookTypeId = id;
+            bookUpdate.Img = string.IsNullOrEmpty(Filename) ? @"\img\store\meow.png" : Filename;
+
             db.SaveChanges();
 
-            MessageBox.Show("Add new book succeeded");
+            MessageBox.Show("Edited book succeeded");
 
             if(_viewmodel == null)
             {
@@ -198,7 +198,7 @@ namespace GreenEye.ViewModel
             BookInputPrice = Book.ImportPrice;
             BookOutputPrice = Book.ExportPrice;
             BookDate = Book.Date;
-            Filename = @"../../"+Book.Img;
+            Filename = @"..\.."+Book.Img;
             ItemSelected = _bookTypeDAO.getName(Book.BookTypeId);
 
         }

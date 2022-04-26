@@ -57,7 +57,7 @@
                         >
                         <DatePicker
                         
-                        
+                        SelectedDate="{Binding Date}"
                         FontSize="22"
 
                   Name="LocaleDatePicker"
@@ -155,6 +155,8 @@
                     
                 </Border>
                       <Button
+
+                      Command="{Binding AddProduct}"
                           BorderThickness="0"
                           Height="60"
                           Margin="40 0"
@@ -407,7 +409,7 @@
             Orientation="Horizontal">
 
             <Button
-                
+                Command="{Binding SubmitCommand}"
                 Height="50"
                 Width="200"
                 Background="#00B3AC"

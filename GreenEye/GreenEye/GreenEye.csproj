@@ -285,6 +285,10 @@
     <Compile Include="Migrations\202204240232416_decimelChange.Designer.cs">
       <DependentUpon>202204240232416_decimelChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204261610129_addEmployeeReceipt.cs" />
+    <Compile Include="Migrations\202204261610129_addEmployeeReceipt.Designer.cs">
+      <DependentUpon>202204261610129_addEmployeeReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ReportBill.cs" />
     <Compile Include="Model\ReportInventory.cs" />
@@ -308,6 +312,7 @@
     <Compile Include="ViewModel\Employee\AddNewEmployeeViewModel.cs" />
     <Compile Include="ViewModel\Employee\EmployeeManagementViewModel.cs" />
     <Compile Include="ViewModel\FormViewmodel.cs" />
+    <Compile Include="ViewModel\ListFormInputViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NavigateViewModel.cs" />
@@ -340,6 +345,9 @@
     </Compile>
     <Compile Include="View\Employee\EmployeeManagementView.xaml.cs">
       <DependentUpon>EmployeeManagementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormSetView\ListFormInputView.xaml.cs">
+      <DependentUpon>ListFormInputView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\OrderSetViews\AddNewOrderView.xaml.cs">
       <DependentUpon>AddNewOrderView.xaml</DependentUpon>
@@ -432,6 +440,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FormSetView\FormOptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FormSetView\ListFormInputView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -565,6 +577,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204240232416_decimelChange.resx">
       <DependentUpon>202204240232416_decimelChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204261610129_addEmployeeReceipt.resx">
+      <DependentUpon>202204261610129_addEmployeeReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,6 +1,7 @@
 ﻿using GreenEye.DataAccess;
 using GreenEye.DataAccess.DAO;
 using GreenEye.DataAccess.Domain;
+using GreenEye.ViewModel.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,12 +16,21 @@ namespace GreenEye.ViewModel
     public class FormInputBookViewModel:BaseViewModel
     {
 
+
+        public RelayCommand SubmitCommand { get; set; }
+        public RelayCommand AddProduct { get; set; }
+
+
         private BaseViewModel _viewmodel { get; set; }
         public ObservableCollection<Book> Suggest { get; set; }
         public ObservableCollection<Book> AllBooks { get; set; }
         public ObservableCollection<Book> Products { get; set; }
 
         public Book _selectedSuggest;
+
+
+
+        public DateTime Date { get; set; }
         public Book SelectedSuggest
         {
             get
@@ -82,23 +92,83 @@ namespace GreenEye.ViewModel
 
         ProductDAO _productDAO = new ProductDAO();
         
+        public void initSuggest()
+        {
+            
+            AllBooks = new ObservableCollection<Book>(_productDAO.getAll());
+        }
 
         public FormInputBookViewModel(BaseViewModel viewmodel)
         {
             _viewmodel = viewmodel;
             Suggest = new ObservableCollection<Book>(_productDAO.getAll());
+            initSuggest();
             Visibility = "Hidden";
 
             Products = new ObservableCollection<Book>();
-            AllBooks = new ObservableCollection<Book>(_productDAO.getAll());
-            
-          
+            Date = DateTime.Now;
+            SubmitCommand = new RelayCommand(submitCommand, null);
+            AddProduct = new RelayCommand(addProduct, null);
+
+
+                     
         }
 
 
         // method 
+
+        private void addProduct(object x)
+        {
+            (_viewmodel as NavigateViewModel).saveProductState(this);
+            (_viewmodel as NavigateViewModel).goToAddProduct(_viewmodel);
+        }
+
+        private List<GoodsReceipt_Book> getListBook()
+        {
+            List<GoodsReceipt_Book> result = new List<GoodsReceipt_Book>();
+
+            foreach(var book in Products)
+            {
+                GoodsReceipt_Book temp = new GoodsReceipt_Book()
+                {
+                    BookId = book.BookId,
+                    Number = Int32.Parse( book.Publisher)
+                };
+                result.Add(temp);
+            }
+            return result;
+        }
+    
+
+        private void submitCommand(object x)
+        {
+
+            if (Products.Count() == 0)
+            {
+                MessageBox.Show("Please choose product");
+                return;
+            }
+            BookStoreContext db = new BookStoreContext();
+            db.GoodsReceipts.Add(new GoodsReceipt()
+            {
+                Date = this.Date,
+                GoodsReceipt_Books = getListBook()
+            });
+            db.SaveChanges();
+            MessageBox.Show("Add Succeeded");
+
+            //(_viewmodel as NavigateViewModel)
+
+
+        }
+
+       
         public void  getSuggest()
         {
+            if (string.IsNullOrEmpty(Searching))
+            {
+                Suggest = AllBooks;
+            }
 
              Suggest = new ObservableCollection<Book>();
             foreach(var str in AllBooks)

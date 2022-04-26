@@ -32,5 +32,8 @@ namespace GreenEye.DataAccess.Domain
         //Foreign key
         [ForeignKey(nameof(EmployeeId))]
         public virtual List<Order> Orders { get; set; }
+
+        [ForeignKey(nameof(EmployeeId))]
+        public virtual List<GoodsReceipt> GoodsReceipts { get; set; }
     }
 }

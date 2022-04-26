@@ -1,0 +1,178 @@
+﻿<UserControl x:Class="GreenEye.View.FormSetView.ListFormInputView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GreenEye.View.FormSetView"
+             mc:Ignorable="d" 
+         
+               d:DesignHeight="693" d:DesignWidth="1366"
+
+             xmlns:viewmodels="clr-namespace:GreenEye.ViewModel"
+             
+             
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="13"
+            TextOptions.TextFormattingMode="Ideal"
+            TextOptions.TextRenderingMode="Auto"
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}"
+
+>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel
+            VerticalAlignment="Top"
+            Orientation="Horizontal">
+            
+             <TextBlock 
+
+                 VerticalAlignment="Top"
+            Margin="84 60 0 0"
+            FontSize="30" FontWeight="Bold">REPORT / INVENTORY</TextBlock>
+
+
+            <Separator Opacity="0" Width="600"/>
+
+             <Border
+                 
+                        CornerRadius="5"
+
+                        Height="50"
+                        BorderBrush="#00B3AC"
+                        BorderThickness="2"
+                        
+                        >
+                        <DatePicker
+                        viewmodels:DatePickerCalendar.IsMonthYear="True"
+                        viewmodels:DatePickerDateFormat.DateFormat="MM/yyyy"
+                        SelectedDate="{Binding Date}"
+                        FontSize="22"
+
+                  Name="LocaleDatePicker"
+                  Width="220"
+                  Height="50"
+                  
+                  materialDesign:HintAssist.Hint="Locale Date" />
+                  </Border>
+
+
+        </StackPanel>
+               <StackPanel Grid.Row="1">
+            
+                      
+            
+            
+            
+            
+             <StackPanel 
+            Margin="84 0"
+            Background="White" Grid.Row="2">
+            <Grid Margin="0 20" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="22" FontWeight="Bold"
+                           Foreground="#bdbdbd"
+                           >Date</TextBlock>
+                <TextBlock 
+                     FontSize="22" FontWeight="Bold"
+                           Foreground="#bdbdbd"
+
+                    HorizontalAlignment="Center"
+                    Grid.Column="1">Employee</TextBlock>
+                    <TextBlock
+                     FontSize="22" FontWeight="Bold"
+                           Foreground="#bdbdbd"
+
+                    HorizontalAlignment="Center"
+                    Grid.Column="2">Amount Book</TextBlock>
+                           </Grid>
+            <StackPanel >
+                    <ListView
+                        ItemsSource="{Binding Reports}"
+                        >
+
+                          <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                 </ListView.ItemContainerStyle>
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                  <Border
+                        
+                         CornerRadius="5"
+
+                        
+                        BorderBrush="#00B3AC"
+                        BorderThickness="2"
+
+                        >
+
+                    <Grid Height="120">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock 
+
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="22"
+                            FontWeight="Medium"
+                            Text="{Binding Date}"/>
+
+                        <TextBlock 
+
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Grid.Column="1"
+                            FontSize="22"
+                            FontWeight="Medium"
+                            Text="{Binding Employee}"/>
+                        
+                        <TextBlock 
+
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Grid.Column="2"
+                            FontSize="22"
+                            FontWeight="Medium"
+                            Text="{Binding Amount}"/>
+                        
+                       
+
+
+
+
+                    </Grid>
+                </Border>
+
+                                
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                          </StackPanel>
+            
+        </StackPanel>
+
+        </StackPanel>
+        
+
+            
+    </Grid>
+</UserControl>

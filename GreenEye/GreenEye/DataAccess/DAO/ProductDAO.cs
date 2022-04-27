@@ -1,7 +1,11 @@
 ﻿using GreenEye.DataAccess.Domain;
 using System;
 using System.Collections.Generic;
+
 using System.Diagnostics;
+
+using System.Collections.ObjectModel;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,11 +33,7 @@ namespace GreenEye.DataAccess.DAO
             return Database.Books.Where(x => x.Name.Contains(text)).ToList();
         }
 
-        public List<Book> getAll()
-        {
-            return Database.Books.Select(x => x).ToList();
-        }
-
+      
         public List<string> getName()
         {
             return Database.Books.Select(x => x.Name).ToList();
@@ -90,6 +90,23 @@ namespace GreenEye.DataAccess.DAO
 
         }
 
+        internal void increaseStock(int bookId, int amount)
+        {
+            Book initBook = Database.Books.Find(bookId);
+            Book book = Database.Books.Find(bookId);
+
+            book.Stroke = book.Stroke + amount;
+
+            Database.Entry(initBook).CurrentValues.SetValues(book);
+            Database.SaveChanges();
+        }
+
+        internal int getStock(int bookId)
+        {
+            return Database.Books.Find(bookId).Stroke;
+        }
+
+       
         public List<Book> getBookMonth()
         {
 
@@ -216,6 +233,17 @@ namespace GreenEye.DataAccess.DAO
             return result;
         }
 
+        internal void decreaseStock(int bookId, int amountInOrder)
+        {
+            Book initBook = Database.Books.Find(bookId);
+            Book book = Database.Books.Find(bookId);
+
+            book.Stroke = book.Stroke - amountInOrder;
+
+            Database.Entry(initBook).CurrentValues.SetValues(book);
+            Database.SaveChanges();
+        }
+
         public List<Book> getBook(int count)
         {
             return Database.Books.Select(x => x).OrderByDescending(y => y.Sales).ToList();
@@ -224,6 +252,13 @@ namespace GreenEye.DataAccess.DAO
         public Book getOneByID (int Bookid)
         {
             return Database.Books.Find(Bookid);
+        }
+
+        internal ObservableCollection<Book> getAll()
+        {
+            List<Book> books = Database.Books.ToList();
+
+            return new ObservableCollection<Book>(books);
         }
     }
 }

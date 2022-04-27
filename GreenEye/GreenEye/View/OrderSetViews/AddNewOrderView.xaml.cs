@@ -46,5 +46,11 @@ namespace GreenEye.View.OrderSetViews
         {
             SearchListProduct.Visibility = Visibility.Visible;
         }
+
+        private void AmountChange(object sender, TextChangedEventArgs e)
+        {
+            if (amountChangeButton.Command.CanExecute(null))
+                amountChangeButton.Command.Execute(null);
+        }
     }
 }

@@ -5,10 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using GreenEye.ViewModel;
+using System.Windows;
+using GreenEye.DataAccess.DAO;
 
 namespace GreenEye.DataAccess.Domain
 {
-    public class Book
+    public class Book:BaseViewModel
     {
 
         [Key]
@@ -31,6 +34,24 @@ namespace GreenEye.DataAccess.Domain
         public int Stroke { get; set; }
         public int Sales { get; set; }
 
+        // Binding amount in order att
+
+        [NotMapped]
+        private int _amountInOrder;
+        [NotMapped]
+        public int AmountInOrder { get => _amountInOrder; set
+            {
+                ProductDAO productDAO = new ProductDAO();
+                if (value <= productDAO.getStock(BookId))
+                {
+                    _amountInOrder = value;
+                    onPropertyChanged(nameof(AmountInOrder));
+                }
+                else
+                {
+                    MessageBox.Show("Remaining product is not enough");
+                }
+            }  }
         //Navigate
         public int BookTypeId { get; set; }
         

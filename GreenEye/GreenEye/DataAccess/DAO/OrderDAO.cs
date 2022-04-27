@@ -15,7 +15,9 @@ namespace GreenEye.DataAccess.DAO
 
         internal void deleteOne(Order selectedOrder)
         {
-            throw new NotImplementedException();
+            Order order = Database.Orders.Find(selectedOrder.OrderId);
+            Database.Orders.Remove(order);
+            Database.SaveChanges();
         }
 
         public ObservableCollection<Order> getAll()
@@ -26,6 +28,13 @@ namespace GreenEye.DataAccess.DAO
         public int getCount()
         {
             return Database.Orders.Count();
+        }
+
+        internal Order insertOne(Order order)
+        {
+            Order r=Database.Orders.Add(order);
+            Database.SaveChanges();
+            return r;
         }
     }
 }

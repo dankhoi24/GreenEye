@@ -13,6 +13,15 @@ namespace GreenEye.DataAccess.DAO
 
         private BookStoreContext Database = new BookStoreContext();
 
+        public int getId(string username)
+        {
+
+            return Database.Employees.SingleOrDefault(e => e.Username == username).EmployeeId;
+        }
+        public string getName(string username)
+        {
+            return Database.Employees.SingleOrDefault(e => e.Username == username).Name;
+        }
         public string getUser(string username)
         {
             var user = Database.Employees.Where(e => e.Username == username).ToList();           

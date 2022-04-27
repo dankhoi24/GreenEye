@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace GreenEye.ViewModel
 {
@@ -22,6 +23,8 @@ namespace GreenEye.ViewModel
 
         public ObservableCollection<string> SearchSuggest { get; set; }
         public ObservableCollection<string> AllName { get; set; }
+
+        public Book SelectedProduct { get; set; }
 
 
         private BaseViewModel _viewmodel { get; set; }
@@ -95,6 +98,7 @@ namespace GreenEye.ViewModel
         public RelayCommand LastCommand { get; set; }
         public RelayCommand SearchCommand { get; set; }
         public RelayCommand AddCommand { get; set; }
+        public RelayCommand EditCommand { get; set; }
 
          int totalItem = 0;
         int itemPerPage = 3;
@@ -117,6 +121,7 @@ namespace GreenEye.ViewModel
             LastCommand = new RelayCommand(lastCommand, null);
             SearchCommand = new RelayCommand(seachCommand, null);
             AddCommand = new RelayCommand(addCommand, null);
+            EditCommand = new RelayCommand(editCommand,null);
 
             Category = new ObservableCollection<string>(_bookTypeDAO.getAll());
             AllName = new ObservableCollection<string>(_prodcutDAO.getName());
@@ -130,7 +135,17 @@ namespace GreenEye.ViewModel
 
 
         //method
-        
+          private void editCommand(object x)
+        {
+
+
+            (_viewmodel as NavigateViewModel).goToEditProduct(this);
+        }
+
+        public void goToProduct(object x) {
+            (_viewmodel as NavigateViewModel).goToProduct(x);
+        }
+
      
         private void addCommand(object x)
         {

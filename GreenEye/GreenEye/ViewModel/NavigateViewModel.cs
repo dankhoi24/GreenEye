@@ -10,11 +10,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GreenEye.DataAccess.DAO;
 
 namespace GreenEye.ViewModel
 {
     public class NavigateViewModel: BaseViewModel
     {
+        public string Name { get; set; }
+        public int UserId { get; set; }
+        private BaseViewModel _formReceiptState { get; set; } = null;
         public RelayCommand OrderNavigateCommand { get; set; }
         public RelayCommand CustomerNavigateCommand { get; set; }
         public RelayCommand EmployeeNavigateCommand { get; set; }
@@ -30,13 +34,22 @@ namespace GreenEye.ViewModel
         public RelayCommand DashboardCommand { get; set; }
         public RelayCommand ProductCommand { get; set; }
         public RelayCommand ReportCommand{ get; set; }
+        public RelayCommand FormCommand { get; set; }
+        public RelayCommand SettingCommand { get; set; }
 
-        public NavigateViewModel()
+        public NavigateViewModel(string username)
         {
+            EmployeeDAO employeeDAO = new EmployeeDAO();
+            Name = employeeDAO.getName(username);
+            UserId = employeeDAO.getId(username);
+
             Mycurrent = new DashboardViewModel();
             DashboardCommand = new RelayCommand(goToDashBoard, null);
             ProductCommand = new RelayCommand(goToProduct, null);
             ReportCommand = new RelayCommand(goToReport, null);
+
+
+            FormCommand = new RelayCommand(goToForm, null);
 
 
               NavigateStore = new NavigateStore();
@@ -48,10 +61,60 @@ namespace GreenEye.ViewModel
                 CustomerNavigateCommand = new RelayCommand(CustomerNavigate, null);
                 EmployeeNavigateCommand = new RelayCommand(EmployeeNavigate, null);
                 DiscountNavigateCommand = new RelayCommand(DiscountNavigate, null);
+            SettingCommand = new RelayCommand(settingCommand, null);
 
             }
+    
 
+        public void goToEditForm(int id)
+        {
+            NavigateStore.CurrentViewModel = new EditFormViewModel(this, id);
+        }
+        public void goTListFrmProduct()
+        {
+            NavigateStore.CurrentViewModel = new ListFormInputViewModel(this);
+        }
+        public void deleteProductState()
+        {
+            _formReceiptState = null;
+        }
+        public void goToFormProductState()
+        {
+            (_formReceiptState as FormInputBookViewModel).initSuggest();
+            NavigateStore.CurrentViewModel = _formReceiptState as FormInputBookViewModel;
 
+        }
+
+        public void saveProductState(BaseViewModel viewmodel)
+        {
+
+            _formReceiptState = viewmodel;
+        }
+
+        public bool isExistFormState()
+        {
+            return _formReceiptState != null;
+        }
+        public void goToEditProduct(object x)
+        {
+            NavigateStore.CurrentViewModel = new ProductEditViewModel(x as BaseViewModel);
+
+        }
+
+        public void settingCommand(object x)
+        {
+            NavigateStore.CurrentViewModel = new SettingViewModel();
+
+        }
+            public void goToInputForm(object x)
+        {
+            NavigateStore.CurrentViewModel = new FormInputBookViewModel(this);
+        }
+            public void goToForm(object x)
+        {
+
+                NavigateStore.CurrentViewModel =  new FormViewmodel(this);
+        }
             public void goToDashBoard(object x)
             {
                 Mycurrent = new DashboardViewModel();
@@ -60,17 +123,18 @@ namespace GreenEye.ViewModel
 
             public void goToProduct(object x)
             {
-                Mycurrent = new ProductListViewModel(this);
+                 NavigateStore.CurrentViewModel = new ProductListViewModel(this);
             }
 
              public void goToAddProduct(object x)
             {
-                Mycurrent = new ProductAddViewModel(this);
+                NavigateStore.CurrentViewModel = new ProductAddViewModel(this);
             }
 
             public void goToReport(object x)
             {
-                Mycurrent = new FormOptionViewModel(this);
+                NavigateStore.CurrentViewModel =  new FormOptionViewModel(this);
+
             }
           
             
@@ -101,8 +165,13 @@ namespace GreenEye.ViewModel
             }
             public void goToInventoryReport(object x)
             {
-                Mycurrent = new ReportInventoryViewModel();
+                 NavigateStore.CurrentViewModel = new ReportInventoryViewModel();
         }
+         public void goToBillReport(object x)
+            {
+                 NavigateStore.CurrentViewModel = new ReportBillVIewModel();
+        }
+
 
     }
 }

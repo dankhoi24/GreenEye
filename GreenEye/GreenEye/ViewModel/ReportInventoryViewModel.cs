@@ -26,8 +26,12 @@ namespace GreenEye.ViewModel
             {
                 _date = value;
                 onPropertyChanged(nameof(Date));
-                Debug.WriteLine(Date.AddDays(-35));
+                Debug.WriteLine(Date);
                 Debug.WriteLine("000000000000000000");
+
+
+
+                Reports = new ObservableCollection<ReportInventory>(_inventoryDAO.getDate(_date));
             }
         }
 

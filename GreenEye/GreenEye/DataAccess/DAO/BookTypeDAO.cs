@@ -24,5 +24,10 @@ namespace GreenEye.DataAccess.DAO
 
         }
 
+        public string getName(int id)
+        {
+            return Database.BookTypes.SingleOrDefault(x => x.BookTypeId == id).Name;
+        }
+
     }
 }

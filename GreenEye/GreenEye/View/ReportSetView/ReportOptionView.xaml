@@ -89,6 +89,7 @@
                         Kind="CurrencyUsd" />
 
                     <Button
+                    Command="{Binding  BillCommand}"
                     FontSize="25"
                     FontWeight="Medium"
                       Style="{StaticResource MaterialDesignOutlinedDarkButton}"

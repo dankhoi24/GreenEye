@@ -28,9 +28,9 @@ namespace GreenEye.ViewModel
         public RelayCommand SubmitCommand { get; set; }
         public RelayCommand CancelCommand { get; set; }
         public RelayCommand ViewProductCommand { get; set; }
+        public RelayCommand CloseImageCommand { get; set; }
 
 
-        public RelayCommand EditCommand { get; set; }
 
 
 
@@ -48,13 +48,14 @@ namespace GreenEye.ViewModel
         //Constructor
         public ProductAddViewModel(BaseViewModel viewModel)
         {
+            BookDate = DateTime.Now;
             BeforeImport = "Visible";
             AfterImport = "Hidden";
             SubmitCommand = new RelayCommand(submitCommand, null);
             CancelCommand = new RelayCommand(cancelCommand, null);
             ImportCommand = new RelayCommand(importCommand, null);
             ViewProductCommand = new RelayCommand(viewProductCommand, null);
-            EditCommand = new RelayCommand(editCommand,null);
+            CloseImageCommand = new RelayCommand(closeImageCommand, null);
             Filename = "../../img/store/aka.png";
 
             _viewmodel = viewModel as NavigateViewModel;
@@ -63,14 +64,15 @@ namespace GreenEye.ViewModel
 
         //method
 
-        private void editCommand(object x)
+        private void closeImageCommand(object x)
         {
-            Debug.WriteLine("EDIT");
-
-            MessageBox.Show("jyfiuf");    
+            BeforeImport = "Visible";
+            AfterImport = "Hidden";
+            _filename = "";
 
         }
 
+      
         public void viewProductCommand(object x)
         {
             Debug.WriteLine("VIEWWW");
@@ -88,12 +90,33 @@ namespace GreenEye.ViewModel
 
         private void cancelCommand(object x)
         {
+             if((_viewmodel as NavigateViewModel).isExistFormState())
+            {
+                (_viewmodel as NavigateViewModel).goToFormProductState();
+                return;
+            }
+
             (_viewmodel as NavigateViewModel).goToProduct(x);
         }
         private void submitCommand(object x)
         {
-            int id = _bookTypeDAO.getId(ItemSelected);
 
+            if(string.IsNullOrEmpty(BookName) || string.IsNullOrEmpty(BookAuthor) || string.IsNullOrEmpty(BookPublisher) || string.IsNullOrEmpty(ItemSelected))
+            {
+                
+                MessageBox.Show("Invalid input!!!");
+                return;
+            }
+
+             Debug.WriteLine(BookInputPrice + " | " + BookOutputPrice + " | " + BookAmount);
+            if(BookInputPrice == -1 || BookOutputPrice == -1 || BookAmount == -1)
+            {
+                MessageBox.Show("Invalid input!!!");
+                return;
+            }
+
+            int id = _bookTypeDAO.getId(ItemSelected);
+           
             Book temp = new Book()
             {
                 Name = BookName,
@@ -104,12 +127,22 @@ namespace GreenEye.ViewModel
                 ExportPrice = BookOutputPrice,
                 Stroke = BookAmount,
                 BookTypeId = id,
-                Img = @"\img\store\"+ _filename
+                Img = string.IsNullOrEmpty(_filename)? @"\img\store\meow.png": @"\img\store\"+ _filename
             };
 
             BookStoreContext db = new BookStoreContext();
             db.Books.Add(temp);
             db.SaveChanges();
+
+            MessageBox.Show("Add new book succeeded");
+
+            if((_viewmodel as NavigateViewModel).isExistFormState())
+            {
+                (_viewmodel as NavigateViewModel).goToFormProductState();
+                return;
+            }
+
+            (_viewmodel as NavigateViewModel).goToProduct(x);
 
 
         }

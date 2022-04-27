@@ -9,11 +9,11 @@
                xmlns:views="clr-namespace:GreenEye.View"
         xmlns:viewsReport="clr-namespace:GreenEye.View.ReportSetView"
         xmlns:viewsProduct="clr-namespace:GreenEye.View.ProductSetView"
+        xmlns:viewsForm="clr-namespace:GreenEye.View.FormSetView"
         xmlns:viewmodels="clr-namespace:GreenEye.ViewModel"
 
-
              
-               d:DesignHeight="768" d:DesignWidth="1366"
+               d:DesignHeight="768" d:DesignWidth="1370"
             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" d:DataContext="{d:DesignInstance Type=viewmodels:NavigateViewModel}"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
             TextElement.FontWeight="Regular"
@@ -45,6 +45,10 @@
         <DataTemplate DataType="{x:Type viewmodels:ReportInventoryViewModel}">
             <viewsReport:ReportInventoryView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ReportBillVIewModel}">
+            <viewsReport:ReportBillVIew/>
+        </DataTemplate>
+
 
 
         <DataTemplate DataType="{x:Type viewmodels:SettingViewModel}">
@@ -54,7 +58,27 @@
             <viewsReport:ReportOptionView/>
         </DataTemplate>
 
-           </Control.Resources>
+          <DataTemplate DataType="{x:Type viewmodels:FormViewmodel}">
+            <viewsForm:FormOptionView/>
+        </DataTemplate>
+         
+          <DataTemplate DataType="{x:Type viewmodels:FormInputBookViewModel}">
+            <viewsForm:FormInputBookView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:ProductEditViewModel}">
+            <viewsProduct:ProductEditView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ListFormInputViewModel}">
+            <viewsForm:ListFormInputView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:EditFormViewModel}">
+            <viewsForm:EditFormInputView/>
+        </DataTemplate>
+
+
+
+    </Control.Resources>
 
 
     <StackPanel>
@@ -68,7 +92,6 @@
             
           x:Name="DrawerHost"
           Height="768"
-          Width="1366"
           HorizontalAlignment="Center"
           VerticalAlignment="Center"
           BorderThickness="2"
@@ -120,7 +143,7 @@
                         DashBoard
                     </Button>
                     <Button
-                      
+                      Command="{Binding ReportCommand}"
                         Margin="0 5"
                         FontSize="26"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
@@ -132,7 +155,7 @@
                         Report
                     </Button>
                     <Button
-
+                        Command="{Binding SettingCommand}"
                         Margin="0 5"
                         FontSize="26"
                       Style="{StaticResource MaterialDesignPaperLightButton}"
@@ -208,6 +231,7 @@
                         Employee
                     </Button>
                     <Button
+                        Command="{Binding FormCommand}"
                       Style="{StaticResource MaterialDesignPaperLightButton}"
 
                         Margin="0 5"
@@ -226,13 +250,14 @@
                            
                 
             <Grid
+                
             Width="1366"
              Height="768"
     VerticalAlignment="Center"
     HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
-                    <RowDefinition />
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
                 
@@ -278,7 +303,7 @@
                              <TextBlock 
                              VerticalAlignment="Bottom"
                             FontSize="22"
-                            Text="Hello Word"/>
+                            Text="{Binding Name}"/>
                             <materialDesign:PackIcon
                                 Width="30"
                                 Height="30"

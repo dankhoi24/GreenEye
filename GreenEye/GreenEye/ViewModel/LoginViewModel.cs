@@ -141,7 +141,7 @@ namespace GreenEye.ViewModel
                         employeeDAO.updateUserRemember(Username);
                     }
 
-                    (_viewModel as MainViewModel).goToNavigate();
+                    (_viewModel as MainViewModel).goToNavigate(Username);
 
 
                     return;

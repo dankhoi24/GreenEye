@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace GreenEye.Model
 {
-    public class ReportBill
+    public class BookFormModel
     {
+        public int BookId { get; set; }
         public string Name { get; set; }
-        public decimal Init { get; set; }
-        public decimal Incurred { get; set; }
-        public decimal Final { get; set; }
-
+        public string Type { get; set; }
+        public string Author { get; set; }
+        public int Amount { get; set; }
     }
 }

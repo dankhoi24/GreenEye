@@ -172,6 +172,7 @@
     <Compile Include="DataAccess\DAO\CustomerDAO.cs" />
     <Compile Include="DataAccess\DAO\DebitBookDAO.cs" />
     <Compile Include="DataAccess\DAO\EmployeeDAO.cs" />
+    <Compile Include="DataAccess\DAO\GoodsReceiptDAO.cs" />
     <Compile Include="DataAccess\DAO\InventoryDAO.cs" />
     <Compile Include="DataAccess\DAO\OrderDAO.cs" />
     <Compile Include="DataAccess\DAO\Order_BookDAO.cs" />
@@ -295,17 +296,30 @@
     <Compile Include="Migrations\202204240232416_decimelChange.Designer.cs">
       <DependentUpon>202204240232416_decimelChange.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Migrations\202204251736136_delete-total-in-order.cs" />
     <Compile Include="Migrations\202204251736136_delete-total-in-order.designer.cs">
       <DependentUpon>202204251736136_delete-total-in-order.cs</DependentUpon>
+=======
+    <Compile Include="Migrations\202204261610129_addEmployeeReceipt.cs" />
+    <Compile Include="Migrations\202204261610129_addEmployeeReceipt.Designer.cs">
+      <DependentUpon>202204261610129_addEmployeeReceipt.cs</DependentUpon>
+>>>>>>> NDKhoi
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\BookFormModel.cs" />
+    <Compile Include="Model\GoodsReceiptModel.cs" />
     <Compile Include="Model\ReportBill.cs" />
     <Compile Include="Model\ReportInventory.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Command\RelayCommand.cs" />
+    <Compile Include="ViewModel\Converter\DecimalConverter.cs" />
     <Compile Include="ViewModel\Converter\IndexConverter.cs" />
     <Compile Include="ViewModel\DashboardViewModel.cs" />
+    <Compile Include="ViewModel\DatePickerCalendar.cs" />
+    <Compile Include="ViewModel\DatePickerDateFormat.cs" />
+    <Compile Include="ViewModel\EditFormViewModel.cs" />
+    <Compile Include="ViewModel\FormInputBookViewModel.cs" />
     <Compile Include="ViewModel\FormOptionViewModel.cs" />
     <Compile Include="Store\NavigateStore.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
@@ -317,6 +331,8 @@
     <Compile Include="ViewModel\Discount\DiscountManagementViewModel.cs" />
     <Compile Include="ViewModel\Employee\AddNewEmployeeViewModel.cs" />
     <Compile Include="ViewModel\Employee\EmployeeManagementViewModel.cs" />
+    <Compile Include="ViewModel\FormViewmodel.cs" />
+    <Compile Include="ViewModel\ListFormInputViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NavigateViewModel.cs" />
@@ -324,6 +340,7 @@
     <Compile Include="ViewModel\Order\OredrManagementViewModel.cs" />
     <Compile Include="ViewModel\PasswordHelper.cs" />
     <Compile Include="ViewModel\ProductAddViewModel.cs" />
+    <Compile Include="ViewModel\ProductEditViewModel.cs" />
     <Compile Include="ViewModel\ProductListViewModel.cs" />
     <Compile Include="ViewModel\ReportBillVIewModel.cs" />
     <Compile Include="ViewModel\ReportInventoryViewModel.cs" />
@@ -349,6 +366,12 @@
     <Compile Include="View\Employee\EmployeeManagementView.xaml.cs">
       <DependentUpon>EmployeeManagementView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\FormSetView\EditFormInputView.xaml.cs">
+      <DependentUpon>EditFormInputView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormSetView\ListFormInputView.xaml.cs">
+      <DependentUpon>ListFormInputView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\OrderSetViews\AddNewOrderView.xaml.cs">
       <DependentUpon>AddNewOrderView.xaml</DependentUpon>
     </Compile>
@@ -372,6 +395,9 @@
     </Compile>
     <Compile Include="View\ProductSetView\ProductAddView.xaml.cs">
       <DependentUpon>ProductAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProductSetView\ProductEditView.xaml.cs">
+      <DependentUpon>ProductEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProductSetView\ProductListView.xaml.cs">
       <DependentUpon>ProductListView.xaml</DependentUpon>
@@ -428,6 +454,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\FormSetView\EditFormInputView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\FormSetView\FormBillView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -437,6 +467,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FormSetView\FormOptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FormSetView\ListFormInputView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -457,6 +491,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ProductSetView\ProductAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProductSetView\ProductEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -573,8 +611,13 @@
     <EmbeddedResource Include="Migrations\202204240232416_decimelChange.resx">
       <DependentUpon>202204240232416_decimelChange.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\202204251736136_delete-total-in-order.resx">
       <DependentUpon>202204251736136_delete-total-in-order.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Migrations\202204261610129_addEmployeeReceipt.resx">
+      <DependentUpon>202204261610129_addEmployeeReceipt.cs</DependentUpon>
+>>>>>>> NDKhoi
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

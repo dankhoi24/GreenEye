@@ -16,7 +16,7 @@ namespace GreenEye.DataAccess.DAO
         {
             var data = Database.DebitBooks.Where(x => x.Date.Month == date.Month && x.Date.Year == date.Year);
             var customer = data.Join(Database.Customers, d => d.CustomerId, c => c.CustomerId, 
-                (d, c) => new ReportBill { Name = c.Name, Init=d.BeginDebit, Incurred = d.CurrentDebit, Final =  d.CurrentDebit+ d.BeginDebit});
+                (d, c) => new ReportBill { Name = c.Name, Init=d.BeginDebit, Incurred = d.CurrentDebit - d.BeginDebit, Final =  d.CurrentDebit});
 
             return customer.ToList();
         }

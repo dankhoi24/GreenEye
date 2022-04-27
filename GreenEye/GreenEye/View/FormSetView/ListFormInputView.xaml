@@ -1,10 +1,12 @@
-﻿<UserControl x:Class="GreenEye.View.ReportSetView.ReportInventoryView"
+﻿<UserControl x:Class="GreenEye.View.FormSetView.ListFormInputView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:GreenEye.View.ReportSetView"
+             xmlns:local="clr-namespace:GreenEye.View.FormSetView"
              mc:Ignorable="d" 
+             x:Name="ListGoodsReceiptWindow"
+         
                d:DesignHeight="693" d:DesignWidth="1366"
 
              xmlns:viewmodels="clr-namespace:GreenEye.ViewModel"
@@ -62,6 +64,10 @@
                   materialDesign:HintAssist.Hint="Locale Date" />
                   </Border>
 
+            <Button 
+                Command="{Binding AddGoods}"
+                Content="Add Goods"/>
+
 
         </StackPanel>
                <StackPanel Grid.Row="1">
@@ -79,35 +85,31 @@
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock
                     HorizontalAlignment="Center"
                     FontSize="22" FontWeight="Bold"
                            Foreground="#bdbdbd"
-                           >Books name</TextBlock>
+                           >Date</TextBlock>
                 <TextBlock 
                      FontSize="22" FontWeight="Bold"
                            Foreground="#bdbdbd"
 
                     HorizontalAlignment="Center"
-                    Grid.Column="1">Initial Inventory</TextBlock>
+                    Grid.Column="1">Employee</TextBlock>
                     <TextBlock
                      FontSize="22" FontWeight="Bold"
                            Foreground="#bdbdbd"
 
                     HorizontalAlignment="Center"
-                    Grid.Column="2">Incurred number</TextBlock>
-                <TextBlock
-                     FontSize="22" FontWeight="Bold"
-                           Foreground="#bdbdbd"
-
-                    HorizontalAlignment="Center"
-                    Grid.Column="3">Final inventory</TextBlock>
-            </Grid>
-            <StackPanel >
+                    Grid.Column="2">Amount Book</TextBlock>
+                           </Grid>
+            <StackPanel 
+                >
                     <ListView
-                        ItemsSource="{Binding Reports}"
+                        Height="480"
+                        ItemsSource="{Binding GoodsReceiptList}"
+                        SelectedItem="{Binding SelectedItem}"
                         >
 
                           <ListView.ItemContainerStyle>
@@ -129,28 +131,33 @@
                         >
 
                     <Grid Height="120">
+
+                                        <Grid.ContextMenu>
+                                            <ContextMenu
+                                                Opened="onContextMenuOpend"
+                                                >
+                                                <MenuItem
+                                                    Command="{Binding DeleteContext}"
+                                                    Header="Delete"/>
+                                                <MenuItem 
+                                                    Command="{Binding EditContext}"
+                                                    Header="Edit"/>
+                                            </ContextMenu>
+                                        </Grid.ContextMenu>
+                            
+                        
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <StackPanel 
+                        <TextBlock 
+
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Orientation="Horizontal">
-                            <Image 
-                                
-                            Height="68"
-                                Source="../../img/src/login.png"/>
-                            <TextBlock
-                                Margin="10 0 0 0"
-                                TextWrapping="Wrap"
-                                Width="300"
-                                FontSize="22"
-                                FontWeight="Medium"
-                                Text="{Binding Name}"/>
-                        </StackPanel>
+                            FontSize="22"
+                            FontWeight="Medium"
+                            Text="{Binding Date}"/>
 
                         <TextBlock 
 
@@ -159,7 +166,7 @@
                             Grid.Column="1"
                             FontSize="22"
                             FontWeight="Medium"
-                            Text="{Binding Init}"/>
+                            Text="{Binding EmployeeName}"/>
                         
                         <TextBlock 
 
@@ -168,17 +175,9 @@
                             Grid.Column="2"
                             FontSize="22"
                             FontWeight="Medium"
-                            Text="{Binding Incurred}"/>
+                            Text="{Binding Amount}"/>
                         
-                         <TextBlock 
-
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Grid.Column="3"
-                            FontSize="22"
-                            FontWeight="Medium"
-                            Text="{Binding Final}"/>
-
+                       
 
 
 

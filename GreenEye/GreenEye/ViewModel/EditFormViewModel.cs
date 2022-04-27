@@ -1,6 +1,7 @@
 ﻿using GreenEye.DataAccess;
 using GreenEye.DataAccess.DAO;
 using GreenEye.DataAccess.Domain;
+using GreenEye.Model;
 using GreenEye.ViewModel.Command;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,9 @@ using System.Windows;
 
 namespace GreenEye.ViewModel
 {
-    public class FormInputBookViewModel : BaseViewModel
+    public class EditFormViewModel:BaseViewModel
     {
-
-
+       
         public RelayCommand SubmitCommand { get; set; }
         public RelayCommand CancelCommand { get; set; }
         public RelayCommand AddProduct { get; set; }
@@ -93,6 +93,7 @@ namespace GreenEye.ViewModel
         }
 
         ProductDAO _productDAO = new ProductDAO();
+        GoodsReceiptDAO _goodsReceiptDAO = new GoodsReceiptDAO();
 
 
 
@@ -112,15 +113,15 @@ namespace GreenEye.ViewModel
             AllBooks = new ObservableCollection<Book>(_productDAO.getAll());
         }
 
-        public FormInputBookViewModel(BaseViewModel viewmodel)
+        public EditFormViewModel(BaseViewModel viewmodel, int id)
         {
             _viewmodel = viewmodel;
             Suggest = new ObservableCollection<Book>(_productDAO.getAll());
             initSuggest();
             Visibility = "Hidden";
 
-            Products = new ObservableCollection<Book>();
-            Date = DateTime.Now;
+            Products = new ObservableCollection<Book>(_goodsReceiptDAO.getBook(id));
+            Date = _goodsReceiptDAO.getDate(id);
             SubmitCommand = new RelayCommand(submitCommand, null);
             AddProduct = new RelayCommand(addProduct, null);
             CancelCommand = new RelayCommand(cancelCommand, null);

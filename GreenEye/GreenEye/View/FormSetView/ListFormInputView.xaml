@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GreenEye.View.FormSetView"
              mc:Ignorable="d" 
+             x:Name="ListGoodsReceiptWindow"
          
                d:DesignHeight="693" d:DesignWidth="1366"
 
@@ -63,6 +64,10 @@
                   materialDesign:HintAssist.Hint="Locale Date" />
                   </Border>
 
+            <Button 
+                Command="{Binding AddGoods}"
+                Content="Add Goods"/>
+
 
         </StackPanel>
                <StackPanel Grid.Row="1">
@@ -99,9 +104,12 @@
                     HorizontalAlignment="Center"
                     Grid.Column="2">Amount Book</TextBlock>
                            </Grid>
-            <StackPanel >
+            <StackPanel 
+                >
                     <ListView
-                        ItemsSource="{Binding Reports}"
+                        Height="480"
+                        ItemsSource="{Binding GoodsReceiptList}"
+                        SelectedItem="{Binding SelectedItem}"
                         >
 
                           <ListView.ItemContainerStyle>
@@ -123,6 +131,21 @@
                         >
 
                     <Grid Height="120">
+
+                                        <Grid.ContextMenu>
+                                            <ContextMenu
+                                                Opened="onContextMenuOpend"
+                                                >
+                                                <MenuItem
+                                                    Command="{Binding DeleteContext}"
+                                                    Header="Delete"/>
+                                                <MenuItem 
+                                                    Command="{Binding EditContext}"
+                                                    Header="Edit"/>
+                                            </ContextMenu>
+                                        </Grid.ContextMenu>
+                            
+                        
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="1*"/>
@@ -143,7 +166,7 @@
                             Grid.Column="1"
                             FontSize="22"
                             FontWeight="Medium"
-                            Text="{Binding Employee}"/>
+                            Text="{Binding EmployeeName}"/>
                         
                         <TextBlock 
 

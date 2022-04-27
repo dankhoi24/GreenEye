@@ -160,7 +160,9 @@ D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.exe
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.pdb
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\ProductSetView\ProductEditView.g.cs
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\ProductSetView\ProductEditView.baml
-D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.csproj.AssemblyReference.cache
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\FormSetView\ListFormInputView.g.cs
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\FormSetView\ListFormInputView.baml
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.Migrations.addEmployeeReceipt.resources
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.csproj.AssemblyReference.cache
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\FormSetView\EditFormInputView.g.cs
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\FormSetView\EditFormInputView.baml

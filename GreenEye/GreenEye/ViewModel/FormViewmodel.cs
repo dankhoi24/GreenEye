@@ -23,7 +23,7 @@ namespace GreenEye.ViewModel
 
         void goodsCommand(object x)
         {
-            (_viewmodel as NavigateViewModel).goToInputForm(x);
+            (_viewmodel as NavigateViewModel).goTListFrmProduct();
         }
 
     }

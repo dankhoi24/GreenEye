@@ -17,7 +17,7 @@ namespace GreenEye.ViewModel
     public class NavigateViewModel: BaseViewModel
     {
         public string Name { get; set; }
-        private int UserId { get; set; }
+        public int UserId { get; set; }
         private BaseViewModel _formReceiptState { get; set; } = null;
         public RelayCommand OrderNavigateCommand { get; set; }
         public RelayCommand CustomerNavigateCommand { get; set; }
@@ -66,6 +66,18 @@ namespace GreenEye.ViewModel
             }
     
 
+        public void goToEditForm(int id)
+        {
+            NavigateStore.CurrentViewModel = new EditFormViewModel(this, id);
+        }
+        public void goTListFrmProduct()
+        {
+            NavigateStore.CurrentViewModel = new ListFormInputViewModel(this);
+        }
+        public void deleteProductState()
+        {
+            _formReceiptState = null;
+        }
         public void goToFormProductState()
         {
             (_formReceiptState as FormInputBookViewModel).initSuggest();

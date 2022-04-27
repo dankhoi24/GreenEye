@@ -171,6 +171,7 @@
     <Compile Include="DataAccess\DAO\CustomerDAO.cs" />
     <Compile Include="DataAccess\DAO\DebitBookDAO.cs" />
     <Compile Include="DataAccess\DAO\EmployeeDAO.cs" />
+    <Compile Include="DataAccess\DAO\GoodsReceiptDAO.cs" />
     <Compile Include="DataAccess\DAO\InventoryDAO.cs" />
     <Compile Include="DataAccess\DAO\OrderDAO.cs" />
     <Compile Include="DataAccess\DAO\Order_BookDAO.cs" />
@@ -290,6 +291,8 @@
       <DependentUpon>202204261610129_addEmployeeReceipt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\BookFormModel.cs" />
+    <Compile Include="Model\GoodsReceiptModel.cs" />
     <Compile Include="Model\ReportBill.cs" />
     <Compile Include="Model\ReportInventory.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
@@ -299,6 +302,7 @@
     <Compile Include="ViewModel\DashboardViewModel.cs" />
     <Compile Include="ViewModel\DatePickerCalendar.cs" />
     <Compile Include="ViewModel\DatePickerDateFormat.cs" />
+    <Compile Include="ViewModel\EditFormViewModel.cs" />
     <Compile Include="ViewModel\FormInputBookViewModel.cs" />
     <Compile Include="ViewModel\FormOptionViewModel.cs" />
     <Compile Include="Store\NavigateStore.cs" />
@@ -345,6 +349,9 @@
     </Compile>
     <Compile Include="View\Employee\EmployeeManagementView.xaml.cs">
       <DependentUpon>EmployeeManagementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormSetView\EditFormInputView.xaml.cs">
+      <DependentUpon>EditFormInputView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\FormSetView\ListFormInputView.xaml.cs">
       <DependentUpon>ListFormInputView.xaml</DependentUpon>
@@ -428,6 +435,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Employee\EmployeeManagementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FormSetView\EditFormInputView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,10 +1,11 @@
-﻿<UserControl x:Class="GreenEye.View.FormSetView.FormInputBookView"
+﻿<UserControl x:Class="GreenEye.View.FormSetView.EditFormInputView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GreenEye.View.FormSetView"
              mc:Ignorable="d" 
+            
              d:DesignHeight="693" d:DesignWidth="1366"
              
              
@@ -275,6 +276,7 @@
                 >
 
                     <ListView
+                    Height="260"
                         ItemsSource="{Binding Products}"
                         >
                          <ListView.ItemContainerStyle>

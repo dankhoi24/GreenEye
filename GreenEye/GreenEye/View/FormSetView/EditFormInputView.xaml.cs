@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace GreenEye.View.FormSetView
 {
     /// <summary>
-    /// Interaction logic for ListFormInputView.xaml
+    /// Interaction logic for EditFormInputView.xaml
     /// </summary>
-    public partial class ListFormInputView : UserControl
+    public partial class EditFormInputView : UserControl
     {
-        public ListFormInputView()
+        public EditFormInputView()
         {
             InitializeComponent();
-        }
-
-        private void onContextMenuOpend(object sender, RoutedEventArgs e)
-        {
-            (sender as ContextMenu).DataContext = ListGoodsReceiptWindow.DataContext;
         }
     }
 }

@@ -69,10 +69,16 @@
         <DataTemplate DataType="{x:Type viewmodels:ProductEditViewModel}">
             <viewsProduct:ProductEditView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ListFormInputViewModel}">
+            <viewsForm:ListFormInputView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:EditFormViewModel}">
+            <viewsForm:EditFormInputView/>
+        </DataTemplate>
 
 
 
-           </Control.Resources>
+    </Control.Resources>
 
 
     <StackPanel>

@@ -296,15 +296,13 @@
     <Compile Include="Migrations\202204240232416_decimelChange.Designer.cs">
       <DependentUpon>202204240232416_decimelChange.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Migrations\202204251736136_delete-total-in-order.cs" />
     <Compile Include="Migrations\202204251736136_delete-total-in-order.designer.cs">
       <DependentUpon>202204251736136_delete-total-in-order.cs</DependentUpon>
-=======
+    </Compile>
     <Compile Include="Migrations\202204261610129_addEmployeeReceipt.cs" />
     <Compile Include="Migrations\202204261610129_addEmployeeReceipt.Designer.cs">
       <DependentUpon>202204261610129_addEmployeeReceipt.cs</DependentUpon>
->>>>>>> NDKhoi
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BookFormModel.cs" />
@@ -535,6 +533,7 @@
     </Compile>
     <EmbeddedResource Include="Migrations\202204161518270_InitDatabase.resx">
       <DependentUpon>202204161518270_InitDatabase.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204161534186_AddBookType.resx">
       <DependentUpon>202204161534186_AddBookType.cs</DependentUpon>
@@ -611,13 +610,11 @@
     <EmbeddedResource Include="Migrations\202204240232416_decimelChange.resx">
       <DependentUpon>202204240232416_decimelChange.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\202204251736136_delete-total-in-order.resx">
       <DependentUpon>202204251736136_delete-total-in-order.cs</DependentUpon>
-=======
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204261610129_addEmployeeReceipt.resx">
       <DependentUpon>202204261610129_addEmployeeReceipt.cs</DependentUpon>
->>>>>>> NDKhoi
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

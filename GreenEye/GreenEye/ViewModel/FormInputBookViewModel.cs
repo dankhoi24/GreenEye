@@ -143,12 +143,25 @@ namespace GreenEye.ViewModel
         {
             List<GoodsReceipt_Book> result = new List<GoodsReceipt_Book>();
 
+
             foreach(var book in Products)
             {
+                int numberTemp = 0;
+                if (string.IsNullOrEmpty(book.Publisher))
+                {
+                    
+                    numberTemp = book.Sales;
+                }
+                else
+                {
+                    numberTemp = Int32.Parse(book.Publisher);
+
+                }
+
                 GoodsReceipt_Book temp = new GoodsReceipt_Book()
                 {
                     BookId = book.BookId,
-                    Number = Int32.Parse( book.Publisher)
+                    Number = numberTemp
                 };
                 result.Add(temp);
             }

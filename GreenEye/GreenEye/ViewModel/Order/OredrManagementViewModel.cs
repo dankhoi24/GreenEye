@@ -63,6 +63,10 @@ namespace GreenEye.ViewModel.Order
             DeleteOrderCommand = new RelayCommand(deleteOrder, null);
             NavigateEditOrderCommand = new RelayCommand(navigateEditOrder, null);
         }
+        private void AddOrderNavigate(object obj)
+        {
+            NavigateStore.CurrentViewModel = new AddNewOrderViewModel(NavigateStore);
+        }
 
         private void navigateEditOrder(object obj)
         {
@@ -136,9 +140,6 @@ namespace GreenEye.ViewModel.Order
             Debug.WriteLine("-------------------------------Next-----------------------------------------");
         }
 
-        private void AddOrderNavigate(object obj)
-        {
-            NavigateStore.CurrentViewModel = new AddNewOrderViewModel(NavigateStore);
-        }
+       
     }
 }

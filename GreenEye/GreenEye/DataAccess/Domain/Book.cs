@@ -37,9 +37,11 @@ namespace GreenEye.DataAccess.Domain
         // Binding amount in order att
 
         [NotMapped]
-        private int _amountInOrder;
+        public int _amountInOrder { get; set; }
         [NotMapped]
-        public int AmountInOrder { get => _amountInOrder; set
+        public int AmountInOrder
+        {
+            get => _amountInOrder; set
             {
                 ProductDAO productDAO = new ProductDAO();
                 if (value <= productDAO.getStock(BookId))
@@ -51,15 +53,20 @@ namespace GreenEye.DataAccess.Domain
                 {
                     MessageBox.Show("Remaining product is not enough");
                 }
-            }  }
+            }
+        }
         //Navigate
         public int BookTypeId { get; set; }
-        
+
         //Foreign key
+        [InverseProperty(nameof(GoodsReceipt_Book.Book))]
         public virtual List<GoodsReceipt_Book> GoodsReceipt_Books { get; set; }
         public virtual BookType BookType { get; set;}
 
+        [InverseProperty(nameof(Order_Book.Book))]
         public virtual List<Order_Book> Order_Books { get; set; }
+
+        [InverseProperty(nameof(Inventory.Book))]
         public virtual List<Inventory> Inventories { get; set; }
         
         

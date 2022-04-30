@@ -10,7 +10,7 @@ namespace GreenEye.DataAccess.Domain
 {
     public class DebitBook
     {
-        [Key,ForeignKey(nameof(Customer))]
+        [Key]
 
         public int DebitBookId { get; set; }
         public decimal BeginDebit { get; set; }
@@ -21,7 +21,6 @@ namespace GreenEye.DataAccess.Domain
         public int CustomerId { get; set; }
         //Foreign key
 
-        [Required]
         public virtual Customer Customer { get; set; }
     }
 }

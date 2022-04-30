@@ -17,6 +17,7 @@ namespace GreenEye.DataAccess.Domain
         //Navigation
 
         //Foreign Key
+        [InverseProperty(nameof(Book.BookType))]
         public virtual List<Book> Books { get; set; }
 
 

@@ -173,6 +173,10 @@
 
             <ListView 
            
+                ScrollViewer.VerticalScrollBarVisibility="Visible"
+                
+                Height="330"
+                
                 SelectedItem="{Binding SelectedBookInOrderList,Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                 
                 ItemsSource="{Binding BookInOrderList}"  Margin="30 30 30 0"
@@ -268,6 +272,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
@@ -276,19 +281,49 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
 
-                    <TextBlock FontWeight="Bold" FontSize="20" Margin="10 10 10 10">Subtotal:</TextBlock>
-                    <TextBlock FontWeight="Bold" Grid.Column="1" FontSize="14" Margin="10 10 10 10" Text="{Binding Subtotal}"></TextBlock>
-                    <TextBlock FontWeight="Bold" Grid.Row="1" FontSize="20" Margin="10 10 10 10">Discount:</TextBlock>
-                    <TextBlock FontWeight="Bold" Grid.Row="1" Grid.Column="1" FontSize="14" Margin="10 10 10 10" Text="{Binding Discount}"></TextBlock>
-                    <Border BorderThickness="0.5" BorderBrush="Gray" Grid.Row="2" Grid.ColumnSpan="2" Margin="10"/>
-                    <TextBlock FontWeight="Bold" Grid.Row="3" FontSize="20" Margin="10 10 10 10">Total:</TextBlock>
-                    <TextBlock FontWeight="Bold" Grid.Row="3" Grid.Column="1" FontSize="14" Margin="10 10 10 10" Text="{Binding Total}"></TextBlock>
-
-                    <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="2">
+                    <TextBlock 
+                        FontWeight="Bold" 
+                        FontSize="19" 
+                        Margin="10 10 10 10">
+                        Subtotal:
+                    </TextBlock>
+                    <TextBlock 
+                         FontWeight="SemiBold" 
+                        FontStyle="Italic"
+                        Grid.Column="1" 
+                        FontSize="19" 
+                        Margin="10 10 10 10" 
+                        Text="{Binding Subtotal}">
                         
-                    <Button  Grid.ColumnSpan="2" Width="100" Margin="10" Background="Gray" Command="{Binding NavigateCancelCommand}">Cancel</Button>
+                    </TextBlock>
+                    <TextBlock  FontWeight="SemiBold" 
+                        FontStyle="Italic" FontSize="19" Grid.Column="2" Margin="10 10 10 10">vnđ</TextBlock>
+                    
+                    <TextBlock FontWeight="Bold" Grid.Row="1" FontSize="19" Margin="10 10 10 10">Discount:</TextBlock>
+                    <TextBlock  FontWeight="SemiBold" 
+                        FontStyle="Italic" Grid.Row="1" Grid.Column="1" FontSize="19" Margin="10 10 10 10" Text="{Binding Discount.PercentDiscount}"></TextBlock>
+                    <TextBlock  FontWeight="SemiBold" 
+                        FontStyle="Italic" FontSize="19" Grid.Row="1" Grid.Column="2" Margin="10 10 10 10">%</TextBlock>
+
+                    <TextBlock FontWeight="Bold" Grid.Row="2" FontSize="19" Margin="10 10 10 10">Program:</TextBlock>
+                    <TextBlock FontWeight="SemiBold" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" FontSize="19" FontStyle="Italic"
+                               Foreground="Green" Margin="10 10 10 10" Text="{Binding Discount.Name}"></TextBlock>
+                    
+                    <Border BorderThickness="0.5" BorderBrush="Gray" Grid.Row="3" Grid.ColumnSpan="3" Margin="10"/>
+                    
+                    <TextBlock FontWeight="Bold" Grid.Row="4" FontSize="19" Margin="10 10 10 10">Total:</TextBlock>
+                    <TextBlock  FontWeight="SemiBold" 
+                        FontStyle="Italic" Grid.Row="4" Grid.Column="1" FontSize="19" Margin="10 10 10 10" Text="{Binding Total}"></TextBlock>
+                    <TextBlock  FontWeight="SemiBold" 
+                        FontStyle="Italic" FontSize="19" Grid.Row="4" Grid.Column="2" Margin="10 10 10 10">vnđ</TextBlock>
+
+
+                    <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="3">
+                        
+                    <Button  Grid.ColumnSpan="3" Width="100" Margin="10" Background="Gray" Command="{Binding NavigateCancelCommand}">Cancel</Button>
                         <Button Grid.Row="4" Grid.ColumnSpan="2" Width="100" Margin="10" Background="#00B3AC" Command="{Binding NavigateSubmitCommand}">Submit</Button>
                     </StackPanel>
 

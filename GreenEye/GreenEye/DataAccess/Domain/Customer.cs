@@ -28,7 +28,8 @@ namespace GreenEye.DataAccess.Domain
         //Navigate
 
         //Foreign key
-        public virtual DebitBook DebitBook { get; set; }
+       
+        public virtual List<DebitBook> DebitBook { get; set; }
         public virtual List<Bill> Bills{ get;set; }
 
         public virtual List<Order> Orders { get; set; }

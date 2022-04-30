@@ -260,5 +260,71 @@ namespace GreenEye.DataAccess.DAO
 
             return new ObservableCollection<Book>(books);
         }
+
+        internal ObservableCollection<Book> getAllByOrderID(int orderId)
+        {
+            var books = Database.Books
+                .Join(
+                Database.Order_Books
+                , b => b.BookId,
+                ob => ob.BookId,
+                (b, ob) => new
+                {
+                    BookId = b.BookId,
+                    Name = b.Name,
+                    Publisher = b.Publisher,
+                    Author = b.Author,
+                    Date = b.Date,
+                    Img = b.Img,
+                    ImportPrice = b.ImportPrice,
+                    ExportPrice = b.ExportPrice,
+                    Stroke = b.Stroke,
+                    Sales = b.Sales,
+                    BookTypeId = b.BookTypeId,
+                    OrderId = ob.OrderId,
+                    AmountInOrder = ob.Amount
+                }). Where (x => x.OrderId == orderId)
+                .Join(Database.Orders,
+                oob => oob.OrderId,
+                o => o.OrderId,
+                (oob, o) => new
+                {
+                    BookId = oob.BookId,
+                    Name = oob.Name,
+                    Publisher = oob.Publisher,
+                    Author = oob.Author,
+                    Date = oob.Date,
+                    Img = oob.Img,
+                    ImportPrice = oob.ImportPrice,
+                    ExportPrice = oob.ExportPrice,
+                    Stroke = oob.Stroke,
+                    Sales = oob.Sales,
+                    BookTypeId = oob.BookTypeId,
+                    AmountInOrder = oob.AmountInOrder
+                }).ToList();
+
+            var results = new ObservableCollection<Book>();
+
+            foreach (var oob in books)
+            {
+                results.Add(new Book ()
+                {
+                    BookId = oob.BookId,
+                    Name = oob.Name,
+                    Publisher = oob.Publisher,
+                    Author = oob.Author,
+                    Date = oob.Date,
+                    Img = oob.Img,
+                    ImportPrice = oob.ImportPrice,
+                    ExportPrice = oob.ExportPrice,
+                    Stroke = oob.Stroke,
+                    Sales = oob.Sales,
+                    BookTypeId = oob.BookTypeId,
+                    AmountInOrder = oob.AmountInOrder
+                });
+            }
+
+            return results;
+        }
     }
 }

@@ -28,9 +28,11 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock FontSize="20" FontWeight="Bold" VerticalAlignment="Center">All Employee</TextBlock>
+                    <TextBlock FontSize="20" FontWeight="Bold" 
+                               VerticalAlignment="Center">All Employee</TextBlock>
 
-                    <Border BorderThickness="1" BorderBrush="#00B3AC" CornerRadius="5" Height="50" Width="500" Grid.Column="1" Margin="200 0 0 0">
+                    <Border BorderThickness="1" BorderBrush="#00B3AC" CornerRadius="5" 
+                            Height="50" Width="500" Grid.Column="1" Margin="200 0 0 0">
 
                         <TextBox></TextBox>
 
@@ -40,7 +42,8 @@
                         Search
                     </Button>
 
-                    <Button Height="50" Margin="150 0 0 0" Background="#00B3AC" Command="{Binding AddEmployeeNavigateCommand}">
+                    <Button Height="50" Margin="150 0 0 0" Background="#00B3AC" 
+                            Command="{Binding AddEmployeeNavigateCommand}">
                         Add Employy
                     </Button>
                 </StackPanel>
@@ -54,15 +57,22 @@
 
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Column="0" FontWeight="Bold" Foreground="Gray" FontSize="20" Margin="50 10 0 10">Employee name</TextBlock>
-                        <TextBlock  Grid.Column="1" FontWeight="Bold" Foreground="Gray" FontSize="20" Margin="10 10 0 10">Salary</TextBlock>
-                        <TextBlock  Grid.Column="2" FontWeight="Bold"  FontSize="20" Foreground="Gray" Margin="10 10 0 10">Phone</TextBlock>
+                        <TextBlock Grid.Column="0" FontWeight="Bold" Foreground="Gray" 
+                                   FontSize="20" Margin="50 10 0 10">Employee name</TextBlock>
+                        <TextBlock  Grid.Column="1" FontWeight="Bold" Foreground="Gray" 
+                                    FontSize="20" Margin="10 10 0 10">Salary</TextBlock>
+                        <TextBlock  Grid.Column="2" FontWeight="Bold"  FontSize="20" 
+                                    Foreground="Gray" Margin="10 10 0 10">Phone</TextBlock>
                     </Grid>
 
                     <Border BorderBrush="Gray" BorderThickness="0.5"></Border>
 
 
-                    <ListView SelectedItem="{Binding SelectedEmployee}" ItemsSource="{Binding EmployeePageList}" Height="400" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False">
+                    <ListView SelectedItem="{Binding SelectedEmployee}" 
+                              ItemsSource="{Binding EmployeePageList}"
+                              Height="400" 
+                              ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                              ScrollViewer.CanContentScroll="False">
 
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -108,24 +118,31 @@
                         </ListView.ItemTemplate>
                     </ListView>
                     <StackPanel VerticalAlignment="center" HorizontalAlignment="Center" Orientation="Horizontal">
-                        <Button Background="White" Content="First" Foreground="Black" Command="{Binding FirstCommand}"></Button>
-                        <Button Background="White" Content="Prev" Foreground="Black" Command="{Binding PreviousCommand}"></Button>
-                        <Border Width="80" BorderThickness="2" BorderBrush="#00B3AC" Background="LightGray">
+                        <Button Background="White" Content="First" 
+                                Foreground="Black" Command="{Binding FirstCommand}"></Button>
+                        <Button Background="White" Content="Prev" 
+                                Foreground="Black" Command="{Binding PreviousCommand}"></Button>
+                        <Border Width="80" BorderThickness="2" BorderBrush="#00B3AC" 
+                                Background="LightGray">
                             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-                                <TextBlock VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Text="{Binding CurrentPage}">
+                                <TextBlock VerticalAlignment="Center" FontSize="16" 
+                                           FontWeight="Bold" Text="{Binding CurrentPage}">
 
                                 </TextBlock>
-                                <TextBlock FontSize="14" Margin="5 0 5 0" VerticalAlignment="Center"  FontWeight="Bold">
+                                <TextBlock FontSize="14" Margin="5 0 5 0" 
+                                           VerticalAlignment="Center"  FontWeight="Bold">
                         of
                                 </TextBlock>
-                                <TextBlock VerticalAlignment="Center" FontSize="16" Text="{Binding totalPage}"  FontWeight="Bold">
-
-                                </TextBlock>
+                                <TextBlock VerticalAlignment="Center" 
+                                           FontSize="16" Text="{Binding totalPage}"  
+                                           FontWeight="Bold"/>
                             </StackPanel>
 
                         </Border>
-                        <Button Background="White" Content="Next" Foreground="Black" Command="{Binding NextCommand}"></Button>
-                        <Button Background="White" Content="Last" Foreground="Black" Command="{Binding LastCommand}"></Button>
+                        <Button Background="White" Content="Next" 
+                                Foreground="Black" Command="{Binding NextCommand}"></Button>
+                        <Button Background="White" Content="Last" 
+                                Foreground="Black" Command="{Binding LastCommand}"></Button>
                     </StackPanel>
                 </StackPanel>
 

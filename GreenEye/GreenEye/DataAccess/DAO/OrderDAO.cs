@@ -36,5 +36,19 @@ namespace GreenEye.DataAccess.DAO
             Database.SaveChanges();
             return r;
         }
+
+        internal Order findOne(int orderId)
+        {
+            return Database.Orders.Find(orderId);
+        }
+
+        internal void update(Order order)
+        {
+            var _oredr = Database.Orders.Find(order.OrderId);
+
+            Database.Entry(_oredr).CurrentValues.SetValues(order);
+
+            Database.SaveChanges();
+        }
     }
 }

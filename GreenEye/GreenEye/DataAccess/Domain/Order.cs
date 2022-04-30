@@ -34,6 +34,10 @@ namespace GreenEye.DataAccess.Domain
                     total += ob.Amount*book.ExportPrice;
                 }
 
+                total -= (Promotion.PercentDiscount * total / 100 <= Promotion.MaxDiscount)
+                    ? (Promotion.PercentDiscount * total / 100)
+                    : Promotion.MaxDiscount;
+
                 return total;
             }
             }

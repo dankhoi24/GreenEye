@@ -1,20 +1,21 @@
-﻿using GreenEye.DataAccess.Domain;
+﻿
 using GreenEye.Store;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GreenEye.ViewModel.Order
 {
     using DataAccess.Domain;
     using GreenEye.DataAccess.DAO;
     using GreenEye.ViewModel.Command;
+    using System;
+    using System.Diagnostics;
+    using System.Windows;
 
     public class AddNewOrderViewModel : BaseViewModel
     {
+        //-----------check whether editing or adding------------
+        private bool _isEditing = false;
+        
         //---------------Init component---------------
         public NavigateStore NavigateStore { get; }
         public Order Order { get; }
@@ -27,7 +28,35 @@ namespace GreenEye.ViewModel.Order
 
 
         //-------Customer--------------
-        public Customer SelectedSearchCustomer { get; set; }
+        //-----Debit Book-------------
+        public DebitBook currentDebitBook { get; set; }
+        private Customer _selectedSearchCustomer;
+        public Customer SelectedSearchCustomer
+        {
+            get => _selectedSearchCustomer;
+            set
+            {
+                if (value != null)
+                {
+                    DebitBookDAO debitBookDAO = new DebitBookDAO();
+                   currentDebitBook = debitBookDAO.getCurrentDebitBook(value.CustomerId);
+
+                    if (currentDebitBook.CurrentDebit >= 20000 && !_isEditing)
+                    {
+                        MessageBox.Show("Your debit is reaching 20000 vnd");
+                    }
+                    else
+                    {
+                        _selectedSearchCustomer = value;
+
+                        if (currentDebitBook.DebitBookId == 0)
+                            _selectedSearchCustomer.DebitBook.Add(currentDebitBook);
+
+                        onPropertyChanged(nameof(SelectedSearchCustomer));
+                    }
+                }
+            }
+        }
         public ObservableCollection<Customer> CustomerSearchList { get; set; }
         public ObservableCollection<Customer> CustomerList { get; set; }
         private string _customerSearchBox;
@@ -57,15 +86,42 @@ namespace GreenEye.ViewModel.Order
             }
         }
         private decimal _total;
-        public decimal Total { get { return Subtotal-Discount; } set {_total = value; onPropertyChanged(nameof(Total)); } }
+        public decimal Total { 
+            get 
+            {
+                decimal reducedMoney = ((Discount.PercentDiscount * Subtotal / 100) > Discount.MaxDiscount) ? Discount.MaxDiscount: Discount.PercentDiscount * Subtotal / 100 ;
+                return Subtotal-reducedMoney; 
+            } 
+            set 
+            {
+                _total = value; 
+                onPropertyChanged(nameof(Total)); 
+            } 
+        }
 
-        private decimal _discount = 0;
-        public decimal Discount { get { return _discount; } set { _discount = value; onPropertyChanged(nameof(Discount)); } }
+        //------------DisCount--------------
+
+        private Promotion _discount;
+        public Promotion Discount { 
+            get 
+            {
+                PromotionDAO discountDAO = new PromotionDAO();
+
+                _discount = discountDAO.getBestDiscount(Subtotal);
+                return _discount; 
+            } 
+            set 
+            { 
+                _discount = value; 
+                onPropertyChanged(nameof(Discount)); 
+            } 
+        }
 
         private Book _selectedSearchBook;
         public Book SelectedSearchBook { get => _selectedSearchBook; set
             {
-                if (value != null) {
+                if (value != null) 
+                {
                     _selectedSearchBook = value;
                     onPropertyChanged(nameof(SelectedSearchBook));
                     BookInOrderList.Add(_selectedSearchBook);
@@ -76,14 +132,17 @@ namespace GreenEye.ViewModel.Order
         public ObservableCollection<Book> BookList { get; set; }
         public ObservableCollection<Book> BookInOrderList { get; set; }
         private string _bookSearchBox;
-        public string BookSearchBox { get => _bookSearchBox; set
-            {
-                _bookSearchBox = value;
-                onPropertyChanged(nameof(BookSearchBox));
-
-                searchBook();
-            }
-            }
+        public string BookSearchBox 
+        { 
+            get => _bookSearchBox; 
+            set
+                {
+                    Debug.WriteLine(value);
+                    _bookSearchBox = value;
+                    onPropertyChanged(nameof(BookSearchBox));
+                    searchBook();
+                }
+        }
 
         ProductDAO bookDAO = new ProductDAO();
         OrderDAO orderDAO = new OrderDAO();
@@ -110,12 +169,15 @@ namespace GreenEye.ViewModel.Order
                 if (book.Name.ToLower().Contains(BookSearchBox.ToLower()))
                 {
                     BookSearchList.Add(book);
+
+                    Debug.WriteLine(book.Name);
                 }
             }
         }
 
         public AddNewOrderViewModel(NavigateStore navigateStore)
         {
+            _isEditing = false;
 
             //---------init order-----------
             Order = new Order(); 
@@ -134,15 +196,16 @@ namespace GreenEye.ViewModel.Order
 
             SelectedSearchBook = null;
 
-            CustomerList = customerDAO.getAll();
+           /* BookList = bookDAO.getAll();
+            */
 
             //-------init customer--------
 
             CustomerSearchList = new ObservableCollection<Customer>();
 
-            SelectedSearchCustomer = new Customer();
+            SelectedSearchCustomer = null;
 
-            BookList = bookDAO.getAll();
+            CustomerList = customerDAO.getAll();
 
             //------------init Command---------------
             DeleteBookInOrderBookCommand = new RelayCommand(deleteBookInOrderBook, null);
@@ -150,15 +213,96 @@ namespace GreenEye.ViewModel.Order
             NavigateCancelCommand = new RelayCommand(Cancel, null);
             NavigateSubmitCommand = new RelayCommand(SubmitAdd, null);
 
+            NavigateStore = navigateStore;
+        }
+
+        public AddNewOrderViewModel(NavigateStore navigateStore, Order SendedOrder)
+        {
+            _isEditing = true;
 
             NavigateStore = navigateStore;
+            //---------init order-----------
+            Order = SendedOrder;
+
+            //-------init book--------
+            BookList = bookDAO.getAll();
+
+            foreach (var book in BookList)
+            {
+                book.AmountInOrder = 0;
+            }
+
+            BookSearchList = new ObservableCollection<Book>();
+
+            BookInOrderList = bookDAO.getAllByOrderID(SendedOrder.OrderId);
+
+
+            //-------init customer--------
+
+            CustomerSearchList = new ObservableCollection<Customer>();
+
+            CustomerDAO customerDAO = new CustomerDAO();
+
+            SelectedSearchCustomer = customerDAO.findOne(SendedOrder.CustomerId);
+
+            CustomerList = customerDAO.getAll();
+
+
+            //------------init Command---------------
+            DeleteBookInOrderBookCommand = new RelayCommand(deleteBookInOrderBook, null);
+            CalcSubtotalCommand = new RelayCommand(calcSubtotal, null);
+            NavigateCancelCommand = new RelayCommand(Cancel, null);
+            NavigateSubmitCommand = new RelayCommand(SubmitEdit, null);
+        }
+
+        private void SubmitEdit(object obj)
+        {
+            //Update old order
+           
+
+            Order_BookDAO order_BookDAO = new Order_BookDAO();
+            RefundDAO refundDAO = new RefundDAO();
+            CustomerDAO customerDAO = new CustomerDAO();
+            DebitBookDAO debitBookDAO = new DebitBookDAO();
+
+            Order oldOrder = orderDAO.findOne(Order.OrderId);
+
+            Customer oldCustomer = customerDAO.findOne(oldOrder.CustomerId);
+
+            //debitBookDAO.decreaseCurrentDebit(oldCustomer, oldOrder.Total);
+
+            Order.CustomerId = SelectedSearchCustomer.CustomerId;
+            Order.EmployeeId = 1;
+            Order.PromotionId = Discount.PromotionId;
+
+            order_BookDAO.deleteByOrder(Order.OrderId);
+            refundDAO.deleteByOrder(Order.OrderId);
+
+            orderDAO.update(Order);
+           
+
+            //Add current order
+          
+            foreach (Book book in BookList)
+            {
+                bookDAO.decreaseStock(book.BookId, book.AmountInOrder);
+                Order_Book ob = new Order_Book() { OrderId = Order.OrderId, BookId = book.BookId, Amount = book.AmountInOrder };
+                order_BookDAO.insertOne(ob);
+            }
+
+            
+
+            currentDebitBook.CurrentDebit += Total;
+
+            debitBookDAO.increaseCurrentDebit(SelectedSearchCustomer, currentDebitBook);
+            NavigateStore.CurrentViewModel = new OredrManagementViewModel(NavigateStore);
         }
 
         private void SubmitAdd(object obj)
         {
             Order.CustomerId=SelectedSearchCustomer.CustomerId;
             this.Order.EmployeeId = 1;
-            this.Order.PromotionId = 1;
+            this.Order.PromotionId = Discount.PromotionId;
             Order _order= orderDAO.insertOne(Order);
 
             foreach (Book book in BookList)
@@ -168,6 +312,11 @@ namespace GreenEye.ViewModel.Order
                 order_BookDAO.insertOne(ob);
             }
 
+            DebitBookDAO debitBookDAO = new DebitBookDAO();
+
+            currentDebitBook.CurrentDebit += Total;
+
+            debitBookDAO.increaseCurrentDebit(SelectedSearchCustomer, currentDebitBook);
             NavigateStore.CurrentViewModel = new OredrManagementViewModel(NavigateStore);
         }
 
@@ -191,12 +340,6 @@ namespace GreenEye.ViewModel.Order
             BookInOrderList.Remove((Book)obj);
         }
 
-        public AddNewOrderViewModel(NavigateStore navigateStore, Order SendedOrder)
-        {
-            NavigateStore = navigateStore;
-            Order = SendedOrder;
-        }
-
-       
+      
     }
 }

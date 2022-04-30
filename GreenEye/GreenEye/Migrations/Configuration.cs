@@ -9,7 +9,7 @@ namespace GreenEye.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(GreenEye.DataAccess.BookStoreContext context)

@@ -40,5 +40,20 @@ namespace GreenEye.DataAccess.DAO
             Database.Entry(entity).CurrentValues.SetValues(promotion);
             Database.SaveChanges();
         }
+
+        internal Promotion getBestDiscount(decimal subtotal)
+        {
+            List<Promotion> list = Database.Promotions.Where(promotion => promotion.StartDate <= DateTime.Now && promotion.EndDate>=DateTime.Now).ToList();
+
+            Promotion _discount = new Promotion() { PercentDiscount = 0, Name="None discount program" };
+
+            foreach (Promotion discount in list)
+            {
+                if (_discount.PercentDiscount < discount.PercentDiscount && subtotal > discount.MinPrice)
+                    _discount = discount;
+            }
+
+            return _discount;
+        }
     }
 }

@@ -50,17 +50,15 @@ namespace GreenEye.ViewModel
 
 
             FormCommand = new RelayCommand(goToForm, null);
+            NavigateStore = new NavigateStore();
+            NavigateStore.CurrentViewModel = new DashboardViewModel(NavigateStore);
 
+            NavigateStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
 
-              NavigateStore = new NavigateStore();
-                NavigateStore.CurrentViewModel = new DashboardViewModel(NavigateStore);
-
-                NavigateStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
-
-                OrderNavigateCommand = new RelayCommand(OrderNavigate, null);
-                CustomerNavigateCommand = new RelayCommand(CustomerNavigate, null);
-                EmployeeNavigateCommand = new RelayCommand(EmployeeNavigate, null);
-                DiscountNavigateCommand = new RelayCommand(DiscountNavigate, null);
+            OrderNavigateCommand = new RelayCommand(OrderNavigate, null);
+            CustomerNavigateCommand = new RelayCommand(CustomerNavigate, null);
+            EmployeeNavigateCommand = new RelayCommand(EmployeeNavigate, null);
+            DiscountNavigateCommand = new RelayCommand(DiscountNavigate, null);
             SettingCommand = new RelayCommand(settingCommand, null);
 
             }

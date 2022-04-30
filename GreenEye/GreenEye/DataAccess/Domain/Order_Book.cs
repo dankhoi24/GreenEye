@@ -17,6 +17,7 @@ namespace GreenEye.DataAccess.Domain
         public int BookId { get; set; }
         public int OrderId { get; set; }
         //Foreign key
+        
         public Book Book { get; set; }
         public Order Order { get; set; }
         

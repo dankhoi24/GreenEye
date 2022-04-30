@@ -75,5 +75,12 @@ namespace GreenEye.DataAccess.DAO
             Database.Customers.Remove(customer);
             Database.SaveChanges();
         }
+
+        internal Customer findOne(int customerId)
+        {
+            var r = Database.Customers.Find(customerId);
+
+            return r;
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace GreenEye.DataAccess.Domain
     {
         [Key]
         public int BillId { get; set; }
+        public DateTime Date { get; set; }
         public decimal Price { get; set; }
 
         //Navigation

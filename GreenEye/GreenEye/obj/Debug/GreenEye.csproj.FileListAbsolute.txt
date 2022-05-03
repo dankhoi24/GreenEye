@@ -143,3 +143,5 @@ D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cu�
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.exe
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.pdb
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.Migrations.Init.resources
+D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\obj\Debug\View\FormSetView\FormBillManagementView.g.cs
+D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\obj\Debug\View\FormSetView\FormBillManagementView.baml

@@ -263,12 +263,12 @@ namespace GreenEye.DataAccess.DAO
 
         internal ObservableCollection<Book> getAllByOrderID(int orderId)
         {
-            var books = Database.Books
+            var books = Database.Order_Books.Where(x => x.OrderId == orderId)
                 .Join(
-                Database.Order_Books
-                , b => b.BookId,
-                ob => ob.BookId,
-                (b, ob) => new
+                Database.Books
+                , ob => ob.BookId,
+                b => b.BookId,
+                (ob, b) => new
                 {
                     BookId = b.BookId,
                     Name = b.Name,
@@ -283,8 +283,8 @@ namespace GreenEye.DataAccess.DAO
                     BookTypeId = b.BookTypeId,
                     OrderId = ob.OrderId,
                     AmountInOrder = ob.Amount
-                }). Where (x => x.OrderId == orderId)
-                .Join(Database.Orders,
+                })
+                /*.Join(Database.Orders,
                 oob => oob.OrderId,
                 o => o.OrderId,
                 (oob, o) => new
@@ -301,7 +301,7 @@ namespace GreenEye.DataAccess.DAO
                     Sales = oob.Sales,
                     BookTypeId = oob.BookTypeId,
                     AmountInOrder = oob.AmountInOrder
-                }).ToList();
+                })*/.ToList();
 
             var results = new ObservableCollection<Book>();
 

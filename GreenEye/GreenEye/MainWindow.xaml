@@ -13,6 +13,7 @@
         xmlns:viewsCustomer="clr-namespace:GreenEye.View.Customer"
         xmlns:viewsEmployee="clr-namespace:GreenEye.View.Employee"
         xmlns:viewsDiscount="clr-namespace:GreenEye.View.DiscountSetViews"
+        xmlns:viewsForm="clr-namespace:GreenEye.View.FormSetView"
         
         xmlns:viewmodels="clr-namespace:GreenEye.ViewModel"
         xmlns:viewmodelsOrder="clr-namespace:GreenEye.ViewModel.Order"
@@ -62,6 +63,10 @@
 
         <DataTemplate DataType="{x:Type viewmodelsDiscount:DiscountManagementViewModel}">
             <viewsDiscount:DiscountManagementView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:FormBillManagementViewModel}">
+            <viewsForm:FormBillManagementView/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">

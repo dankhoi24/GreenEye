@@ -20,7 +20,7 @@ namespace GreenEye.ViewModel.CustomerViewModel
         public Customer SelectedCustomer { get; set; }
         //Phân trang thông số
         public int totalItem { get; set; } = 0;
-        public int itemPerPage { get; set; } = 4;
+        public int itemPerPage { get; set; } = 6;
         public int totalPage { get; set; } = 0;
         public int CurrentPage { get; set; }
         public ObservableCollection<Customer> CustomerPageList { get; set; }
@@ -88,8 +88,6 @@ namespace GreenEye.ViewModel.CustomerViewModel
             CustomerList.Remove(SelectedCustomer);
             if (CustomerPageList.Contains(SelectedCustomer))
                 CustomerPageList.Remove(SelectedCustomer);
-           
-           
         }
 
         private void goLast(object obj)

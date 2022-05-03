@@ -107,7 +107,14 @@ namespace GreenEye.ViewModel.Order
             {
                 PromotionDAO discountDAO = new PromotionDAO();
 
-                _discount = discountDAO.getBestDiscount(Subtotal);
+                if (!_isEditing)
+                {
+                    _discount = discountDAO.getBestDiscount(Subtotal);
+                }
+                else
+                {
+                    _discount = discountDAO.getCurrentDiscount(Order.OrderId);
+                }
                 return _discount; 
             } 
             set 
@@ -257,18 +264,11 @@ namespace GreenEye.ViewModel.Order
 
         private void SubmitEdit(object obj)
         {
-            //Update old order
-           
-
             Order_BookDAO order_BookDAO = new Order_BookDAO();
             RefundDAO refundDAO = new RefundDAO();
-            CustomerDAO customerDAO = new CustomerDAO();
             DebitBookDAO debitBookDAO = new DebitBookDAO();
 
-            Order oldOrder = orderDAO.findOne(Order.OrderId);
-
-            Customer oldCustomer = customerDAO.findOne(oldOrder.CustomerId);
-
+            //Update old order
             //debitBookDAO.decreaseCurrentDebit(oldCustomer, oldOrder.Total);
 
             Order.CustomerId = SelectedSearchCustomer.CustomerId;
@@ -283,7 +283,7 @@ namespace GreenEye.ViewModel.Order
 
             //Add current order
           
-            foreach (Book book in BookList)
+            foreach (Book book in BookInOrderList)
             {
                 bookDAO.decreaseStock(book.BookId, book.AmountInOrder);
                 Order_Book ob = new Order_Book() { OrderId = Order.OrderId, BookId = book.BookId, Amount = book.AmountInOrder };
@@ -305,7 +305,7 @@ namespace GreenEye.ViewModel.Order
             this.Order.PromotionId = Discount.PromotionId;
             Order _order= orderDAO.insertOne(Order);
 
-            foreach (Book book in BookList)
+            foreach (Book book in BookInOrderList)
             {
                 bookDAO.decreaseStock(book.BookId, book.AmountInOrder);
                 Order_Book ob = new Order_Book() { OrderId= _order.OrderId, BookId= book.BookId, Amount=book.AmountInOrder };

@@ -59,7 +59,7 @@
 
         <Border Grid.Row="1" Background="White" Margin="0 20 20 0" CornerRadius="0 10 0 0" BorderBrush="Snow">
 
-            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectedItem="{Binding SelectedOrder}" ItemsSource="{Binding OrderPageList}" Height="400" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False">
+            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectedItem="{Binding SelectedOrder}" ItemsSource="{Binding OrderPageList}" Height="500" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False">
 
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -98,7 +98,7 @@
                                     <RowDefinition></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                     <RowDefinition></RowDefinition>
-                                    <RowDefinition></RowDefinition>
+                                   
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition></ColumnDefinition>
@@ -113,16 +113,12 @@
                                 <TextBlock FontWeight="Bold" Grid.Row="1" Padding="8">Order ID:</TextBlock>
                                 <TextBlock FontWeight="Bold" Grid.Row="2" Padding="8">Customer:</TextBlock>
                                 <TextBlock FontWeight="Bold" Grid.Row="3" Padding="8">Total:</TextBlock>
-                                <TextBlock FontWeight="Bold" Grid.Row="4" Padding="8">Debt:</TextBlock>
+                                
 
                                 <TextBlock FontWeight="Bold" Grid.Row="1" Grid.Column="1" Padding="8" Text="{Binding OrderId}"></TextBlock>
                                 <TextBlock FontWeight="Bold" Grid.Row="2" Grid.Column="1" Padding="8" Text="{Binding Customer.Name}"></TextBlock>
                                 <TextBlock FontWeight="Bold" Grid.Row="3" Grid.Column="1" Padding="8" Text="{Binding Total}"></TextBlock>
-                                <TextBlock FontWeight="Bold" Grid.Row="4" Grid.Column="1" Padding="8" Text="{Binding Debt}"></TextBlock>
-
-                                <TextBlock HorizontalAlignment="Right" FontStyle="Italic" FontSize="10" Grid.Row="5" Grid.Column="3" Padding="8 2 2 2">
-                                        Đã thanh toán
-                                </TextBlock>
+                                
                             </Grid>
                         </Border>
 
@@ -138,9 +134,10 @@
                     Search Order
                 </Label>
 
-                <Border BorderThickness="1" BorderBrush="#00B3AC" CornerRadius="10" Margin="0 20 50 100">
+                <Border BorderThickness="1" BorderBrush="#00B3AC" CornerRadius="10" Margin="0 20 0 100" >
                     <StackPanel >
                         <TextBox
+                        Text="{Binding NavSearchBox, UpdateSourceTrigger=PropertyChanged}"
                         Style="{StaticResource MaterialDesignFilledTextBox}"
                         VerticalAlignment="Top"
                         AcceptsReturn="True"
@@ -148,7 +145,73 @@
                         MaxWidth="400"
                         materialDesign:HintAssist.Hint="Search"
                         IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}" />
+
+                        <ListView Margin="0 10 0 0" ItemsSource="{Binding NavOrderList}" SelectedItem="{Binding NavSelectedOrder}"
+                                  ScrollViewer.VerticalScrollBarVisibility="Visible" Height="470">
+
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+
+                            <ListView.Resources>
+                                <ContextMenu x:Key="ContextMenu" Background="LightGray" 
+                                         Opened="openContexMenu">
+                                    <MenuItem Header="Delete" Command="{Binding NavDeleteOrderCommand}">
+                                    </MenuItem>
+                                    <MenuItem Header="Edit" Command="{Binding NavNavigateEditOrderCommand}">
+                                    </MenuItem>
+                                    <MenuItem Header="View" Command="{Binding NavNavigateDetailOrderCommand}">
+                                    </MenuItem>
+                                </ContextMenu>
+                            </ListView.Resources>
+
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}" >
+                                    <Setter Property="ContextMenu" Value="{StaticResource ContextMenu}">
+
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderThickness="1" BorderBrush="#00B3AC" CornerRadius="2" Margin="5" Width="250"  >
+                                        <Grid>
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                               
+
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                               
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock FontStyle="Italic" FontSize="10" Grid.Row="0" Padding="8 1 1 0" Text="{Binding Date}" HorizontalAlignment="Right">
+
+                                            </TextBlock>
+
+                                           
+                                            <TextBlock FontWeight="Bold" Grid.Row="1" Padding="8" Text="{Binding OrderId}"></TextBlock>
+                                            <TextBlock FontWeight="Bold" Grid.Row="2" Padding="8" Text="{Binding Customer.Name}"></TextBlock>
+                                            <TextBlock FontWeight="Bold" Grid.Row="3" Padding="8" Text="{Binding Total}"></TextBlock>
+
+                                        </Grid>
+                                    </Border>
+
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                        </ListView>
                     </StackPanel>
+                    
+                    
                 </Border>
                
             </StackPanel>

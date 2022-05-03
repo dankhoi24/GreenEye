@@ -45,7 +45,7 @@ namespace GreenEye.DataAccess.DAO
         {
             List<Promotion> list = Database.Promotions.Where(promotion => promotion.StartDate <= DateTime.Now && promotion.EndDate>=DateTime.Now).ToList();
 
-            Promotion _discount = new Promotion() { PercentDiscount = 0, Name="None discount program" };
+            Promotion _discount = new Promotion() { PercentDiscount = 0, Name="None discount program", PromotionId=1 };
 
             foreach (Promotion discount in list)
             {
@@ -54,6 +54,14 @@ namespace GreenEye.DataAccess.DAO
             }
 
             return _discount;
+        }
+
+        internal Promotion getCurrentDiscount(int orderId)
+        {
+            Order order = Database.Orders.Find(orderId);
+            Promotion promotion=Database.Promotions.Find(order.PromotionId);
+
+            return promotion;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace GreenEye.ViewModel.Order
         public Order SelectedOrder { get; set; }
         //Phân trang thông số
         public int totalItem { get; set; } = 0;
-        public int itemPerPage { get; set; } = 4;
+        public int itemPerPage { get; set; } = 8;
         public int totalPage { get; set; } = 0;
         public int CurrentPage { get; set; }
         public ObservableCollection<Order> OrderPageList { get; set; }
@@ -34,6 +34,27 @@ namespace GreenEye.ViewModel.Order
         public RelayCommand AddOrderNavigateCommand { get; set; }
         public ObservableCollection<Order> OrderList { get; set; }
         public NavigateStore NavigateStore { get; set; }
+
+        //Nav
+        public Order NavSelectedOrder { get; set; }
+        public ObservableCollection<Order> NavOrderList { get; set; }
+        public RelayCommand NavDeleteOrderCommand { get; set; }
+        public RelayCommand NavNavigateEditOrderCommand { get; set; }
+        public RelayCommand NavNavigateDetailOrderCommand { get; set;}
+
+        private string _navSearchBox;
+        public string  NavSearchBox { get => _navSearchBox; set
+            {
+                _navSearchBox = value;
+
+               
+
+                onPropertyChanged(nameof(NavSearchBox));
+
+                searchNav();
+            }
+
+        }
 
         public void initPaging()
         {
@@ -62,7 +83,38 @@ namespace GreenEye.ViewModel.Order
 
             DeleteOrderCommand = new RelayCommand(deleteOrder, null);
             NavigateEditOrderCommand = new RelayCommand(navigateEditOrder, null);
+
+            NavDeleteOrderCommand = new RelayCommand(NavDeleteOrder, null);
+            NavNavigateEditOrderCommand = new RelayCommand(NavNavigateEditOrder, null);
         }
+
+        private void NavNavigateEditOrder(object obj)
+        {
+            NavigateStore.CurrentViewModel = new AddNewOrderViewModel(NavigateStore, NavSelectedOrder);
+        }
+
+        private void NavDeleteOrder(object obj)
+        {
+            OrderDAO OrderDAO = new OrderDAO();
+            Order_BookDAO order_BookDAO = new Order_BookDAO();
+            RefundDAO refundDAO = new RefundDAO();
+
+
+            order_BookDAO.deleteByOrder(NavSelectedOrder.OrderId);
+            refundDAO.deleteByOrder(NavSelectedOrder.OrderId);
+
+
+            OrderDAO.deleteOne(NavSelectedOrder);
+            OrderList.Remove(NavSelectedOrder);
+            
+            NavOrderList.Remove(NavSelectedOrder);
+
+            if (OrderPageList.Contains(SelectedOrder))
+                OrderPageList.Remove(SelectedOrder);
+
+
+        }
+
         private void AddOrderNavigate(object obj)
         {
             NavigateStore.CurrentViewModel = new AddNewOrderViewModel(NavigateStore);
@@ -140,6 +192,29 @@ namespace GreenEye.ViewModel.Order
             Debug.WriteLine("-------------------------------Next-----------------------------------------");
         }
 
+        private void searchNav()
+        {
+            if (NavSearchBox != "")
+            {
+                string str = NavSearchBox;
+
+                NavOrderList = new ObservableCollection<Order>();
+
+                foreach (Order order in OrderList)
+                {
+                    if (str.All(char.IsDigit))
+                    {
+                        if (order.OrderId == Int16.Parse(str))
+                            NavOrderList.Add(order);
+                    }
+                    else if (order.Customer.Name.Contains(str.ToLower()))
+                    {
+                        NavOrderList.Add(order);
+                    }
+                }
+            }
+
+        }
        
     }
 }

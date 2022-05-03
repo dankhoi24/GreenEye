@@ -209,6 +209,7 @@
     <Compile Include="ViewModel\DatePickerCalendar.cs" />
     <Compile Include="ViewModel\DatePickerDateFormat.cs" />
     <Compile Include="ViewModel\EditFormViewModel.cs" />
+    <Compile Include="ViewModel\FormBillManagementViewModel.cs" />
     <Compile Include="ViewModel\FormInputBookViewModel.cs" />
     <Compile Include="ViewModel\FormOptionViewModel.cs" />
     <Compile Include="Store\NavigateStore.cs" />
@@ -258,6 +259,9 @@
     </Compile>
     <Compile Include="View\FormSetView\EditFormInputView.xaml.cs">
       <DependentUpon>EditFormInputView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormSetView\FormBillManagementView.xaml.cs">
+      <DependentUpon>FormBillManagementView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\FormSetView\ListFormInputView.xaml.cs">
       <DependentUpon>ListFormInputView.xaml</DependentUpon>
@@ -345,6 +349,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FormSetView\EditFormInputView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FormSetView\FormBillManagementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

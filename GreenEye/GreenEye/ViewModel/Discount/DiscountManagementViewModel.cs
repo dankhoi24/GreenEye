@@ -21,7 +21,7 @@ namespace GreenEye.ViewModel.Discount
         public Promotion SelectedPromotion { get; set; }
         //Phân trang thông số
         public int totalItem { get; set; } = 0;
-        public int itemPerPage { get; set; } = 4;
+        public int itemPerPage { get; set; } = 6;
         public int totalPage { get; set; } = 0;
         public int CurrentPage { get; set; }
         public ObservableCollection<Promotion> PromotionPageList { get; set; }

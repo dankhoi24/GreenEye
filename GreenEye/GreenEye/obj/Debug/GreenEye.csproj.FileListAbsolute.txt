@@ -78,7 +78,6 @@ D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\System.Runtime.Com
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\System.Security.Cryptography.ProtectedData.xml
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\System.Windows.Interactivity.xml
-D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.csproj.AssemblyReference.cache
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\MainWindow.g.cs
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\DashboardView.g.cs
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\Customer\CustomerManagementView.g.cs
@@ -169,3 +168,15 @@ D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.csproj.Fo
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.csproj.CopyComplete
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.exe
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.pdb
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\System.Text.Encodings.Web.dll
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\System.Text.Json.dll
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\System.ValueTuple.dll
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\System.Text.Encodings.Web.xml
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\System.Text.Json.xml
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\System.ValueTuple.xml
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\Model\setting.json
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\img\store\aka.png
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\img\src\login.png
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\img\store\meow.png
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\bin\Debug\img\store\mask.png
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.csproj.AssemblyReference.cache

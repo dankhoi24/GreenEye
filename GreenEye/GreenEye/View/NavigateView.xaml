@@ -75,6 +75,9 @@
         <DataTemplate DataType="{x:Type viewmodels:EditFormViewModel}">
             <viewsForm:EditFormInputView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:FormBillViewModel}">
+            <viewsForm:FormBillView/>
+        </DataTemplate>
 
 
 

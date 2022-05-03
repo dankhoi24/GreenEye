@@ -46,7 +46,7 @@ namespace GreenEye.DataAccess.DAO
                 {
                     BookId = book.BookId,
                     Name = book.Name,
-                    Publisher = book.Type,
+                    Publisher = book.Amount.ToString(),
                     Author = book.Author,
                     Sales = book.Amount
 

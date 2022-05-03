@@ -375,6 +375,7 @@
                                      FontSize="22"
                                 Width="220"
                                 Height="30"
+                                Text="{Binding Sales}"
                                     IsEditable="True"
                                    
                                     Name="AmountComboBox"

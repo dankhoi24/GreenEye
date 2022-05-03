@@ -27,6 +27,7 @@ namespace GreenEye.ViewModel
         public ObservableCollection<Book> Suggest { get; set; }
         public ObservableCollection<Book> AllBooks { get; set; }
         public ObservableCollection<Book> Products { get; set; }
+        private int _goodReceiptId { get; set; }
 
         public Book _selectedSuggest;
 
@@ -120,6 +121,7 @@ namespace GreenEye.ViewModel
             initSuggest();
             Visibility = "Hidden";
 
+            _goodReceiptId = id;
             Products = new ObservableCollection<Book>(_goodsReceiptDAO.getBook(id));
             Date = _goodsReceiptDAO.getDate(id);
             SubmitCommand = new RelayCommand(submitCommand, null);
@@ -127,8 +129,17 @@ namespace GreenEye.ViewModel
             CancelCommand = new RelayCommand(cancelCommand, null);
             DeleteCommand = new RelayCommand(deleteCommand, null);
 
+            Debug.WriteLine("_+_+_+_+_+_+_+_+_+_");
+            Debug.WriteLine(id);
+            Debug.WriteLine(Date);
+             foreach(var book in Products)
+            {
 
-                     
+                Debug.WriteLine(book.BookId);
+                Debug.WriteLine(book.Publisher);
+            }
+
+
         }
 
 
@@ -144,13 +155,30 @@ namespace GreenEye.ViewModel
         {
             List<GoodsReceipt_Book> result = new List<GoodsReceipt_Book>();
 
+
+            Debug.WriteLine("000000000000000");
             foreach(var book in Products)
             {
+
+                Debug.WriteLine(book.BookId);
+                Debug.WriteLine(book.Publisher);
+                int numberTemp = 0;
+                if (string.IsNullOrEmpty(book.Publisher))
+                {
+                    
+                    numberTemp = book.Sales;
+                }
+                else
+                {
+                    numberTemp = Int32.Parse(book.Publisher);
+
+                }
+
+
                 GoodsReceipt_Book temp = new GoodsReceipt_Book()
                 {
                     BookId = book.BookId,
-                    Number = Int32.Parse( book.Publisher)
-                };
+                    Number =numberTemp                };
                 result.Add(temp);
             }
             return result;
@@ -166,13 +194,37 @@ namespace GreenEye.ViewModel
                 return;
             }
             BookStoreContext db = new BookStoreContext();
-            db.GoodsReceipts.Add(new GoodsReceipt()
-            {
-                EmployeeId = (_viewmodel as NavigateViewModel).UserId,
-                Date = this.Date,
-                GoodsReceipt_Books = getListBook()
-            }) ;
+            
+
+            //delete
+            db.GoodsReceipt_Books.RemoveRange(db.GoodsReceipt_Books.Where(o => o.GoodsReceiptId == _goodReceiptId));
             db.SaveChanges();
+
+            
+            
+            var goodsReceiptUpdate = db.GoodsReceipts.SingleOrDefault(g => g.GoodsReceiptId ==_goodReceiptId);
+            Debug.WriteLine(goodsReceiptUpdate.Date);
+            goodsReceiptUpdate.GoodsReceipt_Books = getListBook();
+            goodsReceiptUpdate.Date = Date;
+
+
+
+            
+           // goodsReceiptUpdate.GoodsReceipt_Books.Where(y => y.GoodsReceiptId == goodsReceiptUpdate.GoodsReceiptId) = getListBook();
+
+            
+
+
+            //db.GoodsReceipts.Add(new GoodsReceipt()
+            //{
+              //  EmployeeId = (_viewmodel as NavigateViewModel).UserId,
+                //Date = this.Date,
+                //GoodsReceipt_Books = getListBook()
+            //}) ;
+            db.SaveChanges();
+
+
+           
 
             (_viewmodel as NavigateViewModel).deleteProductState();
             MessageBox.Show("Add Succeeded");

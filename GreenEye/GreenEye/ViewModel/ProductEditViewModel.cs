@@ -117,7 +117,7 @@ namespace GreenEye.ViewModel
             bookUpdate.ExportPrice = BookOutputPrice;
             bookUpdate.Stroke = BookAmount;
             bookUpdate.BookTypeId = id;
-            bookUpdate.Img = string.IsNullOrEmpty(Filename) ? @"\img\store\meow.png" : Filename;
+            bookUpdate.Img = string.IsNullOrEmpty(Filename) ? @"meow.png" : Filename;
 
             db.SaveChanges();
 
@@ -155,32 +155,61 @@ namespace GreenEye.ViewModel
                  Debug.WriteLine("((((((((((((((((");
                 Debug.WriteLine(Filename);
 
-                Filename ="../../img/store/"+ Path.GetFileName(openFile.FileName);
+                Filename = Path.GetFileName(openFile.FileName);
+                Debug.WriteLine(openFile.FileName);
 
-               
+                //movingImg(Filename);
             }
+
+            
 
             
           
         }
 
-          private void movingImg(string filename)
+          private void movingImg(string filePath)
         {
-                string destinationFolder = $@"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName}\GreenEye\img\store";
-                string fileName = Path.GetFileName(filename);
-                string fileToMove = filename;
-                string moveTo = destinationFolder+ @"\" + fileName;
-            Debug.WriteLine("============");
-                Debug.WriteLine(fileToMove);
-                Debug.WriteLine(moveTo);
 
-                File.Move(fileToMove, moveTo);
+            string filename =  Path.GetFileName(filePath);
+
+
+            string currentPath = Environment.CurrentDirectory;
+
+            string rootDestination = Directory.GetParent(currentPath).Parent.FullName + @"\img\store";
+            string binDestination = currentPath + @"\img\store";
+
+            Debug.WriteLine(filename);
+            Debug.WriteLine(rootDestination);
+            Debug.WriteLine(binDestination);
+
+            if (!File.Exists(binDestination + @"\" + filename))
+            {
+
+                File.Copy(filePath, binDestination + @"\"+filename);
+            }
+
+
+
+            if (Directory.Exists(rootDestination))
+            {
+
+                if(!File.Exists(rootDestination + @"\" + filename))
+                {
+
+                    File.Copy(filePath, rootDestination   + @"\"+filename);
+                }
+            }
+            else
+            {
+                Debug.WriteLine("NONONO");
+            }
+
         }
 
 
 
 
-         private void closeImageCommand(object x)
+        private void closeImageCommand(object x)
         {
             BeforeImport = "Visible";
             AfterImport = "Hidden";
@@ -198,7 +227,7 @@ namespace GreenEye.ViewModel
             BookInputPrice = Book.ImportPrice;
             BookOutputPrice = Book.ExportPrice;
             BookDate = Book.Date;
-            Filename = @"..\.."+Book.Img;
+            Filename = Book.Img;
             ItemSelected = _bookTypeDAO.getName(Book.BookTypeId);
 
         }

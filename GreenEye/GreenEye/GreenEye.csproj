@@ -18,6 +18,21 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -57,8 +72,8 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=4.4.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.4.4.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
@@ -136,15 +151,24 @@
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Security" />
     <Reference Include="System.Security.Cryptography.ProtectedData, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.ProtectedData.6.0.0\lib\net461\System.Security.Cryptography.ProtectedData.dll</HintPath>
     </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.3\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
@@ -193,24 +217,144 @@
     <Compile Include="DataAccess\Domain\Order_Book.cs" />
     <Compile Include="DataAccess\Domain\Promotion.cs" />
     <Compile Include="DataAccess\Domain\Refund.cs" />
+<<<<<<< HEAD
     <Compile Include="Migrations\202204291117166_Init.cs" />
     <Compile Include="Migrations\202204291117166_Init.designer.cs">
       <DependentUpon>202204291117166_Init.cs</DependentUpon>
+=======
+    <Compile Include="Migrations\202204161518270_InitDatabase.cs" />
+    <Compile Include="Migrations\202204161518270_InitDatabase.Designer.cs">
+      <DependentUpon>202204161518270_InitDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204161534186_AddBookType.cs" />
+    <Compile Include="Migrations\202204161534186_AddBookType.Designer.cs">
+      <DependentUpon>202204161534186_AddBookType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204161612200_CustomerANDdebitBook.cs" />
+    <Compile Include="Migrations\202204161612200_CustomerANDdebitBook.Designer.cs">
+      <DependentUpon>202204161612200_CustomerANDdebitBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204161623212_updateDebit.cs" />
+    <Compile Include="Migrations\202204161623212_updateDebit.Designer.cs">
+      <DependentUpon>202204161623212_updateDebit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204161625064_updateDebitverTwo.cs" />
+    <Compile Include="Migrations\202204161625064_updateDebitverTwo.Designer.cs">
+      <DependentUpon>202204161625064_updateDebitverTwo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204161629298_updateDebitverThree.cs" />
+    <Compile Include="Migrations\202204161629298_updateDebitverThree.Designer.cs">
+      <DependentUpon>202204161629298_updateDebitverThree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204161637072_updateDebitverFour.cs" />
+    <Compile Include="Migrations\202204161637072_updateDebitverFour.Designer.cs">
+      <DependentUpon>202204161637072_updateDebitverFour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204161645467_CreateBill.cs" />
+    <Compile Include="Migrations\202204161645467_CreateBill.Designer.cs">
+      <DependentUpon>202204161645467_CreateBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204161654004_ConnectCustomerToOrder.cs" />
+    <Compile Include="Migrations\202204161654004_ConnectCustomerToOrder.Designer.cs">
+      <DependentUpon>202204161654004_ConnectCustomerToOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204161703070_ConnectOrderToRefund.cs" />
+    <Compile Include="Migrations\202204161703070_ConnectOrderToRefund.Designer.cs">
+      <DependentUpon>202204161703070_ConnectOrderToRefund.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204161709134_ConnectOrderToEmployee.cs" />
+    <Compile Include="Migrations\202204161709134_ConnectOrderToEmployee.Designer.cs">
+      <DependentUpon>202204161709134_ConnectOrderToEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204161714457_ConnectOrderToPromotion.cs" />
+    <Compile Include="Migrations\202204161714457_ConnectOrderToPromotion.Designer.cs">
+      <DependentUpon>202204161714457_ConnectOrderToPromotion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204161721101_ConnectBook_Order.cs" />
+    <Compile Include="Migrations\202204161721101_ConnectBook_Order.Designer.cs">
+      <DependentUpon>202204161721101_ConnectBook_Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204161732316_UpdateDbSet.cs" />
+    <Compile Include="Migrations\202204161732316_UpdateDbSet.Designer.cs">
+      <DependentUpon>202204161732316_UpdateDbSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204171825450_employForeignkey.cs" />
+    <Compile Include="Migrations\202204171825450_employForeignkey.Designer.cs">
+      <DependentUpon>202204171825450_employForeignkey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204171831205_updateMaxLength.cs" />
+    <Compile Include="Migrations\202204171831205_updateMaxLength.Designer.cs">
+      <DependentUpon>202204171831205_updateMaxLength.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204172102363_addForeignKeyDebit.cs" />
+    <Compile Include="Migrations\202204172102363_addForeignKeyDebit.Designer.cs">
+      <DependentUpon>202204172102363_addForeignKeyDebit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204220111226_UpdateEmployeeLogin.cs" />
+    <Compile Include="Migrations\202204220111226_UpdateEmployeeLogin.Designer.cs">
+      <DependentUpon>202204220111226_UpdateEmployeeLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204230240270_addimgBook.cs" />
+    <Compile Include="Migrations\202204230240270_addimgBook.Designer.cs">
+      <DependentUpon>202204230240270_addimgBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204230730281_authorBook.cs" />
+    <Compile Include="Migrations\202204230730281_authorBook.Designer.cs">
+      <DependentUpon>202204230730281_authorBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204230735534_dateBook.cs" />
+    <Compile Include="Migrations\202204230735534_dateBook.Designer.cs">
+      <DependentUpon>202204230735534_dateBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204231849116_inventoryTable.cs" />
+    <Compile Include="Migrations\202204231849116_inventoryTable.Designer.cs">
+      <DependentUpon>202204231849116_inventoryTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204231900517_updateinventory.cs" />
+    <Compile Include="Migrations\202204231900517_updateinventory.Designer.cs">
+      <DependentUpon>202204231900517_updateinventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204232241181_addSth.cs" />
+    <Compile Include="Migrations\202204232241181_addSth.designer.cs">
+      <DependentUpon>202204232241181_addSth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204232304154_hduhudbfuhwvufhe.cs" />
+    <Compile Include="Migrations\202204232304154_hduhudbfuhwvufhe.designer.cs">
+      <DependentUpon>202204232304154_hduhudbfuhwvufhe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204240232416_decimelChange.cs" />
+    <Compile Include="Migrations\202204240232416_decimelChange.Designer.cs">
+      <DependentUpon>202204240232416_decimelChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204251736136_delete-total-in-order.cs" />
+    <Compile Include="Migrations\202204251736136_delete-total-in-order.designer.cs">
+      <DependentUpon>202204251736136_delete-total-in-order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204261610129_addEmployeeReceipt.cs" />
+    <Compile Include="Migrations\202204261610129_addEmployeeReceipt.Designer.cs">
+      <DependentUpon>202204261610129_addEmployeeReceipt.cs</DependentUpon>
+>>>>>>> NDKhoi
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BookFormModel.cs" />
     <Compile Include="Model\GoodsReceiptModel.cs" />
     <Compile Include="Model\ReportBill.cs" />
     <Compile Include="Model\ReportInventory.cs" />
+    <Compile Include="Model\SettingModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Command\RelayCommand.cs" />
     <Compile Include="ViewModel\Converter\DecimalConverter.cs" />
+    <Compile Include="ViewModel\Converter\ImageConverter.cs" />
     <Compile Include="ViewModel\Converter\IndexConverter.cs" />
     <Compile Include="ViewModel\DashboardViewModel.cs" />
     <Compile Include="ViewModel\DatePickerCalendar.cs" />
     <Compile Include="ViewModel\DatePickerDateFormat.cs" />
     <Compile Include="ViewModel\EditFormViewModel.cs" />
+<<<<<<< HEAD
     <Compile Include="ViewModel\FormBillManagementViewModel.cs" />
+=======
+    <Compile Include="ViewModel\FormBillViewModel.cs" />
+>>>>>>> NDKhoi
     <Compile Include="ViewModel\FormInputBookViewModel.cs" />
     <Compile Include="ViewModel\FormOptionViewModel.cs" />
     <Compile Include="Store\NavigateStore.cs" />
@@ -432,22 +576,109 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\202204291117166_Init.resx">
       <DependentUpon>202204291117166_Init.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Migrations\202204161518270_InitDatabase.resx">
+      <DependentUpon>202204161518270_InitDatabase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204161534186_AddBookType.resx">
+      <DependentUpon>202204161534186_AddBookType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204161612200_CustomerANDdebitBook.resx">
+      <DependentUpon>202204161612200_CustomerANDdebitBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204161623212_updateDebit.resx">
+      <DependentUpon>202204161623212_updateDebit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204161625064_updateDebitverTwo.resx">
+      <DependentUpon>202204161625064_updateDebitverTwo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204161629298_updateDebitverThree.resx">
+      <DependentUpon>202204161629298_updateDebitverThree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204161637072_updateDebitverFour.resx">
+      <DependentUpon>202204161637072_updateDebitverFour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204161645467_CreateBill.resx">
+      <DependentUpon>202204161645467_CreateBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204161654004_ConnectCustomerToOrder.resx">
+      <DependentUpon>202204161654004_ConnectCustomerToOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204161703070_ConnectOrderToRefund.resx">
+      <DependentUpon>202204161703070_ConnectOrderToRefund.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204161709134_ConnectOrderToEmployee.resx">
+      <DependentUpon>202204161709134_ConnectOrderToEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204161714457_ConnectOrderToPromotion.resx">
+      <DependentUpon>202204161714457_ConnectOrderToPromotion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204161721101_ConnectBook_Order.resx">
+      <DependentUpon>202204161721101_ConnectBook_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204161732316_UpdateDbSet.resx">
+      <DependentUpon>202204161732316_UpdateDbSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204171825450_employForeignkey.resx">
+      <DependentUpon>202204171825450_employForeignkey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204171831205_updateMaxLength.resx">
+      <DependentUpon>202204171831205_updateMaxLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204172102363_addForeignKeyDebit.resx">
+      <DependentUpon>202204172102363_addForeignKeyDebit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204220111226_UpdateEmployeeLogin.resx">
+      <DependentUpon>202204220111226_UpdateEmployeeLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204230240270_addimgBook.resx">
+      <DependentUpon>202204230240270_addimgBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204230730281_authorBook.resx">
+      <DependentUpon>202204230730281_authorBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204230735534_dateBook.resx">
+      <DependentUpon>202204230735534_dateBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204231849116_inventoryTable.resx">
+      <DependentUpon>202204231849116_inventoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204231900517_updateinventory.resx">
+      <DependentUpon>202204231900517_updateinventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204232241181_addSth.resx">
+      <DependentUpon>202204232241181_addSth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204232304154_hduhudbfuhwvufhe.resx">
+      <DependentUpon>202204232304154_hduhudbfuhwvufhe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204240232416_decimelChange.resx">
+      <DependentUpon>202204240232416_decimelChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204251736136_delete-total-in-order.resx">
+      <DependentUpon>202204251736136_delete-total-in-order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204261610129_addEmployeeReceipt.resx">
+      <DependentUpon>202204261610129_addEmployeeReceipt.cs</DependentUpon>
+>>>>>>> NDKhoi
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="img\store\meow.png">
+    <Content Include="img\store\meow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\store\aka.png">
+    </Content>
+    <Content Include="img\store\aka.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\store\mask.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\store\mask.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </Content>
     <Content Include="ImportData\Book.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -466,6 +697,9 @@
     <None Include="ImportData\Promotion.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Model\setting.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -475,9 +709,22 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="img\src\login.png" />
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\src\login.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="ImportData\BookType.json">
@@ -497,8 +744,24 @@
     <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Text.Json.6.0.3\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.3\build\System.Text.Json.targets'))" />
   </Target>
   <Import Project="..\packages\Fody.6.5.1\build\Fody.targets" Condition="Exists('..\packages\Fody.6.5.1\build\Fody.targets')" />
   <Import Project="..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets')" />
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\System.Text.Json.6.0.3\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.3\build\System.Text.Json.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>
+del "$(ProjectDir)$(OutDir)img\store\*.png"
+
+xcopy "$(ProjectDir)img\store\*" "$(ProjectDir)$(OutDir)img\store"
+
+</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>del "$(ProjectDir)$(OutDir)img\store\*.png"
+
+xcopy "$(ProjectDir)img\store\*" "$(ProjectDir)$(OutDir)img\store"
+</PreBuildEvent>
+  </PropertyGroup>
 </Project>

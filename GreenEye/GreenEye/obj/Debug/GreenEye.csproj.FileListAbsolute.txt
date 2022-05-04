@@ -152,3 +152,4 @@ D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.csproj.Co
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.exe
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.pdb
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.Migrations.initDatabase.resources
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\FormSetView\FormBillManagementView.g.cs

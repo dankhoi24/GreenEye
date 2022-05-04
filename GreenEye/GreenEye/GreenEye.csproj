@@ -192,6 +192,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataAccess\BookStoreContext.cs" />
+    <Compile Include="DataAccess\DAO\BillDAO.cs" />
     <Compile Include="DataAccess\DAO\BookTypeDAO.cs" />
     <Compile Include="DataAccess\DAO\CustomerDAO.cs" />
     <Compile Include="DataAccess\DAO\DebitBookDAO.cs" />

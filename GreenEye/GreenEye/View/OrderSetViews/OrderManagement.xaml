@@ -46,11 +46,11 @@
               materialDesign:TextFieldAssist.HasClearButton="True"
               Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
               VerticalAlignment="Top"/>
-            <Button Margin="15 5 5 13" Command="{Binding SearchRegardingDateCommand}" Background="#00B3AC">
+            <Button Margin="30 5 5 40" Command="{Binding SearchRegardingDateCommand}" Background="#00B3AC">
                 Search
             </Button>
 
-            <Button Margin="30 5 5 13" Command="{Binding RefreshCommand}"  Background="#00B3AC">
+            <Button Margin="30 5 5 40" Command="{Binding RefreshCommand}"  Background="#00B3AC">
                 Refresh
             </Button>
         </StackPanel>
@@ -74,7 +74,7 @@
                         </MenuItem>
                         <MenuItem Header="Edit" Command="{Binding NavigateEditOrderCommand}">
                         </MenuItem>
-                        <MenuItem Header="Edit" Command="{Binding NavigateDetailOrderCommand}">
+                        <MenuItem Header="View" Command="{Binding NavigateDetailOrderCommand}">
                         </MenuItem>
                     </ContextMenu>
                 </ListView.Resources>
@@ -143,7 +143,7 @@
                         AcceptsReturn="True"
                         TextWrapping="Wrap"
                         MaxWidth="400"
-                        materialDesign:HintAssist.Hint="Search"
+                        materialDesign:HintAssist.Hint="Search by Customer or Order ID"
                         IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}" />
 
                         <ListView Margin="0 10 0 0" ItemsSource="{Binding NavOrderList}" SelectedItem="{Binding NavSelectedOrder}"

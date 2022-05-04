@@ -40,15 +40,20 @@ namespace GreenEye.ViewModel.Discount
                 Promotion.StartDate = value;
             }
             }
-        public DateTime EndDate { get => Promotion.EndDate; set
+        public DateTime EndDate
+        {
+            get => Promotion.EndDate;
+            set
             {
-                Promotion.EndDate=value;
+                Promotion.EndDate = value;
             }
-            }
+        }
         public RelayCommand NavigateSubmitCommand { get; set; }
         public RelayCommand NavigateCancelCommand { get; set; }
         public AddNewDiscountViewModel(NavigateStore navigateStore)
         {
+            StartDate = DateTime.Now;
+            EndDate = DateTime.Now;
             NavigateStore = navigateStore;
             Promotion = new Promotion();
 

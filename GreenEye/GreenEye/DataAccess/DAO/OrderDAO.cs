@@ -50,5 +50,12 @@ namespace GreenEye.DataAccess.DAO
 
             Database.SaveChanges();
         }
+
+        internal ObservableCollection<Order> getAllBetwenDates(DateTime startSearchDate, DateTime endSearchDate)
+        {
+           List<Order> orders = Database.Orders.Where(x => x.Date>=startSearchDate && x.Date<=endSearchDate).ToList();
+
+            return new ObservableCollection<Order>(orders);
+        }
     }
 }

@@ -12,12 +12,12 @@ namespace GreenEye.ViewModel
 
         public MainViewModel()
         {
-<<<<<<< HEAD
+
             //CurrentViewModel = new LoginViewModel(this);
             CurrentViewModel = new NavigateViewModel("ndkhoi");
-=======
-            CurrentViewModel = new LoginViewModel(this);
->>>>>>> NDKhoi
+
+            //CurrentViewModel = new LoginViewModel(this);
+
         }
 
         public void goToNavigate(string username)

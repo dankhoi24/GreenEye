@@ -68,7 +68,7 @@ namespace GreenEye.ViewModel.Order
 
             }
         }
-
+      
         //---------------Book--------------
         private decimal _subtotal;
         public decimal Subtotal { get {
@@ -260,10 +260,14 @@ namespace GreenEye.ViewModel.Order
             CalcSubtotalCommand = new RelayCommand(calcSubtotal, null);
             NavigateCancelCommand = new RelayCommand(Cancel, null);
             NavigateSubmitCommand = new RelayCommand(SubmitEdit, null);
+
+           
         }
 
+       
         private void SubmitEdit(object obj)
         {
+            Order.Date = DateTime.Now;
             Order_BookDAO order_BookDAO = new Order_BookDAO();
             RefundDAO refundDAO = new RefundDAO();
             DebitBookDAO debitBookDAO = new DebitBookDAO();
@@ -300,6 +304,7 @@ namespace GreenEye.ViewModel.Order
 
         private void SubmitAdd(object obj)
         {
+            Order.Date = DateTime.Now;
             Order.CustomerId=SelectedSearchCustomer.CustomerId;
             this.Order.EmployeeId = 1;
             this.Order.PromotionId = Discount.PromotionId;

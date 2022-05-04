@@ -44,7 +44,7 @@ namespace GreenEye.DataAccess.Domain
             get => _amountInOrder; set
             {
                 ProductDAO productDAO = new ProductDAO();
-                if (value <= productDAO.getStock(BookId))
+                if (value <= productDAO.getStock(BookId)-20)
                 {
                     _amountInOrder = value;
                     onPropertyChanged(nameof(AmountInOrder));

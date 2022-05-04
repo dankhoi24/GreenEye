@@ -56,6 +56,14 @@ namespace GreenEye.ViewModel.Order
 
         }
 
+        //----------------------------Filter--------------------------------
+        public DateTime StartSearchDate { get; set; }
+        public DateTime EndSearchDate { get; set; }
+
+        public RelayCommand SearchRegardingDateCommand { get; set; }
+        public RelayCommand RefreshCommand { get; set; }
+
+
         public void initPaging()
         {
             totalItem = OrderList.Count();
@@ -86,7 +94,31 @@ namespace GreenEye.ViewModel.Order
 
             NavDeleteOrderCommand = new RelayCommand(NavDeleteOrder, null);
             NavNavigateEditOrderCommand = new RelayCommand(NavNavigateEditOrder, null);
+
+            SearchRegardingDateCommand = new RelayCommand(searchByDate, null);
+            RefreshCommand = new RelayCommand(refresh, null);
+
+            //---------filter init----------------
+            StartSearchDate = DateTime.Now;
+            EndSearchDate = DateTime.Now;
         }
+
+        private void refresh(object obj)
+        {
+            OrderDAO orderDAO = new OrderDAO();
+            OrderList = orderDAO.getAll();
+
+            initPaging();
+        }
+
+        private void searchByDate(object obj)
+        {
+            OrderDAO orderDAO = new OrderDAO();
+            OrderList = orderDAO.getAllBetwenDates(StartSearchDate, EndSearchDate);
+
+            initPaging();
+        }
+
 
         private void NavNavigateEditOrder(object obj)
         {
@@ -207,7 +239,7 @@ namespace GreenEye.ViewModel.Order
                         if (order.OrderId == Int16.Parse(str))
                             NavOrderList.Add(order);
                     }
-                    else if (order.Customer.Name.Contains(str.ToLower()))
+                    else if (order.Customer.Name.ToLower().Contains(str.ToLower()))
                     {
                         NavOrderList.Add(order);
                     }

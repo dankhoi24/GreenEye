@@ -23,6 +23,7 @@
 
     <UserControl.Resources>
         <converter:IndexConverter x:Key="getIndex"/>
+        <converter:ImageConverter x:Key="ImageConverter"/>
 
     </UserControl.Resources>
 
@@ -462,7 +463,7 @@
                                         <Image 
                             Margin="10 0 10 0"
                             Height="68"
-                            Source="../img/src/login.png"/>
+                            Source="{Binding Img, Converter={StaticResource ImageConverter}}"/>
                             <StackPanel>
                                 <TextBlock
 

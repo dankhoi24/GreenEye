@@ -21,6 +21,7 @@
 
     <UserControl.Resources>
         <Converter:DecimalConverter x:Key="DecimalConverter"/>
+        <Converter:ImageConverter x:Key="ImageConverter"/>
     </UserControl.Resources>
     <Grid
         
@@ -374,7 +375,7 @@
                 x:Name="importImg"
 
                     Margin=" 20 0 20 0"
-                     Source="{Binding Filename}"/>
+                     Source="{Binding Filename, Converter= {StaticResource ImageConverter}}"/>
 
                 </StackPanel>
                 

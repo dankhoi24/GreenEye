@@ -7,18 +7,26 @@ using System.Threading.Tasks;
 
 namespace GreenEye.ViewModel
 {
-    public class FormViewmodel: BaseViewModel
+    public class FormViewmodel : BaseViewModel
     {
 
         public RelayCommand GoodsCommand { get; set; }
+        public RelayCommand BillCommand { get; set; }
         private BaseViewModel _viewmodel { get; set; }
 
         public FormViewmodel(BaseViewModel viewmodel)
         {
             _viewmodel = viewmodel;
             GoodsCommand = new RelayCommand(goodsCommand, null);
+            BillCommand = new RelayCommand(billCommand, null);
 
 
+        }
+
+        void billCommand(object x)
+        {
+
+            (_viewmodel as NavigateViewModel).goToFormBill();
         }
 
         void goodsCommand(object x)

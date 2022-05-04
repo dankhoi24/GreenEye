@@ -53,20 +53,12 @@
                         FontSize="22"
                         FontWeight="Medium"
                         >Minimum amount of products in a good receipt:</TextBlock>
-                        <ComboBox
+                        <TextBox
+                            Text="{Binding MinGoodsReceipt, UpdateSourceTrigger=LostFocus}"
                         VerticalContentAlignment="Center"
                         Height="50"
                         Width="220"
-                         materialDesign:HintAssist.Hint="OS">
-                            <ComboBoxItem
-                            Content="Android" />
-                            <ComboBoxItem
-                            Content="iOS" />
-                            <ComboBoxItem
-                            Content="Linux" />
-                            <ComboBoxItem
-                            Content="Windows" />
-                        </ComboBox>
+                    />
                     </StackPanel>
                 </Border>
                 
@@ -82,20 +74,13 @@
                         FontSize="22"
                         FontWeight="Medium"
                         >Minimun amount of products in storage before import:</TextBlock>
-                        <ComboBox
+                        <TextBox
+
+                            Text="{Binding MinStoreImport }"
                         VerticalContentAlignment="Center"
                         Height="50"
                         Width="220"
-                         materialDesign:HintAssist.Hint="OS">
-                            <ComboBoxItem
-                            Content="Android" />
-                            <ComboBoxItem
-                            Content="iOS" />
-                            <ComboBoxItem
-                            Content="Linux" />
-                            <ComboBoxItem
-                            Content="Windows" />
-                        </ComboBox>
+                         materialDesign:HintAssist.Hint="OS"/>
                     </StackPanel>
 
 
@@ -139,20 +124,13 @@
                         FontSize="22"
                         FontWeight="Medium"
                         >Maximun debt:</TextBlock>
-                        <ComboBox
+                        <TextBox
+
+                            Text="{Binding Maxdebt }"
                         VerticalContentAlignment="Center"
                         Height="50"
                         Width="220"
-                         materialDesign:HintAssist.Hint="OS">
-                            <ComboBoxItem
-                            Content="Android" />
-                            <ComboBoxItem
-                            Content="iOS" />
-                            <ComboBoxItem
-                            Content="Linux" />
-                            <ComboBoxItem
-                            Content="Windows" />
-                        </ComboBox>
+                         materialDesign:HintAssist.Hint="OS"/>
                     </StackPanel>
                 </Border>
                 
@@ -168,20 +146,12 @@
                         FontSize="22"
                         FontWeight="Medium"
                         >Minimun amount of product in storage:</TextBlock>
-                        <ComboBox
+                        <TextBox
+                            Text="{Binding MinStoreSell }"
                         VerticalContentAlignment="Center"
                         Height="50"
                         Width="220"
-                         materialDesign:HintAssist.Hint="OS">
-                            <ComboBoxItem
-                            Content="Android" />
-                            <ComboBoxItem
-                            Content="iOS" />
-                            <ComboBoxItem
-                            Content="Linux" />
-                            <ComboBoxItem
-                            Content="Windows" />
-                        </ComboBox>
+                         materialDesign:HintAssist.Hint="OS"/>
                     </StackPanel>
 
 
@@ -215,10 +185,11 @@
                         >Maximun debt:</TextBlock>
                         
                         <ToggleButton
+                        IsChecked="{Binding MaxDebtBool}"
                         Background="#00B3AC"
                         Style="{StaticResource MaterialDesignSwitchToggleButton}"
                         ToolTip="MaterialDesignSwitchToggleButton"
-                         IsChecked="True" />
+                        />
                                             </StackPanel>
                 
                 

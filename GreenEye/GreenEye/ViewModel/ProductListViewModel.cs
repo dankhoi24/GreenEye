@@ -113,6 +113,7 @@ namespace GreenEye.ViewModel
 
         public ProductListViewModel(BaseViewModel viewModel)
         {
+            Debug.WriteLine("START LISTING BOOK");
             Books = new ObservableCollection<Book>(_prodcutDAO.getAll());
             initPaging();
             PreviousCommand = new RelayCommand(previousCommand, null);
@@ -305,6 +306,11 @@ namespace GreenEye.ViewModel
             PrepersentPage = new ObservableCollection<Book>(Books
             .Skip((Int32.Parse(CurrentPage) - 1) * itemPerPage)
             .Take(itemPerPage));
+
+            foreach(var x in Books)
+            {
+                Debug.WriteLine(x.Img);
+            }
 
 
 

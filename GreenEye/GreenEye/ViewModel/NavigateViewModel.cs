@@ -64,6 +64,10 @@ namespace GreenEye.ViewModel
             }
     
 
+        public void goToFormBill()
+        {
+            NavigateStore.CurrentViewModel = new FormBillViewModel(this);
+        }
         public void goToEditForm(int id)
         {
             NavigateStore.CurrentViewModel = new EditFormViewModel(this, id);

@@ -9,6 +9,7 @@
 
              xmlns:viewmodels="clr-namespace:GreenEye.ViewModel"
              
+             xmlns:Converter="clr-namespace:GreenEye.ViewModel.Converter"
              
                 xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -20,6 +21,9 @@
             FontFamily="{DynamicResource MaterialDesignFont}"
 
 >
+    <UserControl.Resources>
+        <Converter:ImageConverter x:Key="ImageConverter"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -142,7 +146,7 @@
                             <Image 
                                 
                             Height="68"
-                                Source="../../img/src/login.png"/>
+                                Source="{Binding Img, Converter={StaticResource ImageConverter}}"/>
                             <TextBlock
                                 Margin="10 0 0 0"
                                 TextWrapping="Wrap"

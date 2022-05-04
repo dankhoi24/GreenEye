@@ -1,4 +1,3 @@
-D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.csproj.AssemblyReference.cache
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\MainWindow.g.cs
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\DashboardView.g.cs
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\Customer\CustomerManagementView.g.cs

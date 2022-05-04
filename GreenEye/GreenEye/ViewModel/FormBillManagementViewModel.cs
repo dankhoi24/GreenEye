@@ -10,6 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> NDKhoi
 namespace GreenEye.ViewModel
 {
     public class FormBillManagementViewModel:BaseViewModel

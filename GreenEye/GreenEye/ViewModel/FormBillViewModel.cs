@@ -29,6 +29,7 @@ namespace GreenEye.ViewModel
         public RelayCommand MouseDownCommand { get; set; }
         public RelayCommand CloseCommand { get; set; }
         public RelayCommand SubmitCommand { get; set; }
+        public RelayCommand AddCustomer { get; set; }
 
         
 
@@ -100,10 +101,20 @@ namespace GreenEye.ViewModel
             _viewmodel = viewmodel;
             MouseDownCommand = new RelayCommand(mouseDownCommand, null);
             CloseCommand = new RelayCommand(closeCommand, null);
+            SubmitCommand = new RelayCommand(submitCommand, null);
+            AddCustomer = new RelayCommand(addCustomer, null);
             Customers = new ObservableCollection<Customer>();
             Date = DateTime.Now;
 
             initSuggest();
+        }
+
+
+        private void addCustomer(object x)
+        {
+
+            (_viewmodel as NavigateViewModel).saveBillState(this);
+            (_viewmodel as NavigateViewModel).goToAddCustomer();
         }
 
         private void  getSuggest()
@@ -135,7 +146,7 @@ namespace GreenEye.ViewModel
         }
 
 
-        private void initSuggest()
+        public void initSuggest()
         {
 
             AllCustomer = _customerDAO.getAll();
@@ -144,6 +155,33 @@ namespace GreenEye.ViewModel
         private void mouseDownCommand(object x)
         {
             Visibility = "Hidden";
+        }
+
+
+         private void submitCommand(object x)
+        {
+
+            if (Customers.Count() == 0)
+            {
+                MessageBox.Show("Please choose product");
+                return;
+            }
+            BookStoreContext db = new BookStoreContext();
+            db.Bills.Add(new Bill()
+            {
+                Date = this.Date,
+                Price = this.Money,
+                CustomerId = Customers[0].CustomerId,
+                
+            }) ;
+            db.SaveChanges();
+
+           (_viewmodel as NavigateViewModel).deleteBillState();
+            MessageBox.Show("Add Succeeded");
+
+            (_viewmodel as NavigateViewModel).goToForm(_viewmodel);
+
+
         }
 
 

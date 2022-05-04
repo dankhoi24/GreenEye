@@ -19,6 +19,7 @@ namespace GreenEye.ViewModel
         public string Name { get; set; }
         public int UserId { get; set; }
         private BaseViewModel _formReceiptState { get; set; } = null;
+        private BaseViewModel _formBillState { get; set; } = null;
         public RelayCommand OrderNavigateCommand { get; set; }
         public RelayCommand CustomerNavigateCommand { get; set; }
         public RelayCommand EmployeeNavigateCommand { get; set; }
@@ -63,6 +64,27 @@ namespace GreenEye.ViewModel
 
             }
     
+
+
+        public void saveBillState(BaseViewModel viewModel)
+        {
+            _formBillState = viewModel;
+        }
+
+        public void deleteBillState()
+        {
+            _formBillState = null;
+        }
+
+        public void gotoBillState()
+        {
+            (_formBillState as FormBillViewModel).initSuggest();
+            NavigateStore.CurrentViewModel = _formBillState as FormBillViewModel;
+        }
+        public bool isExistBillState()
+        {
+            return _formBillState != null;
+        }
 
         public void goToFormBill()
         {
@@ -160,6 +182,11 @@ namespace GreenEye.ViewModel
             {
                 NavigateStore.CurrentViewModel = new CustomerMangagementViewModel(NavigateStore);
             }
+
+            public void goToAddCustomer()
+        {
+            NavigateStore.CurrentViewModel = new AddNewCustomerViewModel(this);
+        }
 
             private void OrderNavigate(object obj)
             {

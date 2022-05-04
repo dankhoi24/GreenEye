@@ -217,9 +217,15 @@
     <Compile Include="DataAccess\Domain\Order_Book.cs" />
     <Compile Include="DataAccess\Domain\Promotion.cs" />
     <Compile Include="DataAccess\Domain\Refund.cs" />
+<<<<<<< HEAD
     <Compile Include="Migrations\202204291117166_Init.cs" />
     <Compile Include="Migrations\202204291117166_Init.designer.cs">
       <DependentUpon>202204291117166_Init.cs</DependentUpon>
+=======
+    <Compile Include="Migrations\202205040334090_initDatabase.cs" />
+    <Compile Include="Migrations\202205040334090_initDatabase.designer.cs">
+      <DependentUpon>202205040334090_initDatabase.cs</DependentUpon>
+>>>>>>> NDKhoi
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BookFormModel.cs" />
@@ -459,8 +465,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\202204291117166_Init.resx">
       <DependentUpon>202204291117166_Init.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Migrations\202205040334090_initDatabase.resx">
+      <DependentUpon>202205040334090_initDatabase.cs</DependentUpon>
+>>>>>>> NDKhoi
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

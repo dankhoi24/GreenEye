@@ -59,6 +59,8 @@ namespace GreenEye.ViewModel.CustomerViewModel
         public NavigateStore NavigateStore { get; set; }
        public RelayCommand NavigateSubmitCommand { get; set; }
        public RelayCommand NavigateCancelCommand { get; set; }
+
+        private BaseViewModel _viewModel { get; set; }
        
         public AddNewCustomerViewModel(NavigateStore navigateStore)
         {
@@ -66,6 +68,15 @@ namespace GreenEye.ViewModel.CustomerViewModel
             NavigateStore = navigateStore;
             NavigateSubmitCommand = new RelayCommand(NavigateSubmitAdd, null);
             NavigateCancelCommand = new RelayCommand(NavigateCacel, null);
+        }
+
+        public AddNewCustomerViewModel(BaseViewModel viewmodel)
+        {
+            _viewModel = viewmodel;
+             customer = new Customer();
+            NavigateSubmitCommand = new RelayCommand(NavigateSubmitAdd, null);
+            NavigateCancelCommand = new RelayCommand(NavigateCacel, null);
+
         }
 
         public AddNewCustomerViewModel(NavigateStore navigateStore, Customer sendedCustomer) : this(navigateStore)
@@ -85,12 +96,38 @@ namespace GreenEye.ViewModel.CustomerViewModel
 
         private void NavigateSubmitAdd(object obj)
         {
-           CustomerDAO customerDAO = new CustomerDAO();
-           customerDAO.insertOne(customer);
+            CustomerDAO customerDAO = new CustomerDAO();
+            customerDAO.insertOne(customer);
+
+
+           if(_viewModel != null)
+            {
+                if ((_viewModel as NavigateViewModel).isExistBillState())
+                {
+
+                    (_viewModel as NavigateViewModel).gotoBillState();
+                    return;
+                }
+
+            }
+
+
+
            NavigateStore.CurrentViewModel = new CustomerMangagementViewModel(NavigateStore);
         }
         private void NavigateCacel(object obj)
         {
+            if(_viewModel != null)
+            {
+                if ((_viewModel as NavigateViewModel).isExistBillState())
+                {
+
+                    (_viewModel as NavigateViewModel).gotoBillState();
+                    return;
+                }
+
+            }
+
             NavigateStore.CurrentViewModel = new CustomerMangagementViewModel(NavigateStore);
         }
     }

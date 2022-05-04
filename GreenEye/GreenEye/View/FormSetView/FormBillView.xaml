@@ -170,6 +170,7 @@
                     
                 </Border>
                       <Button
+                          Command="{Binding AddCustomer}"
                           BorderThickness="0"
                           Height="60"
                           Margin="40 0"
@@ -355,7 +356,7 @@
                                         Foreground="#bdbdbd"
                                         TextWrapping="Wrap"
                                         Width="300"
-                                        Text="Nguyen Dang Khoi"/>
+                                        Text="{Binding Name}"/>
 
                                 </StackPanel>
                                 <StackPanel
@@ -375,7 +376,7 @@
                                         Foreground="#bdbdbd"
                                         TextWrapping="Wrap"
                                         Width="300"
-                                        Text="0123456789"/>
+                                        Text="{Binding Phone}"/>
 
                                 </StackPanel>
                                 <StackPanel
@@ -395,7 +396,7 @@
                                         Foreground="#bdbdbd"
                                         TextWrapping="Wrap"
                                         Width="300"
-                                        Text="asfgea@gmail.com"/>
+                                        Text="{Binding Email}"/>
 
                                 </StackPanel>
 
@@ -417,7 +418,7 @@
                                         Foreground="#bdbdbd"
                                         TextWrapping="Wrap"
                                         Width="300"
-                                        Text="1 nguyen van a heol yistrict hcm city"/>
+                                        Text="{Binding Address}"/>
 
                                 </StackPanel>
 
@@ -481,7 +482,7 @@
             Orientation="Horizontal">
 
             <Button
-                
+               Command="{Binding SubmitCommand}" 
                 Height="50"
                 Width="200"
                 Background="#00B3AC"

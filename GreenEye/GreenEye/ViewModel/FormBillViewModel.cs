@@ -18,6 +18,8 @@ namespace GreenEye.ViewModel
 
         private BaseViewModel _viewmodel { get; set; }
         private CustomerDAO _customerDAO = new CustomerDAO();
+        private BillDAO _billDAO = new BillDAO();
+        private DebitBookDAO _debitBookDAO = new DebitBookDAO();
 
         public ObservableCollection<Customer> Suggest { get; set; }
         
@@ -110,6 +112,25 @@ namespace GreenEye.ViewModel
         }
 
 
+        public FormBillViewModel(BaseViewModel viewModel, int IdBill)  // Edit constructor
+        {
+
+            _viewmodel = viewModel;
+            MouseDownCommand = new RelayCommand(mouseDownCommand, null);
+            CloseCommand = new RelayCommand(closeCommand, null);
+            SubmitCommand = new RelayCommand(submitCommand, null);
+            AddCustomer = new RelayCommand(addCustomer, null);
+
+            // get from given bill
+            Customers = new ObservableCollection<Customer>();
+            Customers.Add(_customerDAO.findOne(IdBill));
+
+            Date = _billDAO.getDate(IdBill);
+            Money = _billDAO.getMoney(IdBill);
+
+            initSuggest();
+        }
+
         private void addCustomer(object x)
         {
 
@@ -166,6 +187,18 @@ namespace GreenEye.ViewModel
                 MessageBox.Show("Please choose product");
                 return;
             }
+
+
+            DebitBook currentDebit = _debitBookDAO.getCurrentDebitBook(Customers[0].CustomerId);
+
+            currentDebit.CurrentDebit -= this.Money;
+
+            _debitBookDAO.updateOrInsertDebit(currentDebit);
+
+
+
+
+
             BookStoreContext db = new BookStoreContext();
             db.Bills.Add(new Bill()
             {

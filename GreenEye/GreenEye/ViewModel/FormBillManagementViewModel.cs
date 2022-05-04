@@ -34,6 +34,8 @@ namespace GreenEye.ViewModel
         public ObservableCollection<Bill> BillList { get; set; }
         public NavigateStore NavigateStore { get; set; }
 
+        private BaseViewModel _viewmodel { get; set; }
+
 
         public void initPaging()
         {
@@ -45,30 +47,32 @@ namespace GreenEye.ViewModel
             .Skip((CurrentPage - 1) * itemPerPage)
             .Take(itemPerPage));
         }
-        public FormBillManagementViewModel(NavigateStore navigateStore)
+        public FormBillManagementViewModel( BaseViewModel viewModel)
         {
-            this.NavigateStore = navigateStore;
+
+            _viewmodel = viewModel;
+            //this.NavigateStore = navigateStore;
             BillDAO BillDAO = new BillDAO();
 
             BillList = BillDAO.getAll();
 
             initPaging();
 
-            //AddBillNavigateCommand = new RelayCommand(AddBillNavigate, null);
+            AddBillNavigateCommand = new RelayCommand(AddBillNavigate, null);
             NextCommand = new RelayCommand(goNext, null);
             PreviousCommand = new RelayCommand(goPrev, null);
             FirstCommand = new RelayCommand(goFirst, null);
             LastCommand = new RelayCommand(goLast, null);
 
             DeleteBillCommand = new RelayCommand(deleteBill, null);
-            //NavigateEditBillCommand = new RelayCommand(navigateEditBill, null);
+            NavigateEditBillCommand = new RelayCommand(navigateEditBill, null);
 
         }
 
-      /*  private void NavNavigateEditBill(object obj)
+       private void navigateEditBill(object obj)
         {
-            NavigateStore.CurrentViewModel = new AddNewBillViewModel(NavigateStore, NavSelectedBill);
-        }*/
+            (_viewmodel as NavigateViewModel).goToEditBill(_viewmodel, SelectedBill.BillId);
+        }
 
         private void deleteBill(object obj)
         {
@@ -86,11 +90,11 @@ namespace GreenEye.ViewModel
                 BillPageList.Remove(SelectedBill);
         }
 
-      /*  private void AddBillNavigate(object obj)
+        private void AddBillNavigate(object obj)
         {
-            NavigateStore.CurrentViewModel = new AddNewBillViewModel(NavigateStore);
+            (_viewmodel as NavigateViewModel).goToFormBill();
         }
-
+    /*
         private void navigateEditBill(object obj)
         {
             NavigateStore.CurrentViewModel = new AddNewBillViewModel(NavigateStore, SelectedBill);

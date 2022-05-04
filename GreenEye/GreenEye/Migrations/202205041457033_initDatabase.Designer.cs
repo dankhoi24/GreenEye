@@ -13,7 +13,7 @@ namespace GreenEye.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202205040334090_initDatabase"; }
+            get { return "202205041457033_initDatabase"; }
         }
         
         string IMigrationMetadata.Source

@@ -16,6 +16,10 @@ namespace GreenEye.ViewModel
 {
     public class NavigateViewModel: BaseViewModel
     {
+
+
+        private InventoryDAO _inventoryDAO = new InventoryDAO(); 
+
         public string Name { get; set; }
         public int UserId { get; set; }
         private BaseViewModel _formReceiptState { get; set; } = null;
@@ -40,6 +44,8 @@ namespace GreenEye.ViewModel
 
         public NavigateViewModel(string username)
         {
+            _inventoryDAO.init();
+
             EmployeeDAO employeeDAO = new EmployeeDAO();
             Name = employeeDAO.getName(username);
             UserId = employeeDAO.getId(username);
@@ -66,6 +72,12 @@ namespace GreenEye.ViewModel
     
 
 
+
+
+        public void goToEditBill(BaseViewModel viewModel, int id)
+        {
+            NavigateStore.CurrentViewModel = new FormBillViewModel(viewModel, id); // edit constructor
+        }
         public void saveBillState(BaseViewModel viewModel)
         {
             _formBillState = viewModel;
@@ -89,6 +101,11 @@ namespace GreenEye.ViewModel
         public void goToFormBill()
         {
             NavigateStore.CurrentViewModel = new FormBillViewModel(this);
+        }
+
+        public void goToListBill()
+        {
+            NavigateStore.CurrentViewModel = new FormBillManagementViewModel(this);
         }
         public void goToEditForm(int id)
         {

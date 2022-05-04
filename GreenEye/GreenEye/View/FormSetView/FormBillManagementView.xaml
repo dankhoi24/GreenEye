@@ -92,7 +92,7 @@
 
 
                                 <TextBlock FontWeight="Bold" Grid.Row="1" Grid.Column="1" Padding="8" Text="{Binding Customer.Name}"></TextBlock>
-                                <TextBlock FontWeight="Bold" Grid.Row="2" Grid.Column="1" Padding="8" Text="{Binding Total}"></TextBlock>
+                                <TextBlock FontWeight="Bold" Grid.Row="2" Grid.Column="1" Padding="8" Text="{Binding Price}"></TextBlock>
 
                             </Grid>
                         </Border>

@@ -37,15 +37,15 @@
                 "dbo.DebitBooks",
                 c => new
                     {
-                        DebitBookId = c.Int(nullable: false),
+                        DebitBookId = c.Int(nullable: false, identity: true),
                         BeginDebit = c.Decimal(nullable: false, precision: 18, scale: 2),
                         CurrentDebit = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Date = c.DateTime(nullable: false),
                         CustomerId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.DebitBookId)
-                .ForeignKey("dbo.Customers", t => t.DebitBookId)
-                .Index(t => t.DebitBookId);
+                .ForeignKey("dbo.Customers", t => t.CustomerId, cascadeDelete: true)
+                .Index(t => t.CustomerId);
             
             CreateTable(
                 "dbo.Orders",
@@ -161,8 +161,8 @@
                         OrderId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Order_BookId)
-                .ForeignKey("dbo.Books", t => t.BookId, cascadeDelete: true)
                 .ForeignKey("dbo.Orders", t => t.OrderId, cascadeDelete: true)
+                .ForeignKey("dbo.Books", t => t.BookId, cascadeDelete: true)
                 .Index(t => t.BookId)
                 .Index(t => t.OrderId);
             
@@ -201,14 +201,14 @@
             DropForeignKey("dbo.Orders", "PromotionId", "dbo.Promotions");
             DropForeignKey("dbo.Orders", "EmployeeId", "dbo.Employees");
             DropForeignKey("dbo.GoodsReceipt_Book", "GoodsReceiptId", "dbo.GoodsReceipts");
-            DropForeignKey("dbo.Order_Book", "OrderId", "dbo.Orders");
             DropForeignKey("dbo.Order_Book", "BookId", "dbo.Books");
+            DropForeignKey("dbo.Order_Book", "OrderId", "dbo.Orders");
             DropForeignKey("dbo.Inventories", "BookId", "dbo.Books");
             DropForeignKey("dbo.GoodsReceipt_Book", "BookId", "dbo.Books");
             DropForeignKey("dbo.Books", "BookTypeId", "dbo.BookTypes");
             DropForeignKey("dbo.GoodsReceipts", "EmployeeId", "dbo.Employees");
             DropForeignKey("dbo.Orders", "CustomerId", "dbo.Customers");
-            DropForeignKey("dbo.DebitBooks", "DebitBookId", "dbo.Customers");
+            DropForeignKey("dbo.DebitBooks", "CustomerId", "dbo.Customers");
             DropForeignKey("dbo.Bills", "CustomerId", "dbo.Customers");
             DropIndex("dbo.Refunds", new[] { "RefundId" });
             DropIndex("dbo.Order_Book", new[] { "OrderId" });
@@ -221,7 +221,7 @@
             DropIndex("dbo.Orders", new[] { "PromotionId" });
             DropIndex("dbo.Orders", new[] { "EmployeeId" });
             DropIndex("dbo.Orders", new[] { "CustomerId" });
-            DropIndex("dbo.DebitBooks", new[] { "DebitBookId" });
+            DropIndex("dbo.DebitBooks", new[] { "CustomerId" });
             DropIndex("dbo.Bills", new[] { "CustomerId" });
             DropTable("dbo.Refunds");
             DropTable("dbo.Promotions");

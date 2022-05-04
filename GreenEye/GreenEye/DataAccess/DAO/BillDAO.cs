@@ -14,9 +14,26 @@ namespace GreenEye.DataAccess.DAO
 
         internal ObservableCollection<Bill> getAll()
         {
-            throw new NotImplementedException();
+            var data = Database.Bills.Select(x => x).ToList();
+            return new ObservableCollection<Bill>(data);
         }
 
+        public DateTime getDate(int id)
+        {
+            return Database.Bills.SingleOrDefault(x => x.BillId == id).Date;
+                
+        }
+
+
+
+        public decimal getMoney(int id)
+        {
+            return Database.Bills.SingleOrDefault(x => x.BillId == id).Price;
+                
+        }
+
+
+        
         internal void deleteOne(Bill navSelectedBill)
         {
             throw new NotImplementedException();

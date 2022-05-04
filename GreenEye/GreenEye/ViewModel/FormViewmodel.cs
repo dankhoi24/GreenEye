@@ -26,7 +26,7 @@ namespace GreenEye.ViewModel
         void billCommand(object x)
         {
 
-            (_viewmodel as NavigateViewModel).goToFormBill();
+            (_viewmodel as NavigateViewModel).goToListBill();
         }
 
         void goodsCommand(object x)

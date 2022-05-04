@@ -147,8 +147,6 @@ D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\ReportSetView
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\ReportSetView\ReportOptionView.baml
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\View\SettingView.baml
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.g.resources
-D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.Migrations.Init.resources
-D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.Migrations.initDatabase.resources
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.Properties.Resources.resources
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.csproj.GenerateResource.cache
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.csproj.CoreCompileInputs.cache
@@ -156,3 +154,4 @@ D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.csproj.Fo
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.csproj.CopyComplete
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.exe
 D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.pdb
+D:\.NET\Project\GreenEye\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.Migrations.initDatabase.resources

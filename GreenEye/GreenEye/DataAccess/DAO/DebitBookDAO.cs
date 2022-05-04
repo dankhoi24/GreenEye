@@ -13,6 +13,46 @@ namespace GreenEye.DataAccess.DAO
 
          BookStoreContext Database = new BookStoreContext();
 
+
+
+         public void init()
+        {
+            // init customers
+            var customers = Database.Customers.Select(x => new { x.CustomerId }).ToList();
+            var customerDebit = customers.Join(Database.DebitBooks, c => c.CustomerId, d => d.CustomerId, (c, d) => new
+            {
+                CustomerId = c.CustomerId,
+                Begin = d.BeginDebit,
+                Current = d.BeginDebit,
+                Date = DateTime.Now,
+            });
+
+            // check date
+            DateTime date = DateTime.Now;
+            foreach( var entity in customers)
+            {
+               var debit = Database.DebitBooks.SingleOrDefault(x => ( (x.CustomerId == entity.CustomerId) && ( x.Date.Month == date.Month) &&( x.Date.Year == date.Year)));
+                if(debit == null)
+                {
+                    // add debit
+                    Database.DebitBooks.Add(new Domain.DebitBook()
+                    {
+
+
+
+                    });
+                    Database.SaveChanges();
+                }
+                else
+                {
+                    // Do nothing
+                }
+            }
+        }
+
+
+
+
         public List<ReportBill> getDate(DateTime date)
         {
             var data = Database.DebitBooks.Where(x => x.Date.Month == date.Month && x.Date.Year == date.Year);
@@ -66,9 +106,41 @@ namespace GreenEye.DataAccess.DAO
             Database.SaveChanges();
         }
 
+
+
+        internal void updateOrInsertDebit(DebitBook currentDebitBook)
+        {
+            if (currentDebitBook.DebitBookId == 0)
+            {
+                Database.DebitBooks.Add(currentDebitBook);
+            }
+            else
+            {
+                var _curr = Database.DebitBooks.Find(currentDebitBook.DebitBookId);
+
+                Database.Entry(_curr).CurrentValues.SetValues(currentDebitBook);
+            }
+            Database.SaveChanges();
+        }
+
+
+
+
+
+
+
+
+
+
+
         internal void decreaseCurrentDebit(Customer oldCustomer, decimal total)
         {
             var _curr = Database.DebitBooks.Find();
         }
+
+
+
+
+
     }
 }

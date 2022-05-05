@@ -83,7 +83,8 @@ namespace GreenEye.DataAccess.DAO
                 });
             }
 
-            return listBook;
+            return listBook.OrderByDescending(y => y.Sales).Take(10).ToList();
+
 
            
 
@@ -141,7 +142,8 @@ namespace GreenEye.DataAccess.DAO
                 });
             }
 
-            return listBook;
+            return listBook.OrderByDescending(y => y.Sales).Take(10).ToList();
+
 
            
 
@@ -193,7 +195,8 @@ namespace GreenEye.DataAccess.DAO
                 });
             }
 
-            return listBook;
+            return listBook.OrderByDescending(y => y.Sales).Take(10).ToList();
+
 
            
 
@@ -246,7 +249,7 @@ namespace GreenEye.DataAccess.DAO
 
         public List<Book> getBook(int count)
         {
-            return Database.Books.Select(x => x).OrderByDescending(y => y.Sales).ToList();
+            return Database.Books.Select(x => x).OrderByDescending(y => y.Sales).Take(count).ToList();
         }
 
         public Book getOneByID (int Bookid)

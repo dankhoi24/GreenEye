@@ -199,13 +199,30 @@ namespace GreenEye.ViewModel
             
 
 
-            if(currentDebit.CurrentDebit < this.Money  &&  settingModel.MaxDebtBool)
+            if(currentDebit.CurrentDebit < this.Money )
             {
-                MessageBox.Show("Money is greater than debt");
-                return;
+                if(settingModel.MaxDebtBool)
+                {
+
+                    MessageBox.Show("Money is greater than debt");
+                    return;
+                }
+                else
+                {
+
+                    MessageBox.Show("Change " + (Money - currentDebit.CurrentDebit));
+                    currentDebit.CurrentDebit = 0;
+                }
+
+            }
+            else
+            {
+
+
+                currentDebit.CurrentDebit -= this.Money;
             }
 
-            currentDebit.CurrentDebit -= this.Money;
+
 
             _debitBookDAO.updateOrInsertDebit(currentDebit);
 

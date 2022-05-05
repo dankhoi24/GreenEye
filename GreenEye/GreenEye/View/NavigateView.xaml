@@ -136,7 +136,7 @@
                     <Button
                         Command="{Binding DashboardCommand}"
                         Margin="0 5"
-                        FontSize="26"
+                        FontSize="26" Height="45"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Background="White"
                         BorderThickness="0"
@@ -148,7 +148,7 @@
                     <Button
                       Command="{Binding ReportCommand}"
                         Margin="0 5"
-                        FontSize="26"
+                        FontSize="26" Height="45"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Background="White"
                         BorderThickness="0"
@@ -160,7 +160,8 @@
                     <Button
                         Command="{Binding SettingCommand}"
                         Margin="0 5"
-                        FontSize="26"
+                        FontSize="26" Height="45"
+                        
                       Style="{StaticResource MaterialDesignPaperLightButton}"
                         Background="White"
                         BorderThickness="0"
@@ -172,7 +173,7 @@
                     <Button
                         Command="{Binding ProductCommand}"
                         Margin="0 5"
-                        FontSize="26"
+                        FontSize="26" Height="45"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Background="White"
                         BorderThickness="0"
@@ -184,7 +185,7 @@
                     <Button
 
                         Margin="0 5"
-                        FontSize="26"
+                        FontSize="26" Height="45"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Background="White"
                         BorderThickness="0"
@@ -197,7 +198,7 @@
                     <Button
 
                         Margin="0 5"
-                        FontSize="26"
+                        FontSize="26" Height="45"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Background="White"
                         BorderThickness="0"
@@ -210,7 +211,7 @@
                     <Button
 
                         Margin="0 5"
-                        FontSize="26"
+                        FontSize="26" Height="45"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Background="White"
                         BorderThickness="0"
@@ -223,7 +224,7 @@
                     <Button
 
                         Margin="0 5"
-                        FontSize="26"
+                        FontSize="26" Height="45"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Background="White"
                         BorderThickness="0"
@@ -238,7 +239,7 @@
                       Style="{StaticResource MaterialDesignPaperLightButton}"
 
                         Margin="0 5"
-                        FontSize="26"
+                        FontSize="26" Height="45"
                         Background="White"
                         BorderThickness="0"
                         Foreground="#00B3AC"

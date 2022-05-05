@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using GreenEye.ViewModel;
 using System.Windows;
 using GreenEye.DataAccess.DAO;
+using GreenEye.Model;
 
 namespace GreenEye.DataAccess.Domain
 {
@@ -37,14 +38,22 @@ namespace GreenEye.DataAccess.Domain
         // Binding amount in order att
 
         [NotMapped]
+        public string AmountReceipt { get; set; }
+
+        [NotMapped]
         public int _amountInOrder { get; set; }
         [NotMapped]
         public int AmountInOrder
         {
             get => _amountInOrder; set
             {
+
+                SettingModel settingmodel = new SettingModel();
+                settingmodel.readData();
+
+
                 ProductDAO productDAO = new ProductDAO();
-                if (value <= productDAO.getStock(BookId)-20)
+                if (value <= productDAO.getStock(BookId)- Int32.Parse (settingmodel.MinStoreSell))
                 {
                     _amountInOrder = value;
                     onPropertyChanged(nameof(AmountInOrder));

@@ -380,7 +380,7 @@
                                     IsEditable="True"
                                    
                                     Name="AmountComboBox"
-                                    Text="{Binding Sales}"
+                                    Text="{Binding AmountReceipt ,UpdateSourceTrigger=PropertyChanged}"
                                  >
                                                             <ComboBoxItem
                                      >1</ComboBoxItem>

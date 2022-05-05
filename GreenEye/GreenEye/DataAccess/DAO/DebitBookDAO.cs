@@ -19,13 +19,8 @@ namespace GreenEye.DataAccess.DAO
         {
             // init customers
             var customers = Database.Customers.Select(x => new { x.CustomerId }).ToList();
-            var customerDebit = customers.Join(Database.DebitBooks, c => c.CustomerId, d => d.CustomerId, (c, d) => new
-            {
-                CustomerId = c.CustomerId,
-                Begin = d.BeginDebit,
-                Current = d.BeginDebit,
-                Date = DateTime.Now,
-            });
+           
+
 
             // check date
             DateTime date = DateTime.Now;
@@ -37,6 +32,7 @@ namespace GreenEye.DataAccess.DAO
                     // add debit
                     Database.DebitBooks.Add(new Domain.DebitBook()
                     {
+
 
 
 

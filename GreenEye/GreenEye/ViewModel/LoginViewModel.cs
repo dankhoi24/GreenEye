@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -88,7 +89,9 @@ namespace GreenEye.ViewModel
 
             _viewModel = viewmodel as MainViewModel;
                 
-        
+
+
+
         }
 
 
@@ -151,7 +154,22 @@ namespace GreenEye.ViewModel
             VisibilityWarining = "Visible";
             Debug.WriteLine("NONO");
 
+            BookStoreContext db = new BookStoreContext();
+            db.Employees.Add(new DataAccess.Domain.Employee()
+            {
+                Name = "Nguyen Huu Hien",
+                Phone = "0123456789",
+                Address ="123 nguyen van a distric 1 hcm city",
+                Role = "Cashier",
+                Salary = 1000,
+                Username = "NHHien",
+                Password = encode("123456").Split(' ')[0],
+                Entropy = encode("123456").Split(' ')[1],
+                Remember=false,
 
+            });
+
+            db.SaveChanges();
 
 
 
@@ -178,8 +196,16 @@ namespace GreenEye.ViewModel
             }
             var entropyBase64 = Convert.ToBase64String(entropy);
 
+
+
+
+
+
+
+
             var cypherText = ProtectedData.Protect(passwordInBytes, entropy,
                 DataProtectionScope.CurrentUser);
+
             var cypherTextBase64 = Convert.ToBase64String(cypherText);
 
             Debug.WriteLine(cypherTextBase64);

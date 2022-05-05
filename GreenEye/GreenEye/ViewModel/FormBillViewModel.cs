@@ -1,6 +1,7 @@
 ﻿using GreenEye.DataAccess;
 using GreenEye.DataAccess.DAO;
 using GreenEye.DataAccess.Domain;
+using GreenEye.Model;
 using GreenEye.ViewModel.Command;
 using System;
 using System.Collections.Generic;
@@ -190,6 +191,19 @@ namespace GreenEye.ViewModel
 
 
             DebitBook currentDebit = _debitBookDAO.getCurrentDebitBook(Customers[0].CustomerId);
+
+
+            SettingModel settingModel = new SettingModel();
+
+            settingModel.readData();
+            
+
+
+            if(currentDebit.CurrentDebit < this.Money  &&  settingModel.MaxDebtBool)
+            {
+                MessageBox.Show("Money is greater than debt");
+                return;
+            }
 
             currentDebit.CurrentDebit -= this.Money;
 

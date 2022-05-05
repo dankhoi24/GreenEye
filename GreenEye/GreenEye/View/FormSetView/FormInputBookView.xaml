@@ -375,7 +375,7 @@
                                      FontSize="22"
                                 Width="220"
                                 Height="30"
-                                Text="{Binding Sales}"
+                                Text="{Binding AmountReceipt,Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                                     IsEditable="True"
                                    
                                     Name="AmountComboBox"

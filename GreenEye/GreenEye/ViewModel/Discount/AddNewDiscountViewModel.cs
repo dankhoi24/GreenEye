@@ -52,10 +52,11 @@ namespace GreenEye.ViewModel.Discount
         public RelayCommand NavigateCancelCommand { get; set; }
         public AddNewDiscountViewModel(NavigateStore navigateStore)
         {
+            Promotion = new Promotion() { };
             StartDate = DateTime.Now;
             EndDate = DateTime.Now;
             NavigateStore = navigateStore;
-            Promotion = new Promotion();
+            
 
             NavigateSubmitCommand = new RelayCommand(SubmitAdd, null);
             NavigateCancelCommand = new RelayCommand(Cancel, null);

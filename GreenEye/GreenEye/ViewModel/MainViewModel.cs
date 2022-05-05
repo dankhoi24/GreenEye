@@ -14,9 +14,9 @@ namespace GreenEye.ViewModel
         {
 
             //CurrentViewModel = new LoginViewModel(this);
-            CurrentViewModel = new NavigateViewModel("ndkhoi");
+           //CurrentViewModel = new NavigateViewModel("VDPhuc");
 
-            //CurrentViewModel = new LoginViewModel(this);
+            CurrentViewModel = new LoginViewModel(this);
 
         }
 

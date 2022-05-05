@@ -32,6 +32,11 @@ namespace GreenEye.DataAccess.DAO
             return "";
         }
 
+        public Employee getByID (int id)
+        {
+            return Database.Employees.Find(id);
+        }
+
         public ObservableCollection<string> getSuggestUsername()
         {
             var user = Database.Employees.Where(e => e.Remember == true).Select(u => u.Username).ToList();
@@ -91,6 +96,18 @@ namespace GreenEye.DataAccess.DAO
 
             Database.Entry(entity).CurrentValues.SetValues(employee);
             Database.SaveChanges();
+        }
+
+        internal int countLikedUsername(string username)
+        {
+            int r = Database.Employees.Where(x=>x.Username.StartsWith(username)).Count();
+
+            return r;
+        }
+
+        internal Employee getByUsername(string username)
+        {
+            return Database.Employees.SingleOrDefault(x => x.Username == username);
         }
     }
 }

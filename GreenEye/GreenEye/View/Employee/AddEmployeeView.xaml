@@ -15,7 +15,7 @@
             TextOptions.TextRenderingMode="Auto"
             Background="{DynamicResource MaterialDesignPaper}"
             FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid Background="#EBEEF5" Margin="10 0 10 0">
+    <Grid Background="#EBEEF5" >
 
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"></RowDefinition>
@@ -31,6 +31,7 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -75,7 +76,23 @@
                     <TextBox Text="{Binding Role}"></TextBox>
 
                 </Border>
-    
+
+                <TextBlock VerticalAlignment="Center" Grid.Row="3" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="20" Margin="10 10 0 10">Username:</TextBlock>
+
+                <Border BorderThickness="1" Grid.Row="3" BorderBrush="#00B3AC" CornerRadius="5" Height="50" Grid.Column="1">
+
+                    <TextBox Text="{Binding Username}"></TextBox>
+
+                </Border>
+
+                <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="20" Margin="10 10 0 10">Password:</TextBlock>
+
+                <Border BorderThickness="1" Grid.Row="3" Grid.Column="3" BorderBrush="#00B3AC" CornerRadius="5" Height="50" >
+
+                    <TextBox IsEnabled="False" Text="{Binding Password}"></TextBox>
+
+                </Border>
+
             </Grid>
         </Border>
 

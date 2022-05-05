@@ -10,7 +10,7 @@
               xmlns:converter="clr-namespace:GreenEye.ViewModel.Converter"
 
              
-              d:DesignHeight="768" d:DesignWidth="1366"
+             
             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
             TextElement.FontWeight="Regular"
@@ -28,7 +28,7 @@
     </UserControl.Resources>
 
     <Grid
-       Margin="10 0"
+       
         Background="#EBEEF5"
         >
         <Grid.ColumnDefinitions>

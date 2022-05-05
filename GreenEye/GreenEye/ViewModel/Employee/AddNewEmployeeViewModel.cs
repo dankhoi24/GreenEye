@@ -16,35 +16,66 @@ namespace GreenEye.ViewModel.Employee
     public class AddNewEmployeeViewModel : BaseViewModel
     {
         public Employee Employee { get; set; }
+        public string Username  {
+            get => Employee.Username;
+            set 
+            { 
+                Employee.Username = value;
+                onPropertyChanged(nameof(Username));
+            } 
+        } 
+        public string Password  { 
+            get => Employee.Password;
+            set
+            {
+                Employee.Password = BCrypt.Net.BCrypt.HashPassword(value);
+                onPropertyChanged(nameof(Password));
+            }
+        }
         public int EmployeeId { get => Employee.EmployeeId; set
             {
                 Employee.EmployeeId = value;
+                onPropertyChanged(nameof(EmployeeId));
+
             }
-            }
+        }
        
         public string Name { get => Employee.Name; set { 
                 Employee.Name = value;
-            } }
+                Username = getUsername();
+                onPropertyChanged(nameof(Name));
+            }
+        }
        
         public string Phone { get =>Employee.Phone; set
             {
                 Employee.Phone = value;
+                Password = value;
+                onPropertyChanged(nameof(Phone));
+
             }
         }
        
         public string Address { get => Employee.Address; set
             {
                 Employee.Address = value;
-            } }
+                onPropertyChanged(nameof(Address));
+
+            }
+        }
     
         public string Role { get => Employee.Role; set
             {
                 Employee.Role = value;
+                onPropertyChanged(nameof(Role));
+
             }
-            }
+        }
         public decimal Salary { get => Employee.Salary; set
             {
                 Employee.Salary= value;
+                onPropertyChanged(nameof(Salary));
+
             }
         }
         public NavigateStore NavigateStore { get; set; }
@@ -66,33 +97,42 @@ namespace GreenEye.ViewModel.Employee
 
         private string getUsername()
         {
-
-            List<string> name = Employee.Name.Split(' ').ToList();
-            string username = "";
-
-            for (int i = 0 ; i < name.Count() ;i ++)
+            if (Employee.Name != null)
             {
-                if (i == name.Count() - 1)
-                {
-                    username += name[i];
-                }
-                else
-                {
-                    username += name[i][0];
-                }
-            }
+                List<string> name = Employee.Name.Split(' ').ToList();
+                string username = "";
 
-            return username;
+                for (int i = 0; i < name.Count(); i++)
+                {
+                    if (i == name.Count() - 1)
+                    {
+                        username += name[i];
+                    }
+                    else
+                    {
+                        username += name[i][0];
+                    }
+                }
+
+                EmployeeDAO employeeDAO = new EmployeeDAO();
+                int count = employeeDAO.countLikedUsername(username);
+
+                if (count > 0)
+                    username = username + count;
+
+                return username;
+            }
+            return null;
 
         }
 
         private void NavigateSubmitAdd(object obj)
         {
             EmployeeDAO employeeDAO = new EmployeeDAO();
-            Employee.Username = getUsername();
-            string pass = encode(Employee.Phone);
-            Employee.Password =pass.Split(' ')[0];
-            Employee.Entropy = pass.Split(' ')[1];
+            //Employee.Username = getUsername();
+           //string pass = encode(Employee.Phone);
+           /* Employee.Password =pass.Split(' ')[0];
+            Employee.Entropy = pass.Split(' ')[1];*/
             employeeDAO.insertOne(Employee);
             NavigateStore.CurrentViewModel = new EmployeeManagementViewModel(NavigateStore);
         }

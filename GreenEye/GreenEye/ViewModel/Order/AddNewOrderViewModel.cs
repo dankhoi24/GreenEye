@@ -47,7 +47,7 @@ namespace GreenEye.ViewModel.Order
 
                     if (currentDebitBook.CurrentDebit >= Int32.Parse (settingmodel.Maxdebt )&& !_isEditing)
                     {
-                        MessageBox.Show("Your debit is reaching 20000 vnd");
+                        MessageBox.Show($"Your debit is reaching {settingmodel.Maxdebt} vnd");
                     }
                     else
                     {

@@ -65,6 +65,8 @@
                   </Border>
 
             <Button 
+                Margin="30 0"
+                Background="#00B3AC"
                 Command="{Binding AddGoods}"
                 Content="Add Goods"/>
 

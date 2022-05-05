@@ -151,41 +151,84 @@ namespace GreenEye.ViewModel
             (_viewmodel as NavigateViewModel).goToAddProduct(_viewmodel);
         }
 
-        private List<GoodsReceipt_Book> getListBook()
+       private List<GoodsReceipt_Book> getListBook()
         {
             List<GoodsReceipt_Book> result = new List<GoodsReceipt_Book>();
 
 
-            Debug.WriteLine("000000000000000");
             foreach(var book in Products)
             {
 
-                Debug.WriteLine(book.BookId);
-                Debug.WriteLine(book.Publisher);
+
+                // min stock
+
+
+
+
+
                 int numberTemp = 0;
                 if (string.IsNullOrEmpty(book.Publisher))
                 {
-                    
-                    numberTemp = book.Sales;
-                }
+                    if (string.IsNullOrEmpty(book.AmountReceipt))
+                    {
+                        MessageBox.Show("Please fill up amount of book");
+
+                        return null;
+
+                    }
+
+                    numberTemp = Int32.Parse(book.AmountReceipt);
+                   }
                 else
                 {
-                    numberTemp = Int32.Parse(book.Publisher);
 
+
+
+                    numberTemp = Int32.Parse(book.Publisher);
+                   
                 }
+
+
+                 SettingModel settingmodel = new SettingModel();
+                    settingmodel.readData();
+
+                    Debug.WriteLine(numberTemp);
+                    Debug.WriteLine(settingmodel.MinGoodsReceipt);
+
+                    if(_productDAO.getOneByID(book.BookId).Stroke > Int32.Parse(settingmodel.MinStoreImport)) {
+
+
+
+                        MessageBox.Show("Amount of " +_productDAO.getOneByID(book.BookId).Name+" has not reached to limited yet");
+                        return null;
+
+                    }
+
+
+                    if(numberTemp < Int32.Parse(settingmodel.MinGoodsReceipt))
+                    {
+
+
+
+                        MessageBox.Show("Amount of book reached limit of constraint");
+                        return null;
+                    }
 
 
                 GoodsReceipt_Book temp = new GoodsReceipt_Book()
                 {
                     BookId = book.BookId,
-                    Number =numberTemp                };
+
+                    Number = numberTemp
+                };
                 result.Add(temp);
             }
             return result;
         }
     
+    
 
-        private void submitCommand(object x)
+        private void submitCommand(object paramater)
         {
 
             if (Products.Count() == 0)
@@ -193,7 +236,25 @@ namespace GreenEye.ViewModel
                 MessageBox.Show("Please choose product");
                 return;
             }
+
+
+            List<GoodsReceipt_Book> receipt_book = getListBook();
+            if(receipt_book == null)
+            {
+                return;
+            }
+
+
+
             BookStoreContext db = new BookStoreContext();
+
+             foreach(var bookAmount in receipt_book)
+            {
+                db.Books.SingleOrDefault(x => x.BookId == bookAmount.BookId).Stroke += bookAmount.Number;
+                db.SaveChanges();
+
+            }
+
             
 
             //delete
@@ -204,7 +265,7 @@ namespace GreenEye.ViewModel
             
             var goodsReceiptUpdate = db.GoodsReceipts.SingleOrDefault(g => g.GoodsReceiptId ==_goodReceiptId);
             Debug.WriteLine(goodsReceiptUpdate.Date);
-            goodsReceiptUpdate.GoodsReceipt_Books = getListBook();
+            goodsReceiptUpdate.GoodsReceipt_Books = receipt_book;
             goodsReceiptUpdate.Date = Date;
 
 

@@ -129,7 +129,7 @@
          >
                         <materialDesign:PackIcon
                             Foreground="#00B3AC"
-                            Kind="ArrowRight" />
+                            Kind="ArrowLeft" />
                         
                     </Button>
                     

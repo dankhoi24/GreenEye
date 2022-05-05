@@ -78,7 +78,7 @@
                         FontWeight="Bold"
                         >Total Product</TextBlock>
                     <TextBlock 
-                        FontSize="12"
+                        FontSize="22"
                         FontWeight="Light"
                         Text="{Binding TotalProduct}"/>
                 </StackPanel>
@@ -117,7 +117,7 @@
                         FontWeight="Bold"
                         >Total Order</TextBlock>
                     <TextBlock 
-                        FontSize="12"
+                        FontSize="22"
                         FontWeight="Light"
                         Text="{Binding TotalOrder}"/>
                 </StackPanel>
@@ -156,7 +156,7 @@
                         FontWeight="Bold"
                         >Total Customer</TextBlock>
                     <TextBlock 
-                        FontSize="12"
+                        FontSize="22"
                         FontWeight="Light"
                         Text="{Binding TotalCustomer}"/>
                 </StackPanel>
@@ -210,14 +210,17 @@
 
                                     <StackPanel Orientation="Horizontal">
 
-                                        <TextBlock
+                                            <TextBlock
                                             Margin="10 0 0 0"
                             Width="50"
                             FontSize="30"
                             VerticalAlignment="Center"
-                            >1</TextBlock>
+                            Text="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                         AncestorType={x:Type ListViewItem}}, 
+                                         Converter={StaticResource getIndex}}"
+                            />
 
-                                        <materialDesign:PackIcon 
+                                            <materialDesign:PackIcon 
                             Width="50"
                             BorderThickness="1 0 0 0"
                             BorderBrush="#00B3AC"
@@ -283,7 +286,8 @@
                         >EMPLOYEE</TextBlock>
 
                 <ListView
-                    
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    Width="890"
                     ItemsSource="{Binding Employees}"
                     >
                     <ListView.ItemsPanel>
@@ -300,7 +304,10 @@
                     CornerRadius="5"
                     >
 
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel
+                            
+                            Width="240"
+                            Orientation="Horizontal">
 
 
                             <materialDesign:PackIcon 
@@ -313,16 +320,17 @@
                             <StackPanel>
                                 <TextBlock 
                                 FontSize="22"
+                                Width="200"
                                 TextWrapping="Wrap"
-                                Text="No one know that thing"/>
+                                Text="{Binding Name}"/>
                                 <StackPanel 
                                 VerticalAlignment="Center"
                                 Orientation="Horizontal">
-                                    <TextBlock FontSize="22" Text="100"/>
+                                    <TextBlock FontSize="20" Text="{Binding Phone}"/>
                                     <materialDesign:PackIcon 
                                     Width="30"
                                     Height="30"
-                                    Kind="CartOutline" />
+                                    Kind="Phone" />
                                 </StackPanel>
 
                             </StackPanel>
@@ -428,6 +436,7 @@
             </Border>
                 <StackPanel Grid.Row="2">
                     <ListView
+                        Height="500"
                         ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                         ItemsSource="{Binding Products}"
                         >

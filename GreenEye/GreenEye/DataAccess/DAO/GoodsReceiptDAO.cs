@@ -14,6 +14,46 @@ namespace GreenEye.DataAccess.DAO
         private BookStoreContext _database = new BookStoreContext();
 
 
+        public List<GoodsReceiptModel> getByDate(DateTime date)
+        {
+
+             var data = _database.GoodsReceipts.Join(_database.Employees, g => g.EmployeeId, e => e.EmployeeId, (g, e) => new
+            {
+                Id = g.GoodsReceiptId,
+                Date = g.Date,
+                EmployeeName = e.Name,
+
+            });
+
+            var receipt = _database.GoodsReceipt_Books.GroupBy(x => x.GoodsReceiptId).Select(g => new
+            {
+                goodsId = g.Key,
+                Amount = g.Sum(w => w.Number)
+
+            }) ;
+                
+            var amount = data.Join(receipt, d => d.Id, g => g.goodsId, (d, g) => new
+            {
+                Id = d.Id,
+                Date = d.Date,
+                EmployeeName = d.EmployeeName,
+                Amount = g.Amount
+            });
+
+           
+            var result = amount.Select(x => new GoodsReceiptModel
+            {
+                Id = x.Id,
+                Date = x.Date,
+                EmployeeName = x.EmployeeName,
+                Amount = x.Amount,
+
+            }).ToList();
+
+            return result.Where(x => ((x.Date.Month == date.Month) && (x.Date.Year == date.Year))).ToList();
+
+        }
+
         public List<Book> getBook(int id)
         {
             List<Book> ListBook = new List<Book>();
@@ -38,7 +78,6 @@ namespace GreenEye.DataAccess.DAO
                 Type = t.Name,
                 Author = b.Author,
                 Amount = b.Amount
-
 
             }))
             {

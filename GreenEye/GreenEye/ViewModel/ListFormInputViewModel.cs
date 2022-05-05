@@ -4,6 +4,7 @@ using GreenEye.ViewModel.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,14 +24,33 @@ namespace GreenEye.ViewModel
 
 
         public GoodsReceiptModel SelectedItem { get; set; }
+         
+        private DateTime _date;
+         public DateTime Date
+        {
+            get
+            {
+                return _date;
+            }
+            set
+            {
+                _date = value;
+                onPropertyChanged(nameof(Date));
+                Debug.WriteLine(Date);
+                Debug.WriteLine("000000000000000000");
 
-        public DateTime Date { get; set; }
+
+
+                GoodsReceiptList = new ObservableCollection<GoodsReceiptModel>(_goodsReceiptDAO.getByDate(_date));
+            }
+        }
 
         private GoodsReceiptDAO _goodsReceiptDAO = new GoodsReceiptDAO();
 
         public ListFormInputViewModel(BaseViewModel viewModel)
         {
 
+            Date = DateTime.Now;
             _viewmodel = viewModel;
                  
             GoodsReceiptList = new ObservableCollection<GoodsReceiptModel>(_goodsReceiptDAO.getAll());

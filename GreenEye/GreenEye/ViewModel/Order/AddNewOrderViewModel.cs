@@ -6,6 +6,7 @@ namespace GreenEye.ViewModel.Order
 {
     using DataAccess.Domain;
     using GreenEye.DataAccess.DAO;
+    using GreenEye.Model;
     using GreenEye.ViewModel.Command;
     using System;
     using System.Diagnostics;
@@ -41,7 +42,10 @@ namespace GreenEye.ViewModel.Order
                     DebitBookDAO debitBookDAO = new DebitBookDAO();
                    currentDebitBook = debitBookDAO.getCurrentDebitBook(value.CustomerId);
 
-                    if (currentDebitBook.CurrentDebit >= 20000 && !_isEditing)
+                    SettingModel settingmodel = new SettingModel();
+                    settingmodel.readData();
+
+                    if (currentDebitBook.CurrentDebit >= Int32.Parse (settingmodel.Maxdebt )&& !_isEditing)
                     {
                         MessageBox.Show("Your debit is reaching 20000 vnd");
                     }

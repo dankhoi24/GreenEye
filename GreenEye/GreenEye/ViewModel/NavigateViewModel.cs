@@ -24,6 +24,7 @@ namespace GreenEye.ViewModel
         public int UserId { get; set; }
         private BaseViewModel _formReceiptState { get; set; } = null;
         private BaseViewModel _formBillState { get; set; } = null;
+
         public RelayCommand OrderNavigateCommand { get; set; }
         public RelayCommand CustomerNavigateCommand { get; set; }
         public RelayCommand EmployeeNavigateCommand { get; set; }
@@ -158,7 +159,7 @@ namespace GreenEye.ViewModel
         }
             public void goToDashBoard(object x)
             {
-                Mycurrent = new DashboardViewModel();
+                NavigateStore.CurrentViewModel = new DashboardViewModel();
             }
 
 

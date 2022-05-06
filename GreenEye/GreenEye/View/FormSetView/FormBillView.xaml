@@ -494,6 +494,7 @@
             <Separator Opacity="0" Width="50"/>
                 
             <Button
+            Command="{Binding CancelCommand}"
                 Height="50"
                 Width="200"
                 Background="#bdbdbd"

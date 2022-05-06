@@ -33,6 +33,7 @@ namespace GreenEye.ViewModel
         public RelayCommand CloseCommand { get; set; }
         public RelayCommand SubmitCommand { get; set; }
         public RelayCommand AddCustomer { get; set; }
+        public RelayCommand CancelCommand { get; set; }
 
         
 
@@ -106,10 +107,20 @@ namespace GreenEye.ViewModel
             CloseCommand = new RelayCommand(closeCommand, null);
             SubmitCommand = new RelayCommand(submitCommand, null);
             AddCustomer = new RelayCommand(addCustomer, null);
+            CancelCommand = new RelayCommand(cancelCommand, null); 
             Customers = new ObservableCollection<Customer>();
             Date = DateTime.Now;
 
             initSuggest();
+        }
+
+        public void cancelCommand(object paramater)
+        {
+             (_viewmodel as NavigateViewModel).deleteBillState();
+
+            (_viewmodel as NavigateViewModel).goToListBillForm();
+            
+
         }
 
 
@@ -243,7 +254,8 @@ namespace GreenEye.ViewModel
            (_viewmodel as NavigateViewModel).deleteBillState();
             MessageBox.Show("Add Succeeded");
 
-            (_viewmodel as NavigateViewModel).goToForm(_viewmodel);
+            
+            (_viewmodel as NavigateViewModel).goToListBillForm();
 
 
         }

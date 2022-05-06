@@ -25,6 +25,9 @@ namespace GreenEye.ViewModel
         private BaseViewModel _formReceiptState { get; set; } = null;
         private BaseViewModel _formBillState { get; set; } = null;
 
+
+
+        public RelayCommand LogoutCommand { get; set; }
         public RelayCommand OrderNavigateCommand { get; set; }
         public RelayCommand CustomerNavigateCommand { get; set; }
         public RelayCommand EmployeeNavigateCommand { get; set; }
@@ -43,8 +46,12 @@ namespace GreenEye.ViewModel
         public RelayCommand FormCommand { get; set; }
         public RelayCommand SettingCommand { get; set; }
 
-        public NavigateViewModel(string username)
+        private BaseViewModel _mainviewModel { get; set; }
+
+        public NavigateViewModel(BaseViewModel Mainviewmodel,string username)
         {
+            _mainviewModel = Mainviewmodel;
+
             _inventoryDAO.init();
 
             EmployeeDAO employeeDAO = new EmployeeDAO();
@@ -52,6 +59,7 @@ namespace GreenEye.ViewModel
             UserId = employeeDAO.getId(username);
 
             Mycurrent = new DashboardViewModel();
+            LogoutCommand = new RelayCommand(goToLogin, null);
             DashboardCommand = new RelayCommand(goToDashBoard, null);
             ProductCommand = new RelayCommand(goToProduct, null);
             ReportCommand = new RelayCommand(goToReport, null);
@@ -70,11 +78,21 @@ namespace GreenEye.ViewModel
             SettingCommand = new RelayCommand(settingCommand, null);
 
             }
+
+        public void goToListBillForm()
+        {
+            NavigateStore.CurrentViewModel = new FormBillManagementViewModel(this);
+        }
     
 
 
 
+        public void goToLogin(object x)
+        {
+            (_mainviewModel as MainViewModel).goToLogin();
+            
 
+        }
         public void goToEditBill(BaseViewModel viewModel, int id)
         {
             NavigateStore.CurrentViewModel = new FormBillViewModel(viewModel, id); // edit constructor

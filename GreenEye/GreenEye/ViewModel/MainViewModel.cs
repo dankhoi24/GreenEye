@@ -22,8 +22,14 @@ namespace GreenEye.ViewModel
 
         public void goToNavigate(string username)
         {
-            CurrentViewModel = new NavigateViewModel(username);
+            CurrentViewModel = new NavigateViewModel(this,username);
 
+
+        }
+
+        public void goToLogin()
+        {
+            CurrentViewModel = new LoginViewModel(this);
 
         }
     }

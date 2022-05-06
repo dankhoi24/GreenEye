@@ -316,11 +316,17 @@
 
                                 Kind="AccountCircleOutline" />
 
-                            <materialDesign:PackIcon
+                            <Button
+                                Command="{Binding LogoutCommand}"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                >
+                                <materialDesign:PackIcon
                                  Width="30"
                                 Height="30"
-
+                                
                                 Kind="Logout" />
+                                </Button>
                         </StackPanel>
                                            </DockPanel>
         </materialDesign:ColorZone>

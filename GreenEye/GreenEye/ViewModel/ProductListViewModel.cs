@@ -1,6 +1,7 @@
 ﻿using GreenEye.DataAccess.DAO;
 using GreenEye.DataAccess.Domain;
 using GreenEye.ViewModel.Command;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -98,6 +99,7 @@ namespace GreenEye.ViewModel
         public RelayCommand LastCommand { get; set; }
         public RelayCommand SearchCommand { get; set; }
         public RelayCommand AddCommand { get; set; }
+        public RelayCommand AddTypeCommand { get; set; }
         public RelayCommand EditCommand { get; set; }
 
         public RelayCommand DeleteCommand { get; set; }
@@ -125,6 +127,7 @@ namespace GreenEye.ViewModel
             AddCommand = new RelayCommand(addCommand, null);
             EditCommand = new RelayCommand(editCommand,null);
             DeleteCommand = new RelayCommand(deleteCommand, null);
+            AddTypeCommand = new RelayCommand(addTypeCommand, null);
 
             Category = new ObservableCollection<string>(_bookTypeDAO.getAll());
             AllName = new ObservableCollection<string>(_prodcutDAO.getName());
@@ -138,6 +141,21 @@ namespace GreenEye.ViewModel
 
 
         //method
+
+        private void addTypeCommand(object x)
+        {
+            string str = Interaction.InputBox("Question?","Title","Default Text");
+            Debug.WriteLine(str);
+            _bookTypeDAO.insertType(str);
+
+
+
+            Books = new ObservableCollection<Book>(_prodcutDAO.getAll());
+             Category = new ObservableCollection<string>(_bookTypeDAO.getAll());
+            AllName = new ObservableCollection<string>(_prodcutDAO.getName());
+
+
+        }
         private void deleteCommand(object x)
         {
             _prodcutDAO.DeleteProduct(SelectedProduct);

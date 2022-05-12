@@ -15,36 +15,23 @@ namespace GreenEye.DataAccess.DAO
 
 
 
-         public void init()
+       public void init()
         {
-            // init customers
-            var customers = Database.Customers.Select(x => new { x.CustomerId }).ToList();
+            DebitBookDAO debitBookDAO = new DebitBookDAO();
            
-
-
-            // check date
-            DateTime date = DateTime.Now;
-            foreach( var entity in customers)
+            foreach (Customer customer in Database.Customers)
             {
-               var debit = Database.DebitBooks.SingleOrDefault(x => ( (x.CustomerId == entity.CustomerId) && ( x.Date.Month == date.Month) &&( x.Date.Year == date.Year)));
-                if(debit == null)
+                DebitBook debitBook = debitBookDAO.getCurrentDebitBook(customer.CustomerId);
+
+                if (debitBook.DebitBookId == 0)
                 {
-                    // add debit
-                    Database.DebitBooks.Add(new Domain.DebitBook()
-                    {
-
-
-
-
-                    });
-                    Database.SaveChanges();
-                }
-                else
-                {
-                    // Do nothing
+                    Database.DebitBooks.Add(debitBook);
                 }
             }
+
+            Database.SaveChanges();
         }
+
 
 
 

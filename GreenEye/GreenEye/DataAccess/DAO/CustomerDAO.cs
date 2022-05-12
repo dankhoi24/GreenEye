@@ -25,23 +25,7 @@ namespace GreenEye.DataAccess.DAO
 
         }
 
-        public void init()
-        {
-            DebitBookDAO debitBookDAO = new DebitBookDAO();
-           
-            foreach (Customer customer in Database.Customers)
-            {
-                DebitBook debitBook = debitBookDAO.getCurrentDebitBook(customer.CustomerId);
-
-                if (debitBook.DebitBookId != 0)
-                {
-                    Database.DebitBooks.Add(debitBook);
-                }
-            }
-
-            Database.SaveChanges();
-        }
-
+       
         public ObservableCollection<Customer> getAll()
         {
             var user = Database.Customers.ToList();

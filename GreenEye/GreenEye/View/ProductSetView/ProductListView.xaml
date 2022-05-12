@@ -142,8 +142,39 @@
             </Border>
 
             
-            <Separator Opacity="0" Width="450"/>
+            <Separator Opacity="0" Width="160"/>
 
+            
+
+            
+            <Button
+                        Command="{Binding AddTypeCommand}"
+                          BorderThickness="0"
+                          Height="60"
+                          Margin="40 0"
+                          Foreground="White"
+                         
+                        Style="{StaticResource MaterialDesignPaperDarkButton}"
+                    Background="#00B3AC"
+                    >
+                    <StackPanel
+
+                        Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            Width="30"
+                            Height="20"
+                            Kind="PlusCircleOutline" />
+                        <TextBlock
+                            TextWrapping="Wrap"
+                            Width="100"
+                            FontSize="22"
+                            FontWeight="Medium"
+                            >Add new type</TextBlock>
+
+                    </StackPanel>
+                </Button>
+
+            
             
             
               <Button

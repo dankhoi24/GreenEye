@@ -29,5 +29,14 @@ namespace GreenEye.DataAccess.DAO
             return Database.BookTypes.SingleOrDefault(x => x.BookTypeId == id).Name;
         }
 
+        public void insertType(string type)
+        {
+            Database.BookTypes.Add(new BookType()
+            {
+                Name = type,
+            }) ;
+            Database.SaveChanges();
+
+        }
     }
 }

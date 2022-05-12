@@ -18,12 +18,14 @@
     <Grid Background="#EBEEF5" >
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="8*"></RowDefinition>
-            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition ></RowDefinition>
         </Grid.RowDefinitions>
 
         <Border BorderThickness="2" BorderBrush="#00B3AC" CornerRadius="10" Margin="50 50 50 50" Background="White">
-            <Grid Margin="0 0 50 0" >
+            <Grid 
+                Height="300"
+                Margin="0 0 50 0" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
@@ -40,7 +42,11 @@
 
                 <Border BorderThickness="1" BorderBrush="#00B3AC" CornerRadius="5" Height="50" Grid.Column="1">
 
-                    <TextBox Text="{Binding Name}"></TextBox>
+                    <TextBox 
+                        
+                        FontSize="20"
+                        VerticalAlignment="Center"
+                        Text="{Binding Name}"></TextBox>
 
                 </Border>
 
@@ -48,7 +54,10 @@
 
                 <Border BorderThickness="1"   BorderBrush="#00B3AC" CornerRadius="5" Height="50" Grid.Column="3">
 
-                    <TextBox Text="{Binding Email}"></TextBox>
+                    <TextBox 
+                        FontSize="20"
+                        VerticalAlignment="Center"
+                        Text="{Binding Email}"></TextBox>
 
                 </Border>
 
@@ -56,7 +65,10 @@
 
                 <Border BorderThickness="1" Grid.Row="1" BorderBrush="#00B3AC" CornerRadius="5" Height="50" Grid.Column="1">
 
-                    <TextBox Text="{Binding Phone}"></TextBox>
+                    <TextBox 
+                        FontSize="20"
+                        VerticalAlignment="Center"
+                        Text="{Binding Phone}"></TextBox>
 
                 </Border>
 
@@ -64,7 +76,10 @@
 
                 <Border BorderThickness="1" Grid.Row="1" BorderBrush="#00B3AC" CornerRadius="5" Height="50" Grid.Column="3">
 
-                    <TextBox Text="{Binding Address}"></TextBox>
+                    <TextBox 
+                        FontSize="20"
+                        VerticalAlignment="Center"
+                        Text="{Binding Address}"></TextBox>
 
                 </Border>
 

@@ -107,6 +107,9 @@
             </Grid>
             <StackPanel >
                     <ListView
+                     ScrollViewer.VerticalScrollBarVisibility="Visible"
+                        Height="500"
+
                         ItemsSource="{Binding Reports}"
                         >
 

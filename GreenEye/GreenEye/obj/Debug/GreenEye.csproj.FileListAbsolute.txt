@@ -1,5 +1,3 @@
-D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\img\store\meow.png
-D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\img\store\mask.png
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\ImportData\Book.json
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\ImportData\Order_Book.json
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\ImportData\Employee.json
@@ -8,12 +6,15 @@ D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cu�
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\ImportData\Order.json
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\ImportData\Promotion.json
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\ImportData\BookType.json
+D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\img\store\meow.png
+D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\img\store\mask.png
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\img\store\aka.png
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\Model\setting.json
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\img\src\login.png
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\GreenEye.exe.config
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\GreenEye.exe
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\GreenEye.pdb
+D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\BCrypt.Net-Next.dll
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\EntityFramework.dll
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\EntityFramework.SqlServer.dll
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\LiveCharts.dll
@@ -51,6 +52,7 @@ D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cu�
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\System.Threading.Tasks.Extensions.dll
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\System.ValueTuple.dll
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\System.Windows.Interactivity.dll
+D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\BCrypt.Net-Next.xml
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\EntityFramework.xml
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\EntityFramework.SqlServer.xml
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\LiveCharts.pdb
@@ -156,5 +158,3 @@ D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cu�
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.csproj.CopyComplete
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.exe
 D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\obj\Debug\GreenEye.pdb
-D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\BCrypt.Net-Next.dll
-D:\HCMUS\3rd year\semester 2 - 3rd year\Thiết kế phần mềm\đồ án cuối kì\Source Code\GreenEye\GreenEye\GreenEye\bin\Debug\BCrypt.Net-Next.xml

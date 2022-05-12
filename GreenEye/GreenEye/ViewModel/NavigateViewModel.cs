@@ -19,6 +19,7 @@ namespace GreenEye.ViewModel
 
 
         private InventoryDAO _inventoryDAO = new InventoryDAO(); 
+        private DebitBookDAO _debitBookDAO = new DebitBookDAO();
 
         public string Name { get; set; }
         public int UserId { get; set; }
@@ -53,6 +54,7 @@ namespace GreenEye.ViewModel
             _mainviewModel = Mainviewmodel;
 
             _inventoryDAO.init();
+            _debitBookDAO.init();
 
             EmployeeDAO employeeDAO = new EmployeeDAO();
             Name = employeeDAO.getName(username);

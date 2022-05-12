@@ -42,13 +42,6 @@ namespace GreenEye.DataAccess.DAO
         }
 
 
-
-
-
-
-
-
-
         public List<ReportInventory> getDate(DateTime date)
         {
             var data = Database.Inventories.Where(x => (( x.Date.Month == date.Month) &&( x.Date.Year == date.Year)));

@@ -1,6 +1,7 @@
 ﻿using GreenEye.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,26 +20,41 @@ namespace GreenEye.DataAccess.DAO
             var books = Database.Books.Select(x => new { x.BookId, x.Stroke }).ToList();
 
             // check date
-            DateTime date = DateTime.Now;
-            foreach( var entity in books)
+            DateTime date = DateTime.Parse("01/04/2022");
+
+            for(int i =0; ; i++)
             {
-               var inventory = Database.Inventories.SingleOrDefault(x => ( (x.BookId == entity.BookId) && ( x.Date.Month == date.Month) &&( x.Date.Year == date.Year)));
-                if(inventory == null)
+                if (date.Month > DateTime.Now.Month) return;
+                Debug.WriteLine(i);
+
+                date = date.AddMonths(i);
+
+
+
+                foreach (var entity in books)
                 {
-                    // add inventory
-                    Database.Inventories.Add(new Domain.Inventory()
+                    var inventory = Database.Inventories.SingleOrDefault(x => ((x.BookId == entity.BookId) && (x.Date.Month == date.Month) && (x.Date.Year == date.Year)));
+                    if (inventory == null)
                     {
-                        BookId = entity.BookId,
-                        Amount = entity.Stroke,
-                        Date = date,
-                    });
-                    Database.SaveChanges();
+                        // add inventory
+                        Database.Inventories.Add(new Domain.Inventory()
+                        {
+                            BookId = entity.BookId,
+                            Amount = entity.Stroke,
+                            Date = date,
+                        });
+                        Database.SaveChanges();
+                    }
+                    else
+                    {
+                        // Do nothing
+                    }
                 }
-                else
-                {
-                    // Do nothing
-                }
+
+
             }
+
+
         }
 
 

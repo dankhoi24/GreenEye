@@ -25,7 +25,6 @@
 
     <UserControl.Resources>
         <Converter:ImageConverter x:Key="ImageConverter"/>
-
     </UserControl.Resources>
     
     <Grid Background="#EBEEF5">
@@ -290,7 +289,18 @@
 
                                                       CommandParameter="{Binding ElementName=listView1}"
                                                       Command="{Binding EditCommand}">
+
+
                                 </MenuItem>
+                                <MenuItem Header="Delete"
+
+                                                      CommandParameter="{Binding ElementName=listView1}"
+                                                      Command="{Binding DeleteCommand}">
+
+
+                                </MenuItem>
+
+
                             </ContextMenu>
 
                                     </Grid.ContextMenu>

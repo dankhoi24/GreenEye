@@ -100,6 +100,7 @@ namespace GreenEye.ViewModel
         public RelayCommand AddCommand { get; set; }
         public RelayCommand EditCommand { get; set; }
 
+        public RelayCommand DeleteCommand { get; set; }
          int totalItem = 0;
         int itemPerPage = 3;
         public int TotalPage { get; set; } = 0;
@@ -123,6 +124,7 @@ namespace GreenEye.ViewModel
             SearchCommand = new RelayCommand(seachCommand, null);
             AddCommand = new RelayCommand(addCommand, null);
             EditCommand = new RelayCommand(editCommand,null);
+            DeleteCommand = new RelayCommand(deleteCommand, null);
 
             Category = new ObservableCollection<string>(_bookTypeDAO.getAll());
             AllName = new ObservableCollection<string>(_prodcutDAO.getName());
@@ -136,6 +138,14 @@ namespace GreenEye.ViewModel
 
 
         //method
+        private void deleteCommand(object x)
+        {
+            _prodcutDAO.DeleteProduct(SelectedProduct);
+
+            Books = new ObservableCollection<Book>(_prodcutDAO.getAll());
+
+            initPaging();
+        }
           private void editCommand(object x)
         {
 

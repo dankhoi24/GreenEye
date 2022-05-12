@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace GreenEye.DataAccess.DAO
 {
@@ -20,6 +21,12 @@ namespace GreenEye.DataAccess.DAO
         {
 
 
+        }
+
+        public void DeleteProduct(Book book)
+        {
+            Database.Entry(book).State = EntityState.Deleted;
+            Database.SaveChanges();
         }
 
 
